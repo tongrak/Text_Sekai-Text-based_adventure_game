@@ -5,12 +5,15 @@
 /*
 	Here, lay the game GUI.
 */
-
 #include<SFML/System.hpp>
 #include<SFML/Graphics.hpp>
 #include<SFML/Audio.hpp>
 #include<SFML/Network.hpp>
 #include<SFML/Window.hpp>
+
+#include<iostream>
+#include<sstream>
+#include<string>
 
 class GUI {
 public:
@@ -18,12 +21,17 @@ public:
 	GUI();
 	virtual ~GUI();
 
-	//some public function
+	//Updating functions
 	void Update();
+	void UpdateText(std::string );
+
+	//Rendering functions
 	void Render();
+	void RenderText(sf::RenderTarget &T);
 
 	//Event
 	void pollEvent();
+
 
 	//Accessor
 	const bool Running() const;
@@ -35,10 +43,12 @@ private:
 	sf::Event Eve;
 	sf::VideoMode videomode;
 	
+	//Resouces
+	sf::Font font;
+
 	//text declaring
-	sf::Text info;
-	sf::Text in_arrow;
-	sf::String sentence;
+	sf::Text main_info;
+	//sf::String sentence;
 	
 
 
