@@ -3,7 +3,7 @@
 using namespace std;
 
 /*
-	Construtor and Distrutor
+	Construtor and Distrutor for Data_loading class, and it member shall begen here
 */
 Data_loading::Data_loading()
 {
@@ -34,7 +34,7 @@ bool Data_loading::LoadMaps()
 	ifstream file("Resouces/Maps/Maps.txt");
 	while(getline(file, hol_str))
 	{
-		if (hol_str == "EVENT_BEGIN") 
+		if (hol_str == "ROOM_BEGIN") 
 		{
 			x = true;
 			Room room_load;
@@ -63,7 +63,7 @@ bool Data_loading::LoadEvent()
 	string hol_str;
 	int hol_int;
 	bool x = false;
-	ifstream file("Resouces/Maps/Event.txt");
+	ifstream file("Resouces/Maps/Events.txt");
 	while (getline(file, hol_str))
 	{
 		if (hol_str == "EVENT_BEGIN")
@@ -181,3 +181,4 @@ string Data_loading::GetEventId(string &holder)
 	holder = roomStorage[*this->Current_id].eventID;
 	return  roomStorage[*this->Current_id].eventID;
 }
+
