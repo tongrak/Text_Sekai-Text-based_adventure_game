@@ -4,6 +4,7 @@
 
 #include<fstream>
 #include<string>
+#include<set>
 #include<map>
 
 /*
@@ -58,7 +59,7 @@ public:
 	int GetLastCheck();
 	//Speacial getting var function
 	std::string GetNeighbors(int dir, std::string &holder);
-	std::string GetEventId(std::string &holder);
+	bool ChecknGetEventId(std::string &holder);
 
 	//Changing var
 	void ChangeCurrentID(int);
@@ -106,6 +107,11 @@ public:
 	//Constructor and distructor
 	Player();
 	~Player();
+
+private:
+	//Item
+	std::set<int> Inventory;
+	int Coin;
 };
 
 #endif 

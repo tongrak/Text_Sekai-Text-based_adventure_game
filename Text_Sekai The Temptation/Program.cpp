@@ -176,9 +176,19 @@ string Data_loading::GetNeighbors(int dir, string &holder)
 	return roomStorage[*this->Current_id].Neighbor[dir];
 }
 
-string Data_loading::GetEventId(string &holder)
+bool Data_loading::ChecknGetEventId(string &holder)
 {
-	holder = roomStorage[*this->Current_id].eventID;
-	return  roomStorage[*this->Current_id].eventID;
+	if (roomStorage[*this->Current_id].eventID != "NULL")
+	{
+		holder = roomStorage[*this->Current_id].eventID;
+		return true;
+	}
+	else
+	{
+		holder = "NULL";
+		return false;
+	}
+	
+	
 }
 

@@ -1,4 +1,11 @@
 This is where we store our game story, heart, and hope.
+//The Format
+//ROOM_BEGIN //Must have
+//Room ID
+//Room Name 
+//Room Description
+//
+//
 
 ROOM_BEGIN
 01
