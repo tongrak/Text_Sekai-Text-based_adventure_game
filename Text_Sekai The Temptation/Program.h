@@ -102,7 +102,9 @@ public:
 	void DeclareDead();
 
 	//Setting function
-	void SettingRoom();
+	void SetGUIlook();
+	void SetGUIhelp();
+	void SetGUIstarting();
 
 	//Constructor and distructor
 	Player();

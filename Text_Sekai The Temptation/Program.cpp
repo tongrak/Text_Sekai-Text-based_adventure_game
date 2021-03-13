@@ -75,14 +75,16 @@ bool Data_loading::LoadEvent()
 			getline(file, event_load.event_name);
 			getline(file, event_load.event_des);
 			string temp1, temp2;
+			//spilt
 			getline(file, temp1);
 			int temp_int = temp1.find_first_of(" ");
 			temp2 = temp1.substr(temp_int + 1);
 			event_load.event_typ = temp2[0];
 			getline(file, event_load.event_opt);
+			event_load.event_act = false;
 			getline(file, event_load.event_condition);
-			temp1, temp2;
 			getline(file, temp1);
+			//Spilt
 			temp_int = temp1.find_first_of(" ");
 			temp2 = temp1.substr(temp_int + 1);
 			(temp2 == "YES") ? event_load.event_check = true : event_load.event_check = false;

@@ -23,7 +23,6 @@ GUI::~GUI()
 /*
 	Accessor
 */
-
 const bool GUI::Running() const
 {
 	return this->window->isOpen();
@@ -36,34 +35,48 @@ void GUI::Update()
 {
 	this->pollEvent();
 	//this->UpdateText();
+	this->UpdateText_input();
 }
 //Updating text
-void GUI::UpdateText1(std::string s1)
+void GUI::UpdateText_title(std::string s1)
 {
 	std::stringstream ss1;
 	ss1 << s1;
-	this->main_line1.setString(ss1.str());
+	this->Text_title.setString(ss1.str());
 }
-void GUI::UpdateText2(std::string s2)
+void GUI::UpdateText_line1(std::string s2)
 {
-	std::stringstream ss2;
-	ss2 << s2;
-	this->main_line2.setString(ss2.str());
+	std::stringstream ss;
+	ss << s2;
+	this->Text_line1.setString(ss.str());
 }
-void GUI::UpdateText3(std::string s3) 
+void GUI::UpdateText_line2(std::string s3) 
 {
 	std::stringstream ss3;
 	ss3 << s3;
-	this->main_line3.setString(ss3.str());
+	this->Text_line2.setString(ss3.str());
 }
-//void GUI::UpdateText4(std::string s4)
-//{
-//
-//}
-//void GUI::UpdateText3(std::string s5) 
-//{
-//
-//}
+void GUI::UpdateText_line3(std::string s4)
+{
+	std::stringstream ss4;
+	ss4 << s4;
+	this->Text_line3.setString(ss4.str());
+}
+void GUI::UpdateText_line4(std::string s5) 
+{
+	std::stringstream ss5;
+	ss5 << s5;
+	this->Text_line4.setString(ss5.str());
+}
+
+void GUI::UpdateText_input()
+{
+	this->Text_input.setString(this->input);
+}
+
+void GUI::UpdateArrow(std::string)
+{
+}
 
 
 /*
@@ -73,35 +86,45 @@ void GUI::Render()
 {
 	this->window->clear(sf::Color::White);
 
-	this->UpdateText3(this->input);
-	this->RenderText1(*this->window);
-	this->RenderText2(*this->window);
-	this->RenderText3(*this->window);
-	this->RenderText4(*this->window);
-	this->RenderText5(*this->window);
+	this->RenderText_title(*this->window);
+	this->RenderText_line1(*this->window);
+	this->RenderText_line2(*this->window);
+	this->RenderText_line3(*this->window);
+	this->RenderText_line4(*this->window);
+
+	this->RenderText_input(*this->window);
 
 	this->window->display();
 }
 //Rendering Text line at said number; 
-void GUI::RenderText1(sf::RenderTarget& T)
+void GUI::RenderText_title(sf::RenderTarget& T)
 {
-	T.draw(this->main_line1);
+	T.draw(this->Text_title);
 }
-void GUI::RenderText2(sf::RenderTarget& H)
+void GUI::RenderText_line1(sf::RenderTarget& H)
 {
-	H.draw(this->main_line2);
+	H.draw(this->Text_line1);
 }
-void GUI::RenderText3(sf::RenderTarget& O)
+void GUI::RenderText_line2(sf::RenderTarget& O)
 {
-	O.draw(this->main_line3);
+	O.draw(this->Text_line2);
 }
-void GUI::RenderText4(sf::RenderTarget& O)
+void GUI::RenderText_line3(sf::RenderTarget& O)
 {
-	O.draw(this->main_line4);
+	O.draw(this->Text_line3);
 }
-void GUI::RenderText5(sf::RenderTarget& P)
+void GUI::RenderText_line4(sf::RenderTarget& P)
 {
-	P.draw(this->main_line5);
+	P.draw(this->Text_line4);
+}
+
+void GUI::RenderText_input(sf::RenderTarget& O)
+{
+	O.draw(this->Text_input);
+}
+
+void GUI::RenderArrow(sf::RenderTarget& H)
+{
 }
 
 /*
@@ -146,7 +169,6 @@ void GUI::InputText()
 {
 		if (this->Eve.text.unicode >= 32 && Eve.text.unicode <= 126 && input.getSize() < 20) // รับอินพุทต์แค่ 32 - 126 ในตารางยูนิโค้ดและจำกัดมันไว้แค่ 20 ตัวอักษร
 		{
-			
 			input += (char)Eve.text.unicode; // ใส่ตัวอักษร char ทีละตัวลงไป
 		}
 		else if (Eve.text.unicode == 8 /*Delete key*/ && input.getSize() > 0) // ลบตัวอักษร
@@ -207,39 +229,43 @@ void GUI::InitText()
 		std::cout << "GUI::font loaded successfully"<<std::endl;
 	}
 
-	//Setting Inout text
+	//Setting Input text
+	this->Text_input.setFont(this->font);
+	this->Text_input.setCharacterSize(23);
+	this->Text_input.setFillColor(sf::Color::Black);
+	this->Text_input.setPosition(25, 860);
 
 
 	//Setting main_ text	
-	this->main_line1.setFont(this->font);
-	this->main_line1.setCharacterSize(23);
-	this->main_line1.setFillColor(sf::Color::Black);
-	this->main_line1.setPosition(50, 660);
+	this->Text_title.setFont(this->font);
+	this->Text_title.setCharacterSize(23);
+	this->Text_title.setFillColor(sf::Color::Black);
+	this->Text_title.setPosition(25, 660);
 
-	this->main_line2.setFont(this->font);
-	this->main_line2.setCharacterSize(23);
-	this->main_line2.setFillColor(sf::Color::Black);
-	this->main_line2.setPosition(50, 700);
+	this->Text_line1.setFont(this->font);
+	this->Text_line1.setCharacterSize(23);
+	this->Text_line1.setFillColor(sf::Color::Black);
+	this->Text_line1.setPosition(25, 700);
 
-	this->main_line3.setFont(this->font);
-	this->main_line3.setCharacterSize(23);
-	this->main_line3.setFillColor(sf::Color::Black);
-	this->main_line3.setPosition(50, 740);
+	this->Text_line2.setFont(this->font);
+	this->Text_line2.setCharacterSize(23);
+	this->Text_line2.setFillColor(sf::Color::Black);
+	this->Text_line2.setPosition(25, 740);
 
-	this->main_line4.setFont(this->font);
-	this->main_line4.setCharacterSize(23);
-	this->main_line4.setFillColor(sf::Color::Black);
-	this->main_line4.setPosition(50, 560);
+	this->Text_line3.setFont(this->font);
+	this->Text_line3.setCharacterSize(23);
+	this->Text_line3.setFillColor(sf::Color::Black);
+	this->Text_line3.setPosition(25, 780);
 
-	this->main_line5.setFont(this->font);
-	this->main_line5.setCharacterSize(23);
-	this->main_line5.setFillColor(sf::Color::Black);
-	this->main_line5.setPosition(50, 620);
-
+	this->Text_line4.setFont(this->font);
+	this->Text_line4.setCharacterSize(23);
+	this->Text_line4.setFillColor(sf::Color::Black);
+	this->Text_line4.setPosition(25, 820);
+	//
 }
 
 void GUI::ForceClose()
 {
-	std::cout << std::endl <<"GUI::ForceClose you just force close a game";
+	std::cout << std::endl <<"GUI::ForceClose you just force close a game"<<std::endl;
 	this->window->close();
 }
