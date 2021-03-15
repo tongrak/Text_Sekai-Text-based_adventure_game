@@ -268,6 +268,6 @@ void GUI::InitText()
 
 void GUI::ForceClose()
 {
-	std::cout << std::endl <<"GUI::ForceClose you just force close a game"<<std::endl;
+	std::cout << std::endl <<"GUI::ForceClose you just force close the game"<<std::endl;
 	this->window->close();
 }

@@ -53,6 +53,7 @@ void Player::CheckInputText(std::string key, std::string wanted)
 		else if (kami.CheckInputDir(wanted))
 		{
 			std::cout << "Player::CheckInputText got direction" << std::endl;
+			kami.SetGUIclear();
 			kami.SetGUIlook();
 		}
 		else std::cout << "Player::CheckInputText something went worng"<< std::endl;
@@ -140,6 +141,18 @@ void Player::CheckEvent()
 					Expect:
 					-	player to press any key;
 			*/
+				gui.UpdateText_title(load.GetEventName());
+				load.SentenceSpliter(load.GetEventDes(), load.SplitedLine);
+				gui.UpdateText_line1(load.SplitedLine[0]);
+				gui.UpdateText_line2(load.SplitedLine[1]);
+				gui.UpdateText_line3(load.SplitedLine[2]);
+				gui.UpdateText_line4(load.SplitedLine[3]);
+				for (int i = 0; i < 4; i++)
+				{
+					load.SplitedLine[i] = " ";
+				}
+				system("pause");
+
 				std::cout << "Player::CheckEvent got S-type event." << std::endl;
 				break;
 			case 'B': //Two option scene
@@ -200,8 +213,15 @@ void Player::DeclareDead()
 void Player::SetGUIlook()
 {
 	gui.UpdateText_title(load.GetName());
-	gui.UpdateText_line1(load.GetDes());
-	//Still Need update on dynamic
+	load.SentenceSpliter(load.GetDes(), load.SplitedLine);
+	gui.UpdateText_line1(load.SplitedLine[0]);
+	gui.UpdateText_line2(load.SplitedLine[1]);
+	gui.UpdateText_line3(load.SplitedLine[2]);
+	gui.UpdateText_line4(load.SplitedLine[3]);
+	for (int i = 0; i < 4; i++)
+	{
+		load.SplitedLine[i] = " ";
+	}
 }
 
 void Player::SetGUIhelp()

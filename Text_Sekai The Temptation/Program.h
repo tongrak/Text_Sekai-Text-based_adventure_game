@@ -61,6 +61,7 @@ public:
 	std::string GetNeighbors(int dir, std::string &holder);
 	bool ChecknGetEventId(std::string &holder);
 
+
 	//Changing var
 	void ChangeCurrentID(int);
 	void ChangeEventID(int);
@@ -69,6 +70,11 @@ public:
 
 	//ruler
 	std::string Direction[4] = { "north", "east", "west", "south" };
+	//tool's var
+	std::string SplitedLine[4];
+
+	//Sentence limiter tool
+	void SentenceSpliter(std::string, std::string[]);
 
 	//construtor and distrutor
 	Data_loading();
@@ -80,6 +86,7 @@ private:
 	int* Current_id;
 	int* Event_id;
 	int* Last_check;
+
 };
 
 /*

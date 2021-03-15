@@ -2,6 +2,30 @@
 
 using namespace std;
 
+void Data_loading::SentenceSpliter(std::string input_str, std::string input_arr[])
+{
+	int start = 0, end = start + 60;
+	for (int i = 0; i < 4; i++)
+	{
+		if (end < input_str.size())
+		{
+			if (input_str[end] != ' ') end = input_str.find_first_of(" ", end);
+			input_arr[i] = input_str.substr(start, end - start);
+			start = end + 1;
+			end += 60;
+		}
+		else
+		{
+			if (input_str.size() - start < 60)
+			{
+				input_arr[i] = input_str.substr(start, input_str.size() - start);
+				break;
+			}
+			else input_arr[i] = " ";
+		}
+	}
+}
+
 /*
 	Construtor and Distrutor for Data_loading class, and it member shall begen here
 */
