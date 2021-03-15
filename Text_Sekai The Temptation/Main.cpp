@@ -21,7 +21,9 @@ void SplitString(std::string in_text, std::string &key, std::string &wanted) {
 */
 Player::Player()
 {
-	Is_alive = true;
+	this->Is_alive = true;
+	this->Coin =  0;
+
 
 	if (load.LoadMaps()) std::cout << "Main::load Map loading and storing successfully" << std::endl;
 	if (load.LoadEvent()) std::cout << "Main::load Event loading and storing successfully" << std::endl;
@@ -36,6 +38,11 @@ bool Player::CheckBasicCon() //Checking for basic condition for continue looping
 {
 	kami.CheckEvent();
 	if (this->Is_alive) return true;
+	else
+	{
+		kami.SetGUIclear();
+		kami.setGUIdead();
+	}
 }
 
 void Player::CheckInputText(std::string key, std::string wanted)
@@ -43,31 +50,54 @@ void Player::CheckInputText(std::string key, std::string wanted)
 	if (key == "go")
 	{
 		if (wanted == " ") std::cout << "Player::CheckInputText no direction detected" << std::endl;
-		else if (kami.CheckInputDir(wanted)) std::cout << "Player::CheckInputText got direction" <<std::endl;
+		else if (kami.CheckInputDir(wanted))
+		{
+			std::cout << "Player::CheckInputText got direction" << std::endl;
+			kami.SetGUIlook();
+		}
 		else std::cout << "Player::CheckInputText something went worng"<< std::endl;
+
 	}
-	/*else if (key == "look")
+	else if (key == "look")
 	{
-		Display text:
-		-	
+		kami.SetGUIclear();
+		kami.SetGUIlook();
 	}
-	*/
 	else if (key == "help")
 	{
-		
+		kami.SetGUIclear();
+		kami.SetGUIhelp();
 	}
 	else if (key == "exit")
 	{
-		gui.ForceClose();
+		kami.SetGUIclear();
+		gui.UpdateText_line4("go already?");
+		bool veri = false;
+		std::string temp_input;
+		do {
+			std::cout << "Do are you sure ?:";
+			std::cin >> temp_input;
+			if ( temp_input == "yes")
+			{
+				veri = true;
+				gui.ForceClose();
+			}
+			else if (temp_input == "no")
+			{
+				veri = true;
+				break;
+			}
+			else
+			{
+				std::cout << "It a yes or no question " <<std::endl;
+			}
+		} while (!veri);
 	}
-	/*
 	else
 	{
-		Display text:
-		-	"Sorry not quite get that" on Text_name;
-		-	"input 'help' if you need one" on Text_line 1;
+		kami.SetGUIclear();
+		gui.UpdateText_line4("Sorry, not quite get that");
 	}
-	*/
 }
 
 bool Player::CheckInputDir(std::string wanted)
@@ -143,14 +173,12 @@ void Player::CheckEvent()
 				break;
 			}
 			load.ChangeEventToInAct();
+			std::cout << "Player::CheckEvent got event id " << std::stoi(hol_str) << std::endl;
 		}
-		
-
-		std::cout << "Player::CheckEvent got event id " << std::stoi(hol_str) << std::endl;
 	}
 	else 
 	{
-		std::cout << "Player::ChecEvent  no event detected" << std::endl;
+		//std::cout << "Player::ChecEvent no event detected" << std::endl;
 	}
 }
 
@@ -161,6 +189,11 @@ void Player::CheckCheckPoint()
 		load.ChangeLastCheck();
 		std::cout << "Player::CheckCheckPoint just change last checkpoint to " << load.GetLastCheck() << std::endl;
 	}
+}
+
+void Player::DeclareDead()
+{
+	kami.Is_alive = false;
 }
 
 //Setting function
@@ -178,14 +211,31 @@ void Player::SetGUIhelp()
 	gui.UpdateText_line2("'look' around");
 	gui.UpdateText_line3("'Exit'");
 	gui.UpdateText_line4("");
+	std::cout << "Player::SetGUIhelp have been set" << std::endl;
 }
 
 void Player::SetGUIstarting()
 {
 	//Usesing Intro-GUI
+	
 	kami.SetGUIlook();
-	std::cout << "Player::SetGUIstarting activated" << std::endl;
+	std::cout << "Player::SetGUIstarting have been activated " << std::endl;
+}
 
+void Player::SetGUIclear()
+{
+	gui.UpdateText_title(" ");
+	gui.UpdateText_line1(" ");
+	gui.UpdateText_line2(" ");
+	gui.UpdateText_line3(" ");
+	gui.UpdateText_line4(" ");
+	std::cout << "Player::SetGUIclear have been activate" << std::endl;
+}
+
+void Player::setGUIdead()
+{
+	gui.UpdateText_line4("Do you want to go back?");
+	std::cout << "Player::SetGUIdead have been activated" << std::endl;
 }
 
 
@@ -199,7 +249,6 @@ int main()
 	kami.SetGUIstarting();
 	while (gui.Running())
 	{
-
 		if(kami.CheckBasicCon())
 		{
 			//check

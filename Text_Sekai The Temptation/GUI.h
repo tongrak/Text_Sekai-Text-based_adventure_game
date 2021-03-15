@@ -29,8 +29,6 @@ public:
 	void UpdateText_line3(std::string);
 	void UpdateText_line4(std::string);
 	void UpdateText_input();
-	//update arrow
-	void UpdateArrow(std::string);
 
 	//Rendering functions
 	void Render();
@@ -71,8 +69,8 @@ private:
 	sf::Text Text_line3;
 	sf::Text Text_line4;
 	sf::Text Text_input;
+	sf::Text Arrow;
 
-	//string 
 
 	//sf string for input
 	sf::String input;

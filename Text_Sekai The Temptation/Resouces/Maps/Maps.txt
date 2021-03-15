@@ -1,11 +1,27 @@
 This is where we store our game story, heart, and hope.
 //The Format
 //ROOM_BEGIN //Must have
-//Room ID
-//Room Name 
-//Room Description
-//
-//
+//room_id
+//room_name 
+//room_description
+//NORTH northern_neighbor_id 
+//EAST eastern_neighbor_id
+//WEST western_neighbor_id
+//SOUTH southern_neighbor_id
+//EVENT event_id
+//key_id //keys and can trigger another condtion
+Item id:
+wood_boards 101
+torch 102
+Poke_berry 103
+Poke_ball 104
+Fish_fillet 105
+Fishing_rod 106
+pink_spider 107
+glove 108
+sword 109
+pillow 110
+Looting_permit 111
 
 ROOM_BEGIN
 01
@@ -16,6 +32,7 @@ EAST NULL
 WEST 03
 SOUTH NULL
 EVENT 101
+ITEM 110
 
 ROOM_BEGIN
 02
@@ -26,6 +43,7 @@ EAST NULL
 WEST NULL
 SOUTH 01
 EVENT 102
+ITEM NULL
 
 ROOM_BEGIN
 03
@@ -36,6 +54,7 @@ EAST 01
 WEST 04
 SOUTH NULL
 EVENT NULL
+ITEM NULL
 
 ROOM_BEGIN
 04
@@ -46,6 +65,7 @@ EAST NULL
 WEST 03
 SOUTH NULL
 EVENT NULL
+ITEM NULL
 
 ROOM_BEGIN
 05
@@ -56,6 +76,7 @@ EAST 07
 WEST 08
 SOUTH NULL
 EVENT 103
+ITEM 103
 
 ROOM_BEGIN
 06
@@ -66,6 +87,7 @@ EAST NULL
 WEST NULL
 SOUTH NULL
 EVENT NULL
+ITEM 
 
 ROOM_BEGIN
 07

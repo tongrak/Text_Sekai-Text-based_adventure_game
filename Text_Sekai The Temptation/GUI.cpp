@@ -74,9 +74,6 @@ void GUI::UpdateText_input()
 	this->Text_input.setString(this->input);
 }
 
-void GUI::UpdateArrow(std::string)
-{
-}
 
 
 /*
@@ -93,6 +90,7 @@ void GUI::Render()
 	this->RenderText_line4(*this->window);
 
 	this->RenderText_input(*this->window);
+	this->RenderArrow(*this->window);
 
 	this->window->display();
 }
@@ -117,14 +115,14 @@ void GUI::RenderText_line4(sf::RenderTarget& P)
 {
 	P.draw(this->Text_line4);
 }
-
+//Input bar
 void GUI::RenderText_input(sf::RenderTarget& O)
 {
 	O.draw(this->Text_input);
 }
-
 void GUI::RenderArrow(sf::RenderTarget& H)
 {
+	H.draw(this->Arrow);
 }
 
 /*
@@ -222,19 +220,24 @@ void GUI::InitWindow()
 }
 
 void GUI::InitText()
-{	
+{
 	//loading font
-	if(this->font.loadFromFile("Resouces/Font/Simple_text.ttf"))
+	if (this->font.loadFromFile("Resouces/Font/Simple_text.ttf"))
 	{
-		std::cout << "GUI::font loaded successfully"<<std::endl;
+		std::cout << "GUI::font loaded successfully" << std::endl;
 	}
 
 	//Setting Input text
 	this->Text_input.setFont(this->font);
 	this->Text_input.setCharacterSize(23);
 	this->Text_input.setFillColor(sf::Color::Black);
-	this->Text_input.setPosition(25, 860);
-
+	this->Text_input.setPosition(50, 860);
+	//Setting Arrow
+	this->Arrow.setFont(this->font);
+	this->Arrow.setCharacterSize(23);
+	this->Arrow.setFillColor(sf::Color::Black);
+	this->Arrow.setPosition(25, 860);
+	this->Arrow.setString(">");
 
 	//Setting main_ text	
 	this->Text_title.setFont(this->font);
@@ -261,7 +264,6 @@ void GUI::InitText()
 	this->Text_line4.setCharacterSize(23);
 	this->Text_line4.setFillColor(sf::Color::Black);
 	this->Text_line4.setPosition(25, 820);
-	//
 }
 
 void GUI::ForceClose()

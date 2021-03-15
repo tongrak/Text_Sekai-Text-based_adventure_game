@@ -105,6 +105,8 @@ public:
 	void SetGUIlook();
 	void SetGUIhelp();
 	void SetGUIstarting();
+	void SetGUIclear();
+	void setGUIdead();
 
 	//Constructor and distructor
 	Player();
