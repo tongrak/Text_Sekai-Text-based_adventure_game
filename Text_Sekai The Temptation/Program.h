@@ -27,8 +27,9 @@ struct Event
 	std::string event_des;
 	char event_typ;
 	std::string event_opt;
-	
-	std::string event_condition;
+	std::string event_outCome;
+	std::string event_PosOutCome01;
+	std::string event_PosOutCome02;
 	bool event_check;
 	bool event_act;
 };

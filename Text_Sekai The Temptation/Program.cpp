@@ -94,8 +94,10 @@ bool Data_loading::LoadEvent()
 		{
 			Event event_load;
 			x = true;
+			//load event id
 			getline(file, hol_str);
 			hol_int = stoi(hol_str);
+			//load event name
 			getline(file, event_load.event_name);
 			getline(file, event_load.event_des);
 			string temp1, temp2;
@@ -103,15 +105,23 @@ bool Data_loading::LoadEvent()
 			getline(file, temp1);
 			int temp_int = temp1.find_first_of(" ");
 			temp2 = temp1.substr(temp_int + 1);
+			//load event type
 			event_load.event_typ = temp2[0];
+			//load event option
 			getline(file, event_load.event_opt);
-			event_load.event_act = false;
-			getline(file, event_load.event_condition);
+			//load event outcome
+			getline(file, event_load.event_outCome);
 			getline(file, temp1);
+			//load post event 01
+			getline(file, event_load.event_PosOutCome01);
+			//load post event 02
+			getline(file, event_load.event_PosOutCome02);
 			//Spilt
 			temp_int = temp1.find_first_of(" ");
 			temp2 = temp1.substr(temp_int + 1);
+			//check for checkpoint
 			(temp2 == "YES") ? event_load.event_check = true : event_load.event_check = false;
+			event_load.event_act = false;
 			eventStorage.insert(pair<int, Event>(hol_int, event_load));
 		}
 	}
@@ -178,7 +188,7 @@ string Data_loading::GetEventOpt()
 
 string Data_loading::GetEventCon()
 {
-	return eventStorage[*Event_id].event_condition;
+	return eventStorage[*Event_id].event_outCome;
 }
 
 bool Data_loading::GetEventAct()
