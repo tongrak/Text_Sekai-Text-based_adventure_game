@@ -36,6 +36,10 @@ void GUI::Update()
 	this->pollEvent();
 	//this->UpdateText();
 	this->UpdateText_input();
+	/*if (time_t % 3 == 0) {
+		this->Arrow.setFillColor(sf::Color::White);
+	}
+	else this->Arrow.setFillColor(sf::Color::Black);*/
 }
 //Updating text
 void GUI::UpdateText_title(std::string s1)
@@ -91,6 +95,7 @@ void GUI::Render()
 
 	this->RenderText_input(*this->window);
 	this->RenderArrow(*this->window);
+	this->RenderSprite(*this->window);
 
 	this->window->display();
 }
@@ -124,7 +129,10 @@ void GUI::RenderArrow(sf::RenderTarget& H)
 {
 	H.draw(this->Arrow);
 }
-
+void GUI::RenderSprite(sf::RenderTarget& F) 
+{
+	F.draw(this->in_game);
+}
 /*
 	Poll Event
 */
@@ -222,6 +230,10 @@ void GUI::InitWindow()
 void GUI::InitText()
 {
 	//loading font
+	if (this->texture.loadFromFile("Resouces/Maps/CAVE 1.jpg")) 
+	{
+		std::cout << "GUI::text loaded successfully" << std::endl;
+	}
 	if (this->font.loadFromFile("Resouces/Font/Simple_text.ttf"))
 	{
 		std::cout << "GUI::font loaded successfully" << std::endl;
@@ -264,6 +276,18 @@ void GUI::InitText()
 	this->Text_line4.setCharacterSize(23);
 	this->Text_line4.setFillColor(sf::Color::Black);
 	this->Text_line4.setPosition(50, 760);
+}
+
+
+void GUI::InitSprite() {
+	this->in_game.setTexture(this->texture);
+	this->in_game.setTextureRect(sf::IntRect(200, 200, 1000, 1000));
+	/*this->in_game.setPosition*/
+
+}
+
+void GUI::InitTexture() {
+	this->texture.setRepeated(true);
 }
 
 void GUI::ForceClose()

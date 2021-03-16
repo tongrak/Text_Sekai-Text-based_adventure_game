@@ -11,6 +11,7 @@
 #include<SFML/Network.hpp>
 #include<SFML/Window.hpp>
 
+#include<time.h>
 #include<iostream>
 #include<sstream>
 #include<string>
@@ -40,6 +41,7 @@ public:
 	//
 	void RenderText_input(sf::RenderTarget& O);
 	void RenderArrow(sf::RenderTarget& H);
+	void RenderSprite(sf::RenderTarget& T);
 
 	//Event
 	void pollEvent();
@@ -61,6 +63,13 @@ private:
 	
 	//Resouces
 	sf::Font font;
+
+	//Picture Sprite
+	sf::Sprite in_game;
+
+
+	//Texture
+	sf::Texture texture;
 
 	//text declaring
 	sf::Text Text_title;
@@ -85,6 +94,8 @@ private:
 	void InitVar();
 	void InitWindow();
 	void InitText();
+	void InitSprite();
+	void InitTexture();
 
 };
 
