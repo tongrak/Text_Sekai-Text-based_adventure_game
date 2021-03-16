@@ -5,23 +5,25 @@ using namespace std;
 void Data_loading::SentenceSpliter(std::string input_str, std::string input_arr[])
 {
 	int start = 0, end = start + 60;
+	bool stop = true;
 	for (int i = 0; i < 4; i++) // new line
 	{
-		if (end < input_str.size())
+		if (end < input_str.size() && stop == true)
 		{
 			if (input_str[end] != ' ') end = input_str.find_first_of(" ", end);
 			input_arr[i] = input_str.substr(start, end - start);
-			start = end + 1;
-			end += 60;
+			input_str.erase(start, end);
 		}
 		else
 		{
-			if (input_str.size() - start < 60)
+			if (input_str.size() - start < 60 && stop == true)
 			{
 				input_arr[i] = input_str.substr(start, input_str.size() - start);
+				stop = false;
 				break;
 			}
 			else input_arr[i] = " ";
+			break;
 		}
 	}
 }

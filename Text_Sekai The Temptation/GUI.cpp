@@ -231,39 +231,39 @@ void GUI::InitText()
 	this->Text_input.setFont(this->font);
 	this->Text_input.setCharacterSize(23);
 	this->Text_input.setFillColor(sf::Color::Black);
-	this->Text_input.setPosition(50, 860);
+	this->Text_input.setPosition(75, 800);
 	//Setting Arrow
 	this->Arrow.setFont(this->font);
 	this->Arrow.setCharacterSize(23);
 	this->Arrow.setFillColor(sf::Color::Black);
-	this->Arrow.setPosition(25, 860);
+	this->Arrow.setPosition(50, 800);
 	this->Arrow.setString(">");
 
 	//Setting main_ text	
 	this->Text_title.setFont(this->font);
 	this->Text_title.setCharacterSize(23);
 	this->Text_title.setFillColor(sf::Color::Black);
-	this->Text_title.setPosition(25, 660);
+	this->Text_title.setPosition(50, 600);
 
 	this->Text_line1.setFont(this->font);
 	this->Text_line1.setCharacterSize(23);
 	this->Text_line1.setFillColor(sf::Color::Black);
-	this->Text_line1.setPosition(25, 700);
+	this->Text_line1.setPosition(50, 640);
 
 	this->Text_line2.setFont(this->font);
 	this->Text_line2.setCharacterSize(23);
 	this->Text_line2.setFillColor(sf::Color::Black);
-	this->Text_line2.setPosition(25, 740);
+	this->Text_line2.setPosition(50, 680);
 
 	this->Text_line3.setFont(this->font);
 	this->Text_line3.setCharacterSize(23);
 	this->Text_line3.setFillColor(sf::Color::Black);
-	this->Text_line3.setPosition(25, 780);
+	this->Text_line3.setPosition(50, 720);
 
 	this->Text_line4.setFont(this->font);
 	this->Text_line4.setCharacterSize(23);
 	this->Text_line4.setFillColor(sf::Color::Black);
-	this->Text_line4.setPosition(25, 820);
+	this->Text_line4.setPosition(50, 760);
 }
 
 void GUI::ForceClose()
