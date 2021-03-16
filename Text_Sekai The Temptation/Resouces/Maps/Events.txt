@@ -7,6 +7,8 @@ This is Event text file. Here we store all thing to do with game event.
 //event type. (B for two option event, T for item event, S for cutscene)
 //event option, if need be.
 //event outcome. (DEAD and NULL) (Expect two condition for B type event);
+//pro-event opt 1
+//pro-event opt 2 
 //event checkpoint or not. (Expect YES or NULL)
 
 EVENT_BEGIN

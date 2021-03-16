@@ -42,6 +42,7 @@ bool Player::CheckBasicCon() //Checking for basic condition for continue looping
 	{
 		kami.SetGUIclear();
 		kami.setGUIdead();
+		return false;
 	}
 }
 

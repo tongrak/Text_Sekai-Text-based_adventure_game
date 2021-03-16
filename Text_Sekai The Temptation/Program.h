@@ -27,9 +27,10 @@ struct Event
 	std::string event_des;
 	char event_typ;
 	std::string event_opt;
-	bool event_act;
+	
 	std::string event_condition;
 	bool event_check;
+	bool event_act;
 };
 /*
 	Data loading class, mainly doing loadind, storing, and returning string

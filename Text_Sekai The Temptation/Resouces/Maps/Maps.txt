@@ -9,7 +9,7 @@ This is where we store our game story, heart, and hope.
 //WEST western_neighbor_id
 //SOUTH southern_neighbor_id
 //EVENT event_id
-//key_id //keys and can trigger another condtion
+//key_id //keys that can trigger another condtion
 Item id:
 wood_boards 101
 torch 102
