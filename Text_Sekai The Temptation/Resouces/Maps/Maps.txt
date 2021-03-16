@@ -23,45 +23,45 @@ sword 109
 pillow 110
 Looting_permit 111
 
-ROOM_BEGIN //ต้องเขียน
-00 //Room ID
-Starting room //Room name
-This is where you begin, there is a way to the east. // Room description
-NORTH NULL //North Neighboring Room ID
-EAST 01 //East Neighboring Room ID
-WEST NULL //West Neighboring Room ID
-SOUTH NULL //South Neighboring Room ID
+ROOM_BEGIN 
+00 
+Starting room 
+This is where you begin, there is a way to the east. 
+NORTH NULL 
+EAST 01
+WEST NULL 
+SOUTH NULL 
 EVENT NULL
 
-ROOM_BEGIN //ต้องเขียน
-01 //Room ID
-Starting room //Room name
-There is nothing here, there are ways to the north, east, south and west. // Room description
-NORTH 02 //North Neighboring Room ID
-EAST 04 //East Neighboring Room ID
-WEST 00 //West Neighboring Room ID
-SOUTH 03 //South Neighboring Room ID
-EVENT 01 //Said room event id if have any.
+ROOM_BEGIN 
+01 
+forest_0 room 
+There is nothing here, there are ways to the north, east, south and west. 
+NORTH 02 
+EAST 04 
+WEST 00 
+SOUTH 03
+EVENT 01 
 
-ROOM_BEGIN //ต้องเขียน
-02 //Room ID
+ROOM_BEGIN 
+02 
 Sword Room //Room name
-There is a holy sword that stuck on the rock, there is a way to the south. // Room description
-NORTH NULL //North Neighboring Room ID
-EAST NULL //East Neighboring Room ID
-WEST NULL //West Neighboring Room ID
-SOUTH 01 //South Neighboring Room ID
-EVENT 02 //Said room event id if have any.
+There is a holy sword that stuck on the rock, there is a way to the south. 
+NORTH NULL 
+EAST NULL 
+WEST NULL 
+SOUTH 01 
+EVENT 02 
 
-ROOM_BEGIN //ต้องเขียน
-03 //Room ID
-Rimuru room //Room name
-There is nothing here, there is a way to the north. // Room description
-NORTH 01 //North Neighboring Room ID
-EAST NULL //East Neighboring Room ID
-WEST NULL //West Neighboring Room ID
-SOUTH NULL //South Neighboring Room ID 
-EVENT 03 //Said room event id if have any.
+ROOM_BEGIN 
+03 
+slime room 
+There is nothing here, there is a way to the north. 
+NORTH 01 
+EAST NULL 
+WEST NULL 
+SOUTH NULL 
+EVENT 03 
 
 ROOM_BEGIN //ต้องเขียน
 04 //Room ID
