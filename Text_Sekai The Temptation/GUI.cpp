@@ -87,6 +87,7 @@ void GUI::Render()
 {
 	this->window->clear(sf::Color::White);
 
+	this->RenderSprite(*this->window);
 	this->RenderText_title(*this->window);
 	this->RenderText_line1(*this->window);
 	this->RenderText_line2(*this->window);
@@ -95,7 +96,6 @@ void GUI::Render()
 
 	this->RenderText_input(*this->window);
 	this->RenderArrow(*this->window);
-	this->RenderSprite(*this->window);
 
 	this->window->display();
 }
@@ -230,7 +230,7 @@ void GUI::InitWindow()
 void GUI::InitText()
 {
 	//loading font
-	if (this->texture.loadFromFile("Resouces/Maps/CAVE 1.jpg")) 
+	if (this->texture.loadFromFile("Resouces/images/CAVE 1.jpg")) 
 	{
 		std::cout << "GUI::text loaded successfully" << std::endl;
 	}
@@ -295,3 +295,5 @@ void GUI::ForceClose()
 	std::cout << std::endl <<"GUI::ForceClose you just force close the game"<<std::endl;
 	this->window->close();
 }
+
+
