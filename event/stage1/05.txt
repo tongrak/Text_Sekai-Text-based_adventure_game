@@ -1,0 +1,9 @@
+EVENT_BEGIN
+05 //event id
+house sence //name
+You have found 1 house. //description
+TYPE B //event type. (B for two option event, C for combat event, S for cutscene)
+1)get inside
+2)investigate //event option, if need be.
+NULL //event outcome. (DEAD and NULL) (Expect two condition for B type event);
+CHECKPOINT NULL //event checkpoint or not. (Expect YES or NULL)

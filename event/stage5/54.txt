@@ -1,0 +1,11 @@
+EVENT_BEGIN
+54 //event id
+last sence //name
+Finally you see the princess that sit on a throne. You tell her "I'm here to save you." but she say "I don't need your help and it's me that order devil lord to protect me from hero.". You ask her "Why? Why do you have to do this.". She say "because I want to sleep as much as I want. When I were imprisoned, I escaped from cage and found something like crystal, suddenly demond lord found me I used that crystal to him then he obey me." //description
+TYPE S //event type. (B for two option event, C for combat event, S for cutscene)
+NULL //event option, if need be.
+NULL //event outcome. (DEAD and NULL) (Expect two condition for B type event);
+CHECKPOINT YES //event checkpoint or not. (Expect YES or NULL)
+
+***(ถ้าไม่มี pillow) ได้ good ending
+***(ถ้ามี pillow) ได้ true ending

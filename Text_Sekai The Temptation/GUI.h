@@ -24,22 +24,24 @@ public:
 
 	//Updating functions
 	void Update();
-	void Update_texture(int);
+	void Update_texture(std::string);
 	void Update_BG();
 	void UpdateText_title(std::string);
 	void UpdateText_line1(std::string);
 	void UpdateText_line2(std::string);
 	void UpdateText_line3(std::string);
 	void UpdateText_line4(std::string);
+	void UpdateText_line5(std::string);
 	void UpdateText_input();
 
 	//Rendering functions
 	void Render();
-	void RenderText_title(sf::RenderTarget&T);
-	void RenderText_line1(sf::RenderTarget&H);
-	void RenderText_line2(sf::RenderTarget&O);
-	void RenderText_line3(sf::RenderTarget&O);
-	void RenderText_line4(sf::RenderTarget&P);
+	void RenderText_title(sf::RenderTarget& T);
+	void RenderText_line1(sf::RenderTarget& H);
+	void RenderText_line2(sf::RenderTarget& O);
+	void RenderText_line3(sf::RenderTarget& O);
+	void RenderText_line4(sf::RenderTarget& P);
+	void RenderText_line5(sf::RenderTarget& D);
 	//
 	void RenderText_input(sf::RenderTarget& O);
 	void RenderArrow(sf::RenderTarget& H);
@@ -81,6 +83,7 @@ private:
 	sf::Text Text_line2;
 	sf::Text Text_line3;
 	sf::Text Text_line4;
+	sf::Text Text_line5;
 	sf::Text Text_input;
 	sf::Text Arrow;
 

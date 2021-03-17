@@ -1,0 +1,10 @@
+EVENT_BEGIN
+40 //event id
+goblin's nest sence //name
+you see a strange man with full armor who are fighting many gobilns suddenly he look back to you and he is going to attack you. //description
+TYPE B //event type. (B for two option event, C for combat event, S for cutscene)
+1)block 2)dodge //event option, if need be.
+You were stap with poison knife by goblin, he just try to save you from a goblin.
+You dodge him and he hit a goblin that is behind you then you help him to kill all globins in this area.
+DEAD NULL //event outcome. (DEAD and NULL) (Expect two condition for B type event);
+CHECKPOINT NULL//event checkpoint or not. (Expect YES or NULL)

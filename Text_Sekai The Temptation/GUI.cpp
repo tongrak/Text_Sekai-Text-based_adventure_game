@@ -76,6 +76,13 @@ void GUI::UpdateText_line4(std::string s5)
 	this->Text_line4.setString(ss5.str());
 }
 
+void GUI::UpdateText_line5(std::string s6) 
+{
+	std::stringstream ss6;
+	ss6 << s6;
+	this->Text_line4.setString(ss6.str());
+}
+
 void GUI::UpdateText_input()
 {
 	this->Text_input.setString(this->input);
@@ -96,6 +103,7 @@ void GUI::Render()
 	this->RenderText_line2(*this->window);
 	this->RenderText_line3(*this->window);
 	this->RenderText_line4(*this->window);
+	this->RenderText_line5(*this->window);
 
 	this->RenderText_input(*this->window);
 	this->RenderArrow(*this->window);
@@ -122,6 +130,11 @@ void GUI::RenderText_line3(sf::RenderTarget& O)
 void GUI::RenderText_line4(sf::RenderTarget& P)
 {
 	P.draw(this->Text_line4);
+
+}
+void GUI::RenderText_line5(sf::RenderTarget& D)
+{
+	D.draw(this->Text_line5);
 }
 //Input bar
 void GUI::RenderText_input(sf::RenderTarget& O)
@@ -158,10 +171,6 @@ void GUI::pollEvent()
 			{
 				std::cout << "GUI::pollEvent You just pressed Escape buttom" << std::endl;
 				this->window->close();
-			}
-			else if (this->Eve.key.code == sf::Keyboard::F1) 
-			{
-				this->Update_texture(01);
 			}
 			break;
 		//Showing current resolutiom if changed.
@@ -217,6 +226,8 @@ void GUI::AnyInput()
 	}
 }
 
+
+
 bool GUI::CheckAnyPress()
 {
 	return this->anyKeyPressed;
@@ -259,7 +270,7 @@ void GUI::InitWindow()
 void GUI::InitText()
 {
 	//loading font, Map
-	if (this->texture.loadFromFile("Resouces/images/CAVE 1.jpg")) 
+	if (this->texture.loadFromFile("Resouces/images/Trucksan0.jpg"))
 	{
 		std::cout << "GUI::text loaded successfully" << std::endl;
 	}
@@ -272,12 +283,12 @@ void GUI::InitText()
 	this->Text_input.setFont(this->font);
 	this->Text_input.setCharacterSize(23);
 	this->Text_input.setFillColor(sf::Color::Black);
-	this->Text_input.setPosition(75, 800);
+	this->Text_input.setPosition(75, 840);
 	//Setting Arrow
 	this->Arrow.setFont(this->font);
 	this->Arrow.setCharacterSize(23);
 	this->Arrow.setFillColor(sf::Color::Black);
-	this->Arrow.setPosition(50, 800);
+	this->Arrow.setPosition(50, 840);
 	this->Arrow.setString(">");
 
 	//Setting main_ text	
@@ -305,13 +316,20 @@ void GUI::InitText()
 	this->Text_line4.setCharacterSize(23);
 	this->Text_line4.setFillColor(sf::Color::Black);
 	this->Text_line4.setPosition(50, 760);
+
+	this->Text_line5.setFont(this->font);
+	this->Text_line5.setCharacterSize(23);
+	this->Text_line5.setFillColor(sf::Color::Black);
+	this->Text_line5.setPosition(50, 800);
+
+	
 }
 
 
 void GUI::InitSprite() 
 {
 	this->in_game.setTexture(this->texture);
-	this->in_game.setPosition(200 ,100);
+	this->in_game.setPosition(200 ,50);
 
 }
 
@@ -320,10 +338,94 @@ void GUI::InitTexture()
 	this->texture.setRepeated(false);
 }
 
-void GUI::Update_texture(int images) 
+void GUI::Update_texture(std::string images) 
 {
-	if (images == 01) {
-		this->texture.loadFromFile("Resouces/images/Forest1.jpg");
+	if (images == "00") 
+	{
+		this->texture.loadFromFile("Resouces/images/Trucksan0.jpg");
+	}
+
+	else if (images == "01") {
+		this->texture.loadFromFile("Resouces/images/Forest01.jpg");
+	}
+	else if (images == "02") 
+	{
+		this->texture.loadFromFile("Resouces/images/Excalibur02.png");
+	}
+	else if (images == "03") 
+	{
+		this->texture.loadFromFile("Resouces/images/Forestslime03.jpg");
+	}
+	else if (images == "04") 
+	{
+		this->texture.loadFromFile("Resouces/images/Bridge04.jpg");
+	}
+	else if (images == "05") 
+	{
+		this->texture.loadFromFile("Resouces/images/Houses05.jpg");
+	}
+	//still no idea about 06
+	else if (images == "07")
+	{
+		this->texture.loadFromFile("Resouces/images/InHouseRoom07.jpg");
+	}
+	else if (images == "08")
+	{
+		this->texture.loadFromFile("Resouces/images/Forest02.jpg");
+	}
+	else if (images == "09") 
+	{
+		this->texture.loadFromFile("Resouces/images/Chasm09.jpg");
+	}
+	else if (images == "10")
+	{
+		this->texture.loadFromFile("Resouces/images/FrontDoor10.jpg");
+	}
+	else if (images == "11") 
+	{
+		this->texture.loadFromFile("Resouces/images/Wallet11.jpg");
+	}
+	//still no idea about 12
+	else if (images == "13") 
+	{
+		this->texture.loadFromFile("Resouces/images/City13.jpg");
+	}
+	//no room 14
+	else if (images == "15")
+	{
+		this->texture.loadFromFile("Resouces/images/");
+	}
+	else if (images == "16")
+	{
+		this->texture.loadFromFile("Resouces/images/");
+	}
+	else if (images == "17")
+	{
+		this->texture.loadFromFile("Resouces/images/");
+	}
+	else if (images == "18")
+	{
+		this->texture.loadFromFile("Resouces/images/");
+	}
+	else if (images == "19")
+	{
+		this->texture.loadFromFile("Resouces/images/");
+	}
+	else if (images == "20")
+	{
+		this->texture.loadFromFile("Resouces/images/");
+	}
+	else if (images == "21")
+	{
+		this->texture.loadFromFile("Resouces/images/");
+	}
+	else if (images == "22")
+	{
+		this->texture.loadFromFile("Resouces/images/");
+	}
+	else if (images == "23")
+	{
+		this->texture.loadFromFile("Resouces/images/");
 	}
 }
 

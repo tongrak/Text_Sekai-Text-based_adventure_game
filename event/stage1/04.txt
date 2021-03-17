@@ -1,0 +1,13 @@
+EVENT_BEGIN // spacial event
+04 //event id
+bridge sence //name
+You have found the bridge that some plank broken. //description
+TYPE B //event type. (B for two option event, C for combat event, S for cutscene)
+1)Jump 2)repair it //event option, if need be.
+You jump too short that make you fall to the river. You drown because you can't swim. // choice 1
+DEAD NULL //event outcome. (DEAD and NULL) (Expect two condition for B type event);
+CHECKPOINT NULL //event checkpoint or not. (Expect YES or NULL)
+
+**required 
+-ถ้ายังไม่ได้ item เลือก repair it แล้วขึ้นว่า You don't have any equipment to repair the bridge. 
+-พอได้ item แล้วกดเลือก repair it จะขึ้นว่า Repairing complete. Now you can cross the bridge.

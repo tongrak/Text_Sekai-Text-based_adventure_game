@@ -1,0 +1,10 @@
+EVENT_BEGIN
+00 //event id
+in front of cave sence //name
+You are in front of cave. //description
+TYPE S //event type. (B for two option event, C for combat event, S for cutscene)
+NULL //event option, if need be.
+NULL //event outcome. (DEAD and NULL) (Expect two condition for B type event);
+CHECKPOINT NULL //event checkpoint or not. (Expect YES or NULL)
+**ถ้าหากยังไม่มีคบเพลิงก็เข้าไม่ได้
+   ถ้ามีก็ไปต่อได้

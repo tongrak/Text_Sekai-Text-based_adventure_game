@@ -1,0 +1,10 @@
+EVENT_BEGIN
+10 //event id
+in front of city sence //name
+You can cross the bridge and you arrive at front of city. 
+You have to pay some money to go inside. //description
+TYPE B //event type. (B for two option event, C for combat event, S for cutscene)
+1)pay
+2)investigate around //event option, if need be.
+NULL //event outcome. (DEAD and NULL) (Expect two condition for B type event);
+CHECKPOINT NULL //event checkpoint or not. (Expect YES or NULL)

@@ -1,0 +1,10 @@
+EVENT_BEGIN
+17 //event id
+princess sence //name
+You see princess is being kidnaped from castle by demon lord. //description
+TYPE B //event type. (B for two option event, C for combat event, S for cutscene)
+1)help
+2)not help
+3)help later //event option, if need be.
+NULL //event outcome. (DEAD and NULL) (Expect two condition for B type event);
+CHECKPOINT NULL //event checkpoint or not. (Expect YES or NULL)

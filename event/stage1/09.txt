@@ -1,0 +1,10 @@
+EVENT_BEGIN
+09 //event id
+dark soul sence //name
+You have found a massage "Jump! there are many tressure down here." //description
+TYPE B //event type. (B for two option event, C for combat event, S for cutscene)
+1)Jump 2)not jump //event option, if need be.
+You decide to jump into river, you drown berfore you die, you see many tressure. // choice 1
+You this massage is strage so you don't jump. // choice 2
+DEAD NULL //event outcome. (DEAD and NULL) (Expect two condition for B type event);
+CHECKPOINT NULL //event checkpoint or not. (Expect YES or NULL)

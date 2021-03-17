@@ -1,0 +1,10 @@
+EVENT_BEGIN
+00 //event id
+monster_2 sence //name
+You have found monster that merchant told you. //description
+TYPE B //event type. (B for two option event, C for combat event, S for cutscene)
+1)cacth it 2)give it something //event option, if need be.
+That monster release electrics to you and it have passive skill that can make anything fly when it use electrics so you were flown into sky.(ref. Pokemon) //choice 1
+It fall asleep that make you catch easier. After you throw the ball to that moster,It is sucked to inside the ball.(ref. Pokemon) //choice 2
+DEAD NULL //event outcome. (DEAD and NULL) (Expect two condition for B type event);
+CHECKPOINT NULL //event checkpoint or not. (Expect YES or NULL)
