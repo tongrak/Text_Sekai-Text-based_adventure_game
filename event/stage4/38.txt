@@ -1,0 +1,10 @@
+EVENT_BEGIN
+38 //event id
+diamond sence //name
+You have found a diamond on the wall and a pickaxe is on the floor. //description
+TYPE B //event type. (B for two option event, C for combat event, S for cutscene)
+1)let it be 2)dig it //event option, if need be.
+You don't want it so you let it on the wall like before.
+While you are digging you hear something from back so you look back and see somthing that have green skin, strange face and glowing itself then it explodes itself and make your heart stop from shocked.(ref.Minecraft)
+NULL DEAD //event outcome. (DEAD and NULL) (Expect two condition for B type event);
+CHECKPOINT NULL //event checkpoint or not. (Expect YES or NULL)

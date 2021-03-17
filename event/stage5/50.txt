@@ -1,0 +1,10 @@
+EVENT_BEGIN
+50 //event id
+monster sence //name
+You have found 1 monster. //description
+TYPE B //event type. (B for two option event, C for combat event, S for cutscene)
+1)attack 2)Let it go //event option, if need be.
+You hit it 1 time then monster die. //choice 1
+The monster hit villager that make you melancholy and die. //choice 2
+NULL DEAD //event outcome. (DEAD and NULL) (Expect two condition for B type event);
+CHECKPOINT NULL //event checkpoint or not. (Expect YES or NULL)

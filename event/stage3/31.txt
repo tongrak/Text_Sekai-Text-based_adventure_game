@@ -1,0 +1,10 @@
+EVENT_BEGIN
+00 //event id
+berries sence //name
+You have found berries. //description
+TYPE B //event type. (B for two option event, C for combat event, S for cutscene)
+1)pick it 2)eat it //event option, if need be.
+You recieve berries. //chioce 1
+It make you sleep then you were bit by snake after 3 hours you aren't awake so you die because of poison. //choice 2
+NULL DEAD //event outcome. (DEAD and NULL) (Expect two condition for B type event);
+CHECKPOINT NULL //event checkpoint or not. (Expect YES or NULL)

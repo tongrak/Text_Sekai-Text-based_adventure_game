@@ -1,0 +1,10 @@
+EVENT_BEGIN
+12 //event id
+no game no life sence //name
+You have found a man and a girl. Looks like they are sibling.
+the man that is older brother tell you "If you want money you have to play "stone, paper, scissors". If you win I'll give you all my money but If I win you have to give all your status." //description
+TYPE B //event type. (B for two option event, C for combat event, S for cutscene)
+1)play with him
+2)not play with him //event option, if need be.
+NULL //event outcome. (DEAD and NULL) (Expect two condition for B type event);
+CHECKPOINT NULL //event checkpoint or not. (Expect YES or NULL)

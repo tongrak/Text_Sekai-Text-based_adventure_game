@@ -1,0 +1,11 @@
+EVENT_BEGIN
+44 //event id
+dragon sence //name
+You have found a white dragon you use your skill to identificate it, it show all status it can use every magic and it can idenficate you too. //description
+TYPE B //event type. (B for two option event, C for combat event, S for cutscene)
+1)fight it 2)use something //event option, if need be.
+The way that you came from was blocked by dirt wall and it uses water magic because it know your weakness too so you drown.
+(ถ้ามี spider) You throw the spider to the dragon's face it shocked and die.
+(ถ้าไม่มี spider แล้วเลือก use some thing) You don't have anything to use to fight the dragon so you decide to run away from it.
+DEAD NULL //event outcome. (DEAD and NULL) (Expect two condition for B type event);
+CHECKPOINT NULL //event checkpoint or not. (Expect YES or NULL)

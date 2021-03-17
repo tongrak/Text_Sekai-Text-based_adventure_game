@@ -1,0 +1,11 @@
+EVENT_BEGIN
+53 //event id
+demon lord sence //name
+You are facing demond lord //description
+TYPE S //event type. (B for two option event, C for combat event, S for cutscene)
+NULL //event option, if need be.
+NULL //event outcome. (DEAD and NULL) (Expect two condition for B type event);
+CHECKPOINT NULL //event checkpoint or not. (Expect YES or NULL)
+
+*(ไม่มี sword) ได้ Bad ending.
+*(มี sword) You can kill demond lord. before he die he told you "I'm not your last boss there is other one.".

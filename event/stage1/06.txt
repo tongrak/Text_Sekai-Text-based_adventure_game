@@ -1,0 +1,8 @@
+EVENT_BEGIN
+06 //event id
+house owner sence //name
+You have found householder. You ask him for permission then householder allow you to go in but he warn you about snake. //description
+TYPE S //event type. (B for two option event, C for combat event, S for cutscene)
+NULL //event option, if need be.
+NULL //event outcome. (DEAD and NULL) (Expect two condition for B type event);
+CHECKPOINT NULL //event checkpoint or not. (Expect YES or NULL)

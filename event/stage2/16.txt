@@ -1,0 +1,9 @@
+EVENT_BEGIN
+16 //event id
+starting sence //name
+You die in 3 hours because you are poisoned from litter.
+You see the glooves that look beautiful so you take it with you and wash it with water magic then you see your status that you are poisoned so you use herb that can protect you from poison for hour. //description
+TYPE S //event type. (B for two option event, C for combat event, S for cutscene)
+NULL //event option, if need be.
+NULL //event outcome. (DEAD and NULL) (Expect two condition for B type event);
+CHECKPOINT NULL //event checkpoint or not. (Expect YES or NULL)

@@ -1,0 +1,8 @@
+EVENT_BEGIN
+22 //event id
+adventure guild sence //name
+You get in the adventure guild to ask way to go to demon lord castle. //description
+TYPE S //event type. (B for two option event, C for combat event, S for cutscene)
+NULL //event option, if need be.
+NULL //event outcome. (DEAD and NULL) (Expect two condition for B type event);
+CHECKPOINT NULL //event checkpoint or not. (Expect YES or NULL)

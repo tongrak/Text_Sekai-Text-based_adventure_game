@@ -1,0 +1,10 @@
+EVENT_BEGIN
+03 //event id
+Rimuru==tempest sence //name
+You have found 1 slime. //description
+TYPE B //event type. (B for two option event, C for combat event, S for cutscene)
+1)attack it 2)not attack //event option, if need be.
+You here that slime says "Gluttony!" then you are swallowed inside that slime. (ref.That Time I Got Reincarnated as a Slime) // choice 1
+It escape from you. //choice 2
+DEAD  NULL //event outcome. (DEAD and NULL) (Expect two condition for B type event);
+CHECKPOINT NULL //event checkpoint or not. (Expect YES or NULL)
