@@ -129,10 +129,11 @@ void Player::CheckEvent()
 		int hol_int = std::stoi(hol_str);
 		load.ChangeEventID(hol_int);
 		kami.CheckCheckPoint();
-		//Check for special event;
+		kami.CheckSpecialEvent();
 		if (!load.GetEventAct())
 		{
-			std::string hol_str;
+			std::string hol_str, s1, s2 , o1, o2;
+			int temp_int;
 			bool check = false;
 			switch (load.GetEventType())
 			{
@@ -143,7 +144,7 @@ void Player::CheckEvent()
 				do
 				{
 					std::cout << "Player::CheckEvent I'm in S-loop" << std::endl;
-					gui.AnyInput();
+					gui.pollEvent();
 					if (gui.CheckAnyPress())
 						check = true;
 				} while (!check);
@@ -161,6 +162,20 @@ void Player::CheckEvent()
 					-	player to input said Option, if valid active EventCondition;
 			*/
 				std::cout << "Player::CheckEvent got B-type event." << std::endl;
+				kami.UpdatingEventText();
+				hol_str = load.GetEventOpt();
+				std::cout << "Player::CheckEvent got option: " << hol_str<< std::endl;
+				SplitString(hol_str, s1, s2);
+				gui.UpdateText_line4("Please enter " + s1 + " " + s2);
+				gui.Render();
+				hol_str = load.GetEventOutC();
+				SplitString(hol_str, o1, o2);
+				do
+				{
+					check = true;
+				} while (!check);
+
+
 				break;
 			case 'T': //Three option scene
 			/*

@@ -171,6 +171,7 @@ void GUI::pollEvent()
 			break;
 		//For entering text.
 		case sf::Event::TextEntered:
+			this->anyKeyPressed = true;
 			this->InputText();
 
 		default:
@@ -209,6 +210,22 @@ void GUI::AnyInput()
 		{
 		case sf::Event::KeyPressed:
 			this->anyKeyPressed = true;
+			break;
+		default:
+			break;
+		}
+
+	}
+}
+
+void GUI::pollText()
+{
+	while (this->window->pollEvent(this->Eve))
+	{
+		switch (this->Eve.type)
+		{
+		case sf::Event::KeyPressed:
+			this->InitText();
 			break;
 		default:
 			break;

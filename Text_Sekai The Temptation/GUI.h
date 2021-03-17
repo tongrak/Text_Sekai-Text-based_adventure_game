@@ -49,6 +49,7 @@ public:
 	void pollEvent();
 	void InputText();
 	void AnyInput();
+	void pollText();
 
 	//Accessor
 	const bool Running() const;

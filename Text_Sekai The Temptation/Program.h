@@ -3,7 +3,7 @@
 #define ROOM_HPP
 
 #include<fstream>
-#include<iostream>
+//#include<iostream>
 #include<string>
 #include<set>
 #include<map>
@@ -58,6 +58,9 @@ public:
 	std::string GetEventDes();
 	std::string GetEventOpt();
 	std::string GetEventCon();
+	std::string GetEventOutC();
+	std::string GetEventPos1();
+	std::string GetEventPos2();
 	bool GetEventAct();
 	bool GetEventCheck();
 	int GetLastCheck();
