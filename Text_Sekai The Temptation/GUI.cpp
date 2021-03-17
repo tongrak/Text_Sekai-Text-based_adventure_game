@@ -226,6 +226,8 @@ void GUI::AnyInput()
 	}
 }
 
+
+
 bool GUI::CheckAnyPress()
 {
 	return this->anyKeyPressed;
@@ -268,7 +270,7 @@ void GUI::InitWindow()
 void GUI::InitText()
 {
 	//loading font, Map
-	if (this->texture.loadFromFile("Resouces/images/Forest01.jpg"))
+	if (this->texture.loadFromFile("Resouces/images/Trucksan0.jpg"))
 	{
 		std::cout << "GUI::text loaded successfully" << std::endl;
 	}
@@ -338,7 +340,12 @@ void GUI::InitTexture()
 
 void GUI::Update_texture(std::string images) 
 {
-	if (images == "01") {
+	if (images == "00") 
+	{
+		this->texture.loadFromFile("Resouces/images/Trucksan0.jpg");
+	}
+
+	else if (images == "01") {
 		this->texture.loadFromFile("Resouces/images/Forest01.jpg");
 	}
 	else if (images == "02") 

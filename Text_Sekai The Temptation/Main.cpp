@@ -114,6 +114,7 @@ bool Player::CheckInputDir(std::string wanted)
 		{
 			load.ChangeCurrentID(std::stoi(holder));
 			kami.CheckSpecialEvent();
+			::holdmap = holder;
 			check = true;
 		}
 		temp_int++;
@@ -328,6 +329,7 @@ void Player::Hold()
 
 
 
+
 int main()
 {
 	std::string holder, t1="", t2="";
@@ -367,8 +369,10 @@ int main()
 		//update
 		gui.Update();
 
+		gui.Update_texture(::holdmap);
+
 			//render
-			gui.Render();
+		gui.Render();
 		}
 
 	return 0;
