@@ -4,7 +4,7 @@
 #include<Windows.h>
 
 //Declare some object
-std::string holdmap;
+//std::string holdmap;
 GUI gui;
 Data_loading load;
 Player kami;
@@ -124,7 +124,6 @@ bool Player::CheckInputDir(std::string wanted)
 		{
 			load.ChangeCurrentID(std::stoi(holder));
 			kami.CheckSpecialEvent();
-			::holdmap = holder;
 			check = true;
 		}
 		temp_int++;
@@ -370,10 +369,6 @@ void Player::Hold()
 }
 
 
-
-
-
-
 int main()
 {
 	std::string holder, t1="", t2="";
@@ -414,7 +409,7 @@ int main()
 		gui.Update();
 
 		//gui.Update_BG(::holdmap);
-		gui.Update_texture(::holdmap);
+		gui.Update_texture(load.GetCurrentID());
 
 			//render
 		gui.Render();

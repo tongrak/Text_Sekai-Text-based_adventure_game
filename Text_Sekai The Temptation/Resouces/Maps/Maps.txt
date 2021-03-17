@@ -246,7 +246,7 @@ EVENT 23
 ROOM_BEGIN 
 24 
 forest_3 room
-There is nothing here, there is a way to the east.// Room description
+There is nothing here, there is a way to the east.
 NORTH NULL 
 EAST 25 
 WEST NULL 
