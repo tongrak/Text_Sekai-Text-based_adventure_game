@@ -140,6 +140,7 @@ public:
 
 private:
 	//Item
+	bool R_04, R_07;
 	std::set<int> Inventory;
 	std::set<int>::iterator hand;
 	int Coin;
