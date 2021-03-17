@@ -125,7 +125,8 @@ void Player::CheckEvent()
 	if (load.ChecknGetEventId(hol_str))
 	{
 		std::string opt1, opt2, con1, con2;
-		load.ChangeEventID(std::stoi(hol_str));
+		int hol_int = std::stoi(hol_str);
+		load.ChangeEventID(hol_int);
 		kami.CheckCheckPoint();
 		//Check for special event;
 		if (!load.GetEventAct())
@@ -142,17 +143,7 @@ void Player::CheckEvent()
 					Expect:
 					-	player to press any key;
 			*/
-				gui.UpdateText_title(load.GetEventName());
-				load.SentenceSpliter(load.GetEventDes(), load.SplitedLine);
-				gui.UpdateText_line1(load.SplitedLine[0]);
-				gui.UpdateText_line2(load.SplitedLine[1]);
-				gui.UpdateText_line3(load.SplitedLine[2]);
-				gui.UpdateText_line4(load.SplitedLine[3]);
-				for (int i = 0; i < 4; i++)
-				{
-					load.SplitedLine[i] = " ";
-				}
-				system("pause");
+				//system("pause");
 
 				std::cout << "Player::CheckEvent got S-type event." << std::endl;
 				break;
@@ -169,8 +160,8 @@ void Player::CheckEvent()
 			*/
 				std::cout << "Player::CheckEvent got B-type event." << std::endl;
 				break;
-			/*
 			case 'T': //Three option scene
+			/*
 				//----------//
 					Check:
 					-	Is Event been active or not;
@@ -187,7 +178,7 @@ void Player::CheckEvent()
 				break;
 			}
 			load.ChangeEventToInAct();
-			std::cout << "Player::CheckEvent got event id " << std::stoi(hol_str) << std::endl;
+			std::cout << "Player::CheckEvent got event id " << hol_int << std::endl;
 		}
 	}
 	else 
@@ -265,7 +256,7 @@ void Player::setGUIdead()
 int main()
 {
 	std::string holder, t1="", t2="";
-	load.ChangeCurrentID(1);
+	load.ChangeCurrentID(0);
 
 	kami.SetGUIstarting();
 	while (gui.Running())

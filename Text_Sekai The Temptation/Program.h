@@ -3,6 +3,7 @@
 #define ROOM_HPP
 
 #include<fstream>
+#include<iostream>
 #include<string>
 #include<set>
 #include<map>
@@ -106,6 +107,7 @@ public:
 	bool CheckInputDir(std::string);
 	void CheckEvent();
 	void CheckCheckPoint();
+	//something special
 
 	//Design function
 	void DeclareDead();
