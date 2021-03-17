@@ -23,213 +23,213 @@ sword 109
 pillow 110
 Looting_permit 111
 
-ROOM_BEGIN 
-00 
-Starting room 
-This is where you begin, there is a way to the east. 
-NORTH NULL 
+ROOM_BEGIN
+00
+Starting room
+This is where you begin, there is a way to the east.
+NORTH NULL
 EAST 01
-WEST NULL 
-SOUTH NULL 
+WEST NULL
+SOUTH NULL
 EVENT NULL
 
-ROOM_BEGIN 
-01 
-forest_0 room 
-There is nothing here, there are ways to the north, east, south and west. 
-NORTH 02 
-EAST 04 
-WEST 00 
+ROOM_BEGIN
+01
+forest_0 room
+There is nothing here, there are ways to the north, east, south and west.
+NORTH 02
+EAST 04
+WEST 00
 SOUTH 03
-EVENT 01 
+EVENT 01
+
+ROOM_BEGIN
+02
+Sword Room
+There is a holy sword that stuck on the rock, there is a way to the south.
+NORTH NULL
+EAST NULL
+WEST NULL
+SOUTH 01
+EVENT 02
+
+ROOM_BEGIN
+03
+slime room
+There is nothing here, there is a way to the north.
+NORTH 01
+EAST NULL
+WEST NULL
+SOUTH NULL
+EVENT 03
 
 ROOM_BEGIN 
-02 
-Sword Room //Room name
-There is a holy sword that stuck on the rock, there is a way to the south. 
-NORTH NULL 
-EAST NULL 
-WEST NULL 
-SOUTH 01 
-EVENT 02 
+04
+Bridge room
+There is a bridge, there are ways to the north, east, south and west.
+NORTH 05
+EAST 10
+WEST 01
+SOUTH 09 
+EVENT 04
 
-ROOM_BEGIN 
-03 
-slime room 
-There is nothing here, there is a way to the north. 
-NORTH 01 
-EAST NULL 
-WEST NULL 
-SOUTH NULL 
-EVENT 03 
+ROOM_BEGIN
+05
+House room
+There is a house, there are ways to the north, east, south and west.
+NORTH 07
+EAST 08
+WEST 06
+SOUTH 04
+EVENT 05
 
-ROOM_BEGIN //ต้องเขียน
-04 //Room ID
-Bridge room //Room name
-There is a bridge, there are ways to the north, east, south and west. // Room description
-NORTH 05 //North Neighboring Room ID
-EAST 10 //East Neighboring Room ID
-WEST 01 //West Neighboring Room ID
-SOUTH 09 //South Neighboring Room ID 
-EVENT 04 //Said room event id if have any.
-
-ROOM_BEGIN //ต้องเขียน
-05 //Room ID
-House room //Room name
-There is a house, there are ways to the north, east, south and west. // Room description
-NORTH 07 //North Neighboring Room ID
-EAST 08 //East Neighboring Room ID
-WEST 06 //West Neighboring Room ID
-SOUTH 04 //South Neighboring Room ID 
-EVENT 05 //Said room event id if have any.
-
-ROOM_BEGIN //ต้องเขียน
-06 //Room ID
-Owner room //Room name
-There is a old man, there is a way to the east. // Room description
-NORTH NULL //North Neighboring Room ID
-EAST 05 //East Neighboring Room ID
-WEST NULL //West Neighboring Room ID
-SOUTH NULL //South Neighboring Room ID 
+ROOM_BEGIN
+06
+Owner room
+There is a old man, there is a way to the east.
+NORTH NULL
+EAST 05
+WEST NULL
+SOUTH NULL
 EVENT 06
 
-ROOM_BEGIN //ต้องเขียน
-07 //Room ID
-In House room //Room name
-There are 3 chests, there is a way to the south. // Room description
-NORTH NULL //North Neighboring Room ID
-EAST NULL //East Neighboring Room ID
-WEST NULL //West Neighboring Room ID
-SOUTH 05 //South Neighboring Room ID 
-EVENT 07 //Said room event id if have any.
+ROOM_BEGIN
+07
+In House room
+There are 3 chests, there is a way to the south.
+NORTH NULL
+EAST NULL
+WEST NULL
+SOUTH 05
+EVENT 07
 
-ROOM_BEGIN //ต้องเขียน
-08 //Room ID
-forest_1 room //Room name
-There is nothing here just forest, there is a way to the west. // Room description
-NORTH NULL //North Neighboring Room ID
-EAST NULL //East Neighboring Room ID
-WEST 05 //West Neighboring Room ID
-SOUTH NULL //South Neighboring Room ID 
+ROOM_BEGIN
+08
+forest_1 room
+There is nothing here just forest, there is a way to the west.
+NORTH NULL
+EAST NULL
+WEST 05
+SOUTH NULL
 EVENT 08
 
-ROOM_BEGIN //ต้องเขียน
-09 //Room ID
-Dark soul room //Room name
-There is nothing here, there is a way to the north. // Room description
-NORTH 04 //North Neighboring Room ID
-EAST NULL //East Neighboring Room ID
-WEST NULL //West Neighboring Room ID
-SOUTH NULL //South Neighboring Room ID 
-EVENT 09 //Said room event id if have any.
+ROOM_BEGIN
+09
+Dark soul room
+There is nothing here, there is a way to the north.
+NORTH 04
+EAST NULL
+WEST NULL
+SOUTH NULL
+EVENT 09
 
-ROOM_BEGIN //ต้องเขียน
-10 //Room ID
-in front of city room //Room name
-There is nothing here, there are ways to the north, south and west. // Room description
-NORTH 12 //North Neighboring Room ID
-EAST NULL //East Neighboring Room ID
-WEST 04 //West Neighboring Room ID
-SOUTH 11 //South Neighboring Room ID 
-EVENT 10 //Said room event id if have any.
+ROOM_BEGIN
+10
+in front of city room
+There is nothing here, there are ways to the north, south and west.
+NORTH 12
+EAST 13
+WEST 04
+SOUTH 11
+EVENT 10
 
-ROOM_BEGIN //ต้องเขียน
-11 //Room ID
-money bag room //Room name
-There is notihng here, there is a way to the north. // Room description
-NORTH 10 //North Neighboring Room ID
-EAST NULL //East Neighboring Room ID
-WEST NULL //West Neighboring Room ID
-SOUTH NULL //South Neighboring Room ID 
-EVENT 11 //Said room event id if have any.
+ROOM_BEGIN
+11
+money bag room
+There is notihng here, there is a way to the north.
+NORTH 10
+EAST NULL
+WEST NULL
+SOUTH NULL
+EVENT 11
 
-ROOM_BEGIN //ต้องเขียน
-12 //Room ID
-no game room //Room name
-There is nothing here, there is a way to the south. // Room description
-NORTH NULL //North Neighboring Room ID
-EAST NULL //East Neighboring Room ID
-WEST NULL //West Neighboring Room ID
-SOUTH 10 //South Neighboring Room ID 
-EVENT 12 //Said room event id if have any.
+ROOM_BEGIN
+12
+no game room
+There is nothing here, there is a way to the south.
+NORTH NULL
+EAST NULL
+WEST NULL
+SOUTH 10
+EVENT 12
 
-ROOM_BEGIN //ต้องเขียน
-13 //Room ID
-city room //Room name
-there is nothing here, there are ways to the east and south. // Room description
-NORTH NULL //North Neighboring Room ID
-EAST 17 //East Neighboring Room ID
-WEST NULL //West Neighboring Room ID
-SOUTH 15 //South Neighboring Room ID 
+ROOM_BEGIN
+13
+city room
+there is nothing here, there are ways to the east and south.
+NORTH NULL
+EAST 17
+WEST NULL
+SOUTH 15
 EVENT 13
 
-ROOM_BEGIN //ต้องเขียน
-15 //Room ID
-city_1 room //Room name
-There is nothing, there are ways to the north, south. // Room description
-NORTH 13 //North Neighboring Room ID
-EAST NULL //East Neighboring Room ID
-WEST NULL //West Neighboring Room ID
-SOUTH 16 //South Neighboring Room ID 
+ROOM_BEGIN
+15
+city_1 room
+There is nothing, there are ways to the north, south.
+NORTH 13
+EAST NULL
+WEST NULL
+SOUTH 16
 EVENT 15
 
-ROOM_BEGIN //ต้องเขียน
-16 //Room ID
-garbage room //Room name
-There is nothing here, there is a way to the north. // Room description
-NORTH 15 //North Neighboring Room ID
-EAST NULL //East Neighboring Room ID
-WEST NULL //West Neighboring Room ID
-SOUTH NULL //South Neighboring Room ID 
-EVENT 16 //Said room event id if have any.
+ROOM_BEGIN
+16
+garbage room
+There is nothing here, there is a way to the north.
+NORTH 15
+EAST NULL
+WEST NULL
+SOUTH NULL
+EVENT 16
 
-ROOM_BEGIN //ต้องเขียน
-17 //Room ID
-princess room //Room name
-There is nothing here, there are ways to the east and west. // Room description
-NORTH NULL //North Neighboring Room ID
-EAST 20 //East Neighboring Room ID
-WEST 13 //West Neighboring Room ID
-SOUTH NULL //South Neighboring Room ID 
-EVENT 17 //Said room event id if have any.
+ROOM_BEGIN
+17
+princess room
+There is nothing here, there are ways to the east and west.
+NORTH NULL
+EAST 20
+WEST 13
+SOUTH NULL
+EVENT 17
 
-ROOM_BEGIN //ต้องเขียน
-20 //Room ID
-market room //Room name
-This place is market, there are ways to the north, east, south and west. // Room description
-NORTH 21 //North Neighboring Room ID
-EAST 23 //East Neighboring Room ID
-WEST 17 //West Neighboring Room ID
-SOUTH 22 //South Neighboring Room ID 
-EVENT 20 //Said room event id if have any.
+ROOM_BEGI
+20
+market room
+This place is market, there are ways to the north, east, south and west.
+NORTH 21
+EAST 23
+WEST 17
+SOUTH 22
+EVENT 20
 
-ROOM_BEGIN //ต้องเขียน
-21 //Room ID
-DOG<- room //Room name
-There is nothing here. a empty room, there is a way to the south. // Room description
-NORTH NULL //North Neighboring Room ID
-EAST NULL //East Neighboring Room ID
-WEST NULL //West Neighboring Room ID
-SOUTH 20 //South Neighboring Room ID 
-EVENT 21 //Said room event id if have any.
+ROOM_BEGIN
+21
+DOG<- room
+There is nothing here. a empty room, there is a way to the south.
+NORTH NULL
+EAST NULL
+WEST NULL
+SOUTH 20
+EVENT 21
 
-ROOM_BEGIN //ต้องเขียน
-22 //Room ID 
-guild room //Room name
-This place is adventure guild, there is a way to the north. // Room description
-NORTH 20 //North Neighboring Room ID
-EAST NULL //East Neighboring Room ID
-WEST NULL //West Neighboring Room ID
-SOUTH NULL //South Neighboring Room ID 
-EVENT 22 //Said room event id if have any.
+ROOM_BEGIN
+22
+guild room
+This place is adventure guild, there is a way to the north.
+NORTH 20
+EAST NULL
+WEST NULL
+SOUTH NULL
+EVENT 22
 
-ROOM_BEGIN //ต้องเขียน
-23 //Room ID
-exit_city room //Room name
-This is where you begin. a empty room, there are a door to the north and west. // Room description
-NORTH NULL //North Neighboring Room ID
-EAST NULL //East Neighboring Room ID
-WEST NULL //West Neighboring Room ID
-SOUTH NULL //South Neighboring Room ID 
-EVENT 23 //Said room event id if have any.
+ROOM_BEGIN
+23
+exit_city room
+This is where you begin. a empty room, there are a door to the north and west.
+NORTH NULL
+EAST NULL
+WEST NULL
+SOUTH NULL
+EVENT 23
 
