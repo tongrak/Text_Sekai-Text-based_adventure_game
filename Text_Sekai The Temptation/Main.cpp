@@ -55,7 +55,7 @@ void Player::CheckInputText(std::string key, std::string wanted)
 		{
 			std::cout << "Player::CheckInputText got direction" << std::endl;
 			kami.SetGUIclear();
-			kami.SetGUIlook();
+			kami.UpdatingRoomText();
 		}
 		else std::cout << "Player::CheckInputText something went worng"<< std::endl;
 
@@ -112,6 +112,7 @@ bool Player::CheckInputDir(std::string wanted)
 		if (wanted == i && load.GetNeighbors(temp_int, holder) != "NULL")
 		{
 			load.ChangeCurrentID(std::stoi(holder));
+			kami.CheckSpecialEvent();
 			check = true;
 		}
 		temp_int++;
@@ -131,21 +132,22 @@ void Player::CheckEvent()
 		//Check for special event;
 		if (!load.GetEventAct())
 		{
+			std::string hol_str;
+			bool check = false;
 			switch (load.GetEventType())
 			{
 			case 'S': //Cut-scene
-			/*
-					Check:
-					-	Is Event been active or not;
-					Display text from:
-					-	load.GetEventName on name_text_line
-					-	load.GetEventDes on text_line n so on
-					Expect:
-					-	player to press any key;
-			*/
-				//system("pause");
-
 				std::cout << "Player::CheckEvent got S-type event." << std::endl;
+				kami.UpdatingEventText();
+				gui.Render();
+				do
+				{
+					std::cout << "Player::CheckEvent I'm in S-loop" << std::endl;
+					gui.AnyInput();
+					if (gui.CheckAnyPress())
+						check = true;
+				} while (!check);
+				kami.SetGUIlook();
 				break;
 			case 'B': //Two option scene
 			/*
@@ -196,13 +198,31 @@ void Player::CheckCheckPoint()
 	}
 }
 
+void Player::CheckSpecialEvent()
+{
+	/*Room with special event:
+	roomID  Name		note
+	2	    sword		(repeat) Dead andf go back
+	4		Brige		Check:Wooden_board
+	7		Cabi_st		Check:Owner_permit
+	10		Gate		Check:coin(X)
+	23		ou_Citi		Check:Guild_direc
+	27		Pika		Check:Merch_pass, Berry, Poke-ball
+	39		Lava_pit	Check: Fishing rod
+	44		Dragon		3 chioces
+	45		Spider		Check: Fish fillet
+	51		Sword V2	Check:Glove
+	53		Demon-load	Check:Sword
+	54		Princess	Check:Pillow, 3 choices
+	*/
+}
+
 void Player::DeclareDead()
 {
 	kami.Is_alive = false;
 }
 
-//Setting function
-void Player::SetGUIlook()
+void Player::UpdatingRoomText()
 {
 	gui.UpdateText_title(load.GetName());
 	load.SentenceSpliter(load.GetDes(), load.SplitedLine);
@@ -214,6 +234,26 @@ void Player::SetGUIlook()
 	{
 		load.SplitedLine[i] = " ";
 	}
+}
+
+void Player::UpdatingEventText()
+{
+	gui.UpdateText_title(load.GetEventName());
+	load.SentenceSpliter(load.GetEventDes(), load.SplitedLine);
+	gui.UpdateText_line1(load.SplitedLine[0]);
+	gui.UpdateText_line2(load.SplitedLine[1]);
+	gui.UpdateText_line3(load.SplitedLine[2]);
+	gui.UpdateText_line4(load.SplitedLine[3]);
+	for (int i = 0; i < 4; i++)
+	{
+		load.SplitedLine[i] = " ";
+	}
+}
+
+//Setting function
+void Player::SetGUIlook()
+{
+	kami.UpdatingRoomText();
 }
 
 void Player::SetGUIhelp()

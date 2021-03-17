@@ -11,6 +11,7 @@
 #include<SFML/Network.hpp>
 #include<SFML/Window.hpp>
 
+#include<time.h>
 #include<iostream>
 #include<sstream>
 #include<string>
@@ -40,14 +41,17 @@ public:
 	//
 	void RenderText_input(sf::RenderTarget& O);
 	void RenderArrow(sf::RenderTarget& H);
+	void RenderSprite(sf::RenderTarget& T);
 
 	//Event
 	void pollEvent();
 	void InputText();
+	void AnyInput();
 
 	//Accessor
 	const bool Running() const;
 	bool ChecknGetInputStr(std::string &);
+	bool CheckAnyPress();
 
 	//Function
 	void ForceClose();
@@ -62,6 +66,12 @@ private:
 	//Resouces
 	sf::Font font;
 
+	//Picture Sprite
+	sf::Sprite in_game;
+
+	//Texture
+	sf::Texture texture;
+
 	//text declaring
 	sf::Text Text_title;
 	sf::Text Text_line1;
@@ -70,7 +80,6 @@ private:
 	sf::Text Text_line4;
 	sf::Text Text_input;
 	sf::Text Arrow;
-
 
 	//sf string for input
 	sf::String input;
@@ -81,10 +90,15 @@ private:
 	//for store user input
 	std::string* Input_holder;
 
+	//Verification of a key
+	bool anyKeyPressed;
+
 	//function
 	void InitVar();
 	void InitWindow();
 	void InitText();
+	void InitSprite();
+	void InitTexture();
 
 };
 

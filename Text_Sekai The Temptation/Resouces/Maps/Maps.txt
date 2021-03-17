@@ -23,9 +23,9 @@ This is where we store our game story, heart, and hope.
 //Looting_permit 111
 
 ROOM_BEGIN
-00 
-Starting room
-This is where you begin, there is a way to the east.
+00
+Starting room //Room name
+This is where you begin, there is a way to the east. // Room description
 NORTH NULL
 EAST 01
 WEST NULL
@@ -34,8 +34,8 @@ EVENT NULL
 
 ROOM_BEGIN
 01
-Starting room 
-There is nothing here, there are ways to the north, east, south and west. 
+Starting room //Room name
+There is nothing here, there are ways to the north, east, south and west. // Room description
 NORTH 02
 EAST 04
 WEST 00
@@ -43,9 +43,9 @@ SOUTH 03
 EVENT 01
 
 ROOM_BEGIN
-02 
-Sword Room 
-There is a holy sword that stuck on the rock, there is a way to the south. 
+02
+Sword Room //Room name
+There is a holy sword that stuck on the rock, there is a way to the south. // Room description
 NORTH NULL
 EAST NULL
 WEST NULL
@@ -53,9 +53,9 @@ SOUTH 01
 EVENT 02
 
 ROOM_BEGIN
-03 
-Rimuru room 
-There is nothing here, there is a way to the north. 
+03
+Rimuru room //Room name
+There is nothing here, there is a way to the north. // Room description
 NORTH 01
 EAST NULL
 WEST NULL

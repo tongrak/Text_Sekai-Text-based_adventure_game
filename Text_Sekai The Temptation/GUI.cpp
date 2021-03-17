@@ -36,6 +36,12 @@ void GUI::Update()
 	this->pollEvent();
 	//this->UpdateText();
 	this->UpdateText_input();
+	/*if (time_t % 3 == 0) {
+		this->Arrow.setFillColor(sf::Color::White);
+	}
+	else this->Arrow.setFillColor(sf::Color::Black);*/
+
+	this->anyKeyPressed = false;
 }
 //Updating text
 void GUI::UpdateText_title(std::string s1)
@@ -83,6 +89,7 @@ void GUI::Render()
 {
 	this->window->clear(sf::Color::White);
 
+	this->RenderSprite(*this->window);
 	this->RenderText_title(*this->window);
 	this->RenderText_line1(*this->window);
 	this->RenderText_line2(*this->window);
@@ -124,7 +131,10 @@ void GUI::RenderArrow(sf::RenderTarget& H)
 {
 	H.draw(this->Arrow);
 }
-
+void GUI::RenderSprite(sf::RenderTarget& F) 
+{
+	F.draw(this->in_game);
+}
 /*
 	Poll Event
 */
@@ -138,14 +148,14 @@ void GUI::pollEvent()
 		{
 		//For close buttom.
 		case sf::Event::Closed:
-			std::cout << "Event::Eve You just pressed X" << std::endl;
+			std::cout << "GUI::pollEvent You just pressed X" << std::endl;
 			this->window->close();
 			break;
 		//For when press Escape key.
 		case sf::Event::KeyPressed:
 			if (this->Eve.key.code == sf::Keyboard::Escape)
 			{
-				std::cout << "Event::Eve You just pressed Escape buttom" << std::endl;
+				std::cout << "GUI::pollEvent You just pressed Escape buttom" << std::endl;
 				this->window->close();
 			}
 			break;
@@ -185,11 +195,31 @@ void GUI::InputText()
 		}
 }
 
+void GUI::AnyInput()
+{
+	while (this->window->pollEvent(this->Eve)) 
+	{
+		switch (this->Eve.type)
+		{
+		case sf::Event::KeyPressed:
+			this->anyKeyPressed = true;
+			break;
+		default:
+			break;
+		}
+
+	}
+}
+
+bool GUI::CheckAnyPress()
+{
+	return this->anyKeyPressed;
+}
+
 
 /*
 	Returning function
 */
-
 bool GUI::ChecknGetInputStr(std::string &s1)
 {
 	if (*this->holder != 0)
@@ -209,6 +239,7 @@ bool GUI::ChecknGetInputStr(std::string &s1)
 void GUI::InitVar()
 {
 	this->window = nullptr;
+	this->anyKeyPressed = false;
 }
 
 void GUI::InitWindow()
@@ -222,6 +253,10 @@ void GUI::InitWindow()
 void GUI::InitText()
 {
 	//loading font
+	if (this->texture.loadFromFile("Resouces/images/CAVE 1.jpg")) 
+	{
+		std::cout << "GUI::text loaded successfully" << std::endl;
+	}
 	if (this->font.loadFromFile("Resouces/Font/Simple_text.ttf"))
 	{
 		std::cout << "GUI::font loaded successfully" << std::endl;
@@ -266,8 +301,22 @@ void GUI::InitText()
 	this->Text_line4.setPosition(50, 760);
 }
 
+
+void GUI::InitSprite() {
+	this->in_game.setTexture(this->texture);
+	this->in_game.setTextureRect(sf::IntRect(200, 200, 1000, 1000));
+	/*this->in_game.setPosition*/
+
+}
+
+void GUI::InitTexture() {
+	this->texture.setRepeated(true);
+}
+
 void GUI::ForceClose()
 {
 	std::cout << std::endl <<"GUI::ForceClose you just force close the game"<<std::endl;
 	this->window->close();
 }
+
+

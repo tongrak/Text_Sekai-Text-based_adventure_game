@@ -170,6 +170,11 @@ void Data_loading::ChangeLastCheck()
 /*
 	'Getting' function
 */
+int Data_loading::GetCurrentID()
+{
+	return *this->Current_id;
+}
+
 string Data_loading::GetName()
 {
 	return roomStorage[*Current_id].name;

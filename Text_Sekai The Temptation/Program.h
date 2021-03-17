@@ -50,6 +50,7 @@ public:
 	bool LoadEvent();
 
 	//Getting Var function 
+	int GetCurrentID();
 	std::string GetName();
 	std::string GetDes();
 	char GetEventType();
@@ -108,10 +109,15 @@ public:
 	void CheckEvent();
 	void CheckCheckPoint();
 	//something special
+	void CheckSpecialEvent();
 
 	//Design function
 	void DeclareDead();
 
+	//updating GUI
+	void UpdatingRoomText();
+	void UpdatingEventText();
+	
 	//Setting function
 	void SetGUIlook();
 	void SetGUIhelp();
