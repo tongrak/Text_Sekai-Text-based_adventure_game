@@ -34,6 +34,16 @@ Player::~Player()
 
 }
 
+void Player::AddItem(int item_key)
+{
+	this->Inventory.insert(item_key);
+}
+
+void Player::RemoveItem(int item_key)
+{
+	this->Inventory.erase(Inventory.find(item_key));
+}
+
 //Checking function
 bool Player::CheckBasicCon() //Checking for basic condition for continue looping
 {
@@ -196,22 +206,56 @@ void Player::CheckEvent()
 					gui.Render();
 				} while (!check);
 				kami.Hold();
-
-
 				break;
 			case 'T': //Three option scene
-			/*
-				//----------//
-					Check:
-					-	Is Event been active or not;
-					Display text from:
-					-	load.GetEventName on name_line
-					-	load.GetEventDes on text_line
-					-	load.GetEventOpt on last text_line
-					Expect:
-					-	player to input said Option, if valid active EventCondition.
-				//-----------//
-			*/
+				std::cout << "Player::CheckEvent got T-type event." << std::endl;
+				gui.UpdateText_title(load.GetEventName());
+				kami.UpdatingTextInGen(load.GetEventDes());
+				hol_str = load.GetEventOpt();
+				std::cout << "Player::CheckEvent got option: " << hol_str << std::endl;
+				SplitString(hol_str, s1, s2);
+				gui.UpdateText_line4("Please enter " + s1 + " " + s2);
+				SplitString(load.GetEventOutC(), o1, o2);
+				do
+				{
+					gui.pollEvent();
+					if (gui.ChecknGetInputStr(hol_str))
+					{
+						if (hol_str == "1")
+						{
+							kami.SetGUIclear();
+							kami.UpdatingTextInGen(load.GetEventPos1());
+							if (o1 != "NULL")
+							{
+								int temp = o1.find_last_of(":");
+								hol_str = o1.substr(temp + 1);
+								kami.AddItem(std::stoi(hol_str));
+								std::cout << "Player::EventCheck got ItemID: " << std::stoi(hol_str) << std::endl;
+							}
+							check = true;
+						}
+						else if (hol_str == "2")
+						{
+							kami.SetGUIclear();
+							kami.UpdatingTextInGen(load.GetEventPos2());
+							if (o2 != "NULL")
+							{
+								int temp = o2.find_last_of("_");
+								hol_str = o2.substr(temp + 1);
+								kami.AddItem(std::stoi(hol_str));
+								std::cout << "Player::EventCheck got ItemID: " << std::stoi(hol_str) << std::endl;
+							}
+							check = true;
+						}
+						else
+						{
+							gui.UpdateText_line4("Please type in: 1 or 2");
+						}
+					}
+					gui.Update();
+					gui.Render();
+				} while (!check);
+				kami.Hold();
 			default:
 				std::cout << "Player::CheckEvent Check" << std::endl;
 				break;
