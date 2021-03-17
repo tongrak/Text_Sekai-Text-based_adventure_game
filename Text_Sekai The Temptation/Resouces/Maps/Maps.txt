@@ -22,6 +22,8 @@ glove 108
 sword 109
 pillow 110
 Cabin's permit 111
+Merchant pass 112
+Guild Guide 113
 
 ROOM_BEGIN
 00

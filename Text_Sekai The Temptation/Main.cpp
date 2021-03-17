@@ -24,6 +24,8 @@ Player::Player()
 {
 	this->Is_alive = true;
 	this->Coin =  0;
+	this->R_04 = true;
+	this->R_07 = true;
 
 
 	if (load.LoadMaps()) std::cout << "Main::load Map loading and storing successfully" << std::endl;
@@ -67,6 +69,7 @@ void Player::CheckInputText(std::string key, std::string wanted)
 			std::cout << "Player::CheckInputText got direction" << std::endl;
 			kami.SetGUIclear();
 			kami.UpdatingTextInGen(load.GetDes());
+			kami.SetGUIlook();
 		}
 		else std::cout << "Player::CheckInputText something went worng"<< std::endl;
 
@@ -123,7 +126,6 @@ bool Player::CheckInputDir(std::string wanted)
 		if (wanted == i && load.GetNeighbors(temp_int, holder) != "NULL")
 		{
 			load.ChangeCurrentID(std::stoi(holder));
-			kami.CheckSpecialEvent();
 			check = true;
 		}
 		temp_int++;
@@ -140,7 +142,6 @@ void Player::CheckEvent()
 		int hol_int = std::stoi(hol_str);
 		load.ChangeEventID(hol_int);
 		kami.CheckCheckPoint();
-		kami.CheckSpecialEvent();
 		if (!load.GetEventAct())
 		{
 			std::string hol_str, s1, s2 , o1, o2;
@@ -173,7 +174,7 @@ void Player::CheckEvent()
 				SplitString(load.GetEventOutC(), o1, o2);
 				do
 				{
-					gui.pollEvent();
+					gui.Update();
 					if (gui.ChecknGetInputStr(hol_str))
 					{
 						if (hol_str == "1")
@@ -201,7 +202,6 @@ void Player::CheckEvent()
 							gui.UpdateText_line4("Please type in: 1 or 2");
 						}
 					}
-					gui.Update();
 					gui.Render();
 				} while (!check);
 				kami.Hold();
@@ -280,13 +280,16 @@ void Player::CheckCheckPoint()
 
 void Player::CheckSpecialEvent()
 {
+	bool check = false;
+	int hol_int = load.GetCurrentID(), hol_item;
+	std::string hol_str;
 	/*Room with special event:
 	roomID  Name		note
-	2	    sword		(repeat) Dead andf go back
-	4		Brige		Check:Wooden_board
-	7		Cabi_st		Check:Owner_permit
-	10		Gate		Check:coin(X)
-	23		ou_Citi		Check:Guild_direc
+	!2	    sword		(repeat) Dead andf go back
+	!4		Brige		Check:Wooden_board
+	!7		Cabi_st		Check:Owner_permit
+	!10		Gate		Check:coin(X)
+	!23		ou_Citi		Check:Guild_direc
 	27		Pika		Check:Merch_pass, Berry, Poke-ball
 	39		Lava_pit	Check: Fishing rod
 	44		Dragon		3 chioces
@@ -295,6 +298,163 @@ void Player::CheckSpecialEvent()
 	53		Demon-load	Check:Sword
 	54		Princess	Check:Pillow, 3 choices
 	*/
+	if (hol_int == 2 && Is_alive)
+	{
+		gui.Update_texture(2);
+		gui.UpdateText_title(load.GetName());
+		kami.UpdatingTextInGen(load.GetDes());
+		gui.UpdateText_line4("1)Take the sword  2)Walk away");
+		do {
+			gui.Update();
+				if (gui.ChecknGetInputStr(hol_str))
+				{
+					if (hol_str == "1")
+					{
+						kami.SetGUIclear();
+						kami.UpdatingTextInGen("High voltage electrical power flow through your body, kill you instantly");
+						kami.DeclareDead();
+						kami.Hold();
+						check = true;
+					}
+					if (hol_str == "2")
+					{
+						kami.SetGUIclear();
+						kami.UpdatingTextInGen("You turn around and walk back");
+						kami.Hold();
+						load.ChangeCurrentID(1);
+						kami.SetGUIlook();
+						check = true;
+					}
+				}
+				gui.Render();
+		} while (!check);
+	}
+	if (hol_int == 4 && Is_alive && R_04)
+	{
+		gui.Update_texture(4);
+		gui.UpdateText_title(load.GetName());
+		kami.UpdatingTextInGen(load.GetDes());
+		gui.UpdateText_line4("1)go for it!  2)Fix the bridge  3)Go back");
+		do {
+			gui.Update();
+			if (gui.ChecknGetInputStr(hol_str))
+			{
+				if (hol_str == "1")
+				{
+					kami.SetGUIclear();
+					kami.UpdatingTextInGen("River deniel your attemp and kill you");
+					kami.DeclareDead();
+					kami.Hold();
+					check = true;
+				}
+				else if (hol_str == "2")
+				{
+					this->hand = this->Inventory.find(101); //find Wooden board
+					if (101 == *hand)
+					{
+						kami.SetGUIclear();
+						kami.UpdatingTextInGen("you have fixed the bridge, now you can move through it now.");
+						kami.Hold();
+						this->R_04 = false;
+						check = true;
+					}
+					else
+					{
+						kami.SetGUIclear();
+						kami.UpdatingTextInGen("you don't have anything to fix it.");
+						kami.Hold();
+					}
+						
+				}
+				else if (hol_str == "3")
+				{
+					kami.SetGUIclear();
+					kami.UpdatingTextInGen("you design to fall back, maybe some boards will help on bridge situation.");
+					load.ChangeCurrentID(61);
+					kami.Hold();
+					check = true;
+				}
+			}
+			gui.Render();
+		} while (!check);
+	}
+	if (hol_int == 7 && Is_alive)
+	{
+		gui.Update_texture(7);
+		this->hand = this->Inventory.find(111);
+		if (*hand != 111) 
+		{
+			kami.SetGUIclear();
+			kami.UpdatingTextInGen("Before you set your foot on the door frame, a arrow enter your chest. Ask for permition next time");
+			kami.DeclareDead();
+			kami.Hold();
+		}
+		gui.Render();
+	}
+	if (hol_int == 10 && Is_alive)
+	{
+		gui.Update_texture(10);
+		gui.UpdateText_title(load.GetName());
+		kami.UpdatingTextInGen(load.GetDes());
+		gui.UpdateText_line4("1)turn back  2)go throght the gate");
+		do {
+			gui.Update();
+			if (gui.ChecknGetInputStr(hol_str))
+			{
+				if (hol_str == "1")
+				{
+					kami.SetGUIclear();
+					kami.UpdatingTextInGen("you turn back");
+					kami.Hold();
+					load.ChangeCurrentID(04);
+					kami.SetGUIlook();
+					check = true;
+				}
+				else if (hol_str == "2")
+				{
+					if (this->Coin > 120)
+					{
+						this->Coin -= 120;
+						kami.SetGUIclear();
+						kami.UpdatingTextInGen("you may enter said a guard");
+						kami.Hold();
+						load.ChangeCurrentID(11);
+						kami.SetGUIlook();
+						check = true;
+					}
+					else
+					{
+						kami.SetGUIclear();
+						kami.UpdatingTextInGen("Enter fee 120 copper coin, pay up or leave");
+						kami.Hold();
+					}
+
+				}
+				else if (hol_str == "3")
+				{
+					kami.SetGUIclear();
+					kami.UpdatingTextInGen("you design to fall back, maybe some boards will help on bridge situation.");
+					load.ChangeCurrentID(61);
+					kami.Hold();
+					check = true;
+				}
+			}
+			gui.Render();
+		} while (!check);
+	}
+	if (hol_int == 23 && Is_alive)
+	{
+		gui.Update_texture(7);
+		this->hand = this->Inventory.find(113);
+		if (*hand != 113)
+		{
+			kami.SetGUIclear();
+			kami.UpdatingTextInGen("walk, and walk you keep walking, but there aren't any cave in sight. Look like you lost. Next time get some guide from professional");
+			kami.DeclareDead();
+			kami.Hold();
+		}
+		gui.Render();
+	}
 }
 
 void Player::DeclareDead()
@@ -377,12 +537,11 @@ int main()
 	kami.SetGUIstarting();
 	while (gui.Running())
 	{
-		kami.CheckEvent();
 		kami.CheckSpecialEvent();
 		if(kami.CheckBasicCon())
 		{
 			
-			kami.SetGUIlook();
+			kami.CheckEvent();
 			//check
 			if (gui.ChecknGetInputStr(holder))
 			{
