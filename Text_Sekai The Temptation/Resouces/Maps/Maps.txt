@@ -193,7 +193,7 @@ WEST 13
 SOUTH NULL
 EVENT 17
 
-ROOM_BEGI
+ROOM_BEGIN
 20
 market room
 This place is market, there are ways to the north, east, south and west.
