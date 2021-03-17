@@ -24,6 +24,8 @@ public:
 
 	//Updating functions
 	void Update();
+	void Update_texture(int);
+	void Update_BG();
 	void UpdateText_title(std::string);
 	void UpdateText_line1(std::string);
 	void UpdateText_line2(std::string);

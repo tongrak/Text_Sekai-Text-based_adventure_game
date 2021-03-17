@@ -9,23 +9,24 @@ This is where we store our game story, heart, and hope.
 //WEST western_neighbor_id
 //SOUTH southern_neighbor_id
 //EVENT event_id
-//Item id:
-//wood_boards 101
-//torch 102
-//Poke_berry 103
-//Poke_ball 104
-//Fish_fillet 105
-//Fishing_rod 106
-//pink_spider 107
-//glove 108
-//sword 109
-//pillow 110
-//Looting_permit 111
+//key_id //keys that can trigger another condtion
+Item id:
+wood_boards 101
+torch 102
+Poke_berry 103
+Poke_ball 104
+Fish_fillet 105
+Fishing_rod 106
+pink_spider 107
+glove 108
+sword 109
+pillow 110
+Looting_permit 111
 
 ROOM_BEGIN
 00
-Starting room //Room name
-This is where you begin, there is a way to the east. // Room description
+Starting room
+This is where you begin, there is a way to the east.
 NORTH NULL
 EAST 01
 WEST NULL
@@ -34,8 +35,8 @@ EVENT NULL
 
 ROOM_BEGIN
 01
-Starting room //Room name
-There is nothing here, there are ways to the north, east, south and west. // Room description
+forest_0 room
+There is nothing here, there are ways to the north, east, south and west.
 NORTH 02
 EAST 04
 WEST 00
@@ -44,8 +45,8 @@ EVENT 01
 
 ROOM_BEGIN
 02
-Sword Room //Room name
-There is a holy sword that stuck on the rock, there is a way to the south. // Room description
+Sword Room
+There is a holy sword that stuck on the rock, there is a way to the south.
 NORTH NULL
 EAST NULL
 WEST NULL
@@ -54,29 +55,29 @@ EVENT 02
 
 ROOM_BEGIN
 03
-Rimuru room //Room name
-There is nothing here, there is a way to the north. // Room description
+slime room
+There is nothing here, there is a way to the north.
 NORTH 01
 EAST NULL
 WEST NULL
 SOUTH NULL
 EVENT 03
 
-ROOM_BEGIN
+ROOM_BEGIN 
 04
-Bridge room 
-There is a bridge, there are ways to the north, east, south and west. 
+Bridge room
+There is a bridge, there are ways to the north, east, south and west.
 NORTH 05
 EAST 10
 WEST 01
-SOUTH 09
+SOUTH 09 
 EVENT 04
 
 ROOM_BEGIN
 05
-House room 
-There is a house, there are ways to the north, east, south and west. 
-NORTH 07 
+House room
+There is a house, there are ways to the north, east, south and west.
+NORTH 07
 EAST 08
 WEST 06
 SOUTH 04
@@ -85,38 +86,38 @@ EVENT 05
 ROOM_BEGIN
 06
 Owner room
-There is a old man, there is a way to the east. 
+There is a old man, there is a way to the east.
 NORTH NULL
-EAST 05 
+EAST 05
 WEST NULL
 SOUTH NULL
 EVENT 06
 
 ROOM_BEGIN
 07
-In House room 
+In House room
 There are 3 chests, there is a way to the south.
 NORTH NULL
 EAST NULL
 WEST NULL
-SOUTH 05 
+SOUTH 05
 EVENT 07
 
 ROOM_BEGIN
 08
-forest_1 room 
-There is nothing here just forest, there is a way to the west. 
+forest_1 room
+There is nothing here just forest, there is a way to the west.
 NORTH NULL
 EAST NULL
-WEST 05 
+WEST 05
 SOUTH NULL
 EVENT 08
 
 ROOM_BEGIN
 09
-Dark soul room 
+Dark soul room
 There is nothing here, there is a way to the north.
-NORTH 04 
+NORTH 04
 EAST NULL
 WEST NULL
 SOUTH NULL
@@ -124,19 +125,19 @@ EVENT 09
 
 ROOM_BEGIN
 10
-in front of city room 
+in front of city room
 There is nothing here, there are ways to the north, south and west.
-NORTH 12 
-EAST NULL
-WEST 04 
-SOUTH 11 
+NORTH 12
+EAST 13
+WEST 04
+SOUTH 11
 EVENT 10
 
 ROOM_BEGIN
 11
-money bag room //Room name
-There is notihng here, there is a way to the north. // Room description
-NORTH 10 
+money bag room
+There is notihng here, there is a way to the north.
+NORTH 10
 EAST NULL
 WEST NULL
 SOUTH NULL
@@ -144,8 +145,8 @@ EVENT 11
 
 ROOM_BEGIN
 12
-no game room //Room name
-There is nothing here, there is a way to the south. // Room description
+no game room
+There is nothing here, there is a way to the south.
 NORTH NULL
 EAST NULL
 WEST NULL
@@ -154,29 +155,29 @@ EVENT 12
 
 ROOM_BEGIN
 13
-city room //Room name
-there is nothing here, there are ways to the east and south. // Room description
+city room
+there is nothing here, there are ways to the east and south.
 NORTH NULL
-EAST 17 
+EAST 17
 WEST NULL
-SOUTH 15 
+SOUTH 15
 EVENT 13
 
 ROOM_BEGIN
 15
-city_1 room //Room name
-There is nothing, there are ways to the north, south. // Room description
-NORTH 13 
+city_1 room
+There is nothing, there are ways to the north, south.
+NORTH 13
 EAST NULL
 WEST NULL
-SOUTH 16 
+SOUTH 16
 EVENT 15
 
 ROOM_BEGIN
 16
-garbage room //Room name
-There is nothing here, there is a way to the north. // Room description
-NORTH 15 
+garbage room
+There is nothing here, there is a way to the north.
+NORTH 15
 EAST NULL
 WEST NULL
 SOUTH NULL
@@ -184,39 +185,39 @@ EVENT 16
 
 ROOM_BEGIN
 17
-princess room //Room name
-There is nothing here, there are ways to the east and west. // Room description
+princess room
+There is nothing here, there are ways to the east and west.
 NORTH NULL
-EAST 20 
-WEST 13 
+EAST 20
+WEST 13
 SOUTH NULL
 EVENT 17
 
-ROOM_BEGIN
+ROOM_BEGI
 20
-market room //Room name
-This place is market, there are ways to the north, east, south and west. // Room description
-NORTH 21 
-EAST 23 
-WEST 17 
+market room
+This place is market, there are ways to the north, east, south and west.
+NORTH 21
+EAST 23
+WEST 17
 SOUTH 22
 EVENT 20
 
-ROOM_BEGIN 
+ROOM_BEGIN
 21
-DOG<- room //Room name
-There is nothing here. a empty room, there is a way to the south. // Room description
-NORTH NULL 
-EAST NULL 
-WEST NULL 
-SOUTH 20 
+DOG<- room
+There is nothing here. a empty room, there is a way to the south.
+NORTH NULL
+EAST NULL
+WEST NULL
+SOUTH 20
 EVENT 21
 
 ROOM_BEGIN
 22
-guild room //Room name
-This place is adventure guild, there is a way to the north. // Room description
-NORTH 20 
+guild room
+This place is adventure guild, there is a way to the north.
+NORTH 20
 EAST NULL
 WEST NULL
 SOUTH NULL
@@ -224,8 +225,8 @@ EVENT 22
 
 ROOM_BEGIN
 23
-exit_city room //Room name
-This is where you begin. a empty room, there are a door to the north and west. // Room description
+exit_city room
+This is where you begin. a empty room, there are a door to the north and west.
 NORTH NULL
 EAST NULL
 WEST NULL
