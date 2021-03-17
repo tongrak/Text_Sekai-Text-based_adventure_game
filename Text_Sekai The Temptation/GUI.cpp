@@ -425,19 +425,139 @@ void GUI::Update_texture(int images)
 	}
 	else if (images == 24)
 	{
-		this->texture.loadFromFile("Resouces/images/.jpg");
+		this->texture.loadFromFile("Resouces/images/Forest.jpg");
 	}
 	else if (images == 25)
 	{
-		this->texture.loadFromFile("Resouces/images/.jpg");
+		this->texture.loadFromFile("Resouces/images/Forest.jpg");
 	}
 	else if (images == 27)
 	{
-		this->texture.loadFromFile("Resouces/images/.jpg");
+		this->texture.loadFromFile("Resouces/images/Forest.jpg");
 	}
 	else if (images == 29)
 	{
+	this->texture.loadFromFile("Resouces/images/Forest.jpg");
+	}
+	else if (images == 31)
+	{
+		this->texture.loadFromFile("Resouces/images/Forest.jpg");
+	}
+	else if (images == 32)
+	{
+	this->texture.loadFromFile("Resouces/images/Forest.jpg");
+	}
+	else if (images == 33) // Merchant
+	{
+	this->texture.loadFromFile("Resouces/images/Merchant33.jpg");
+	}
+	else if (images == 34) // Forest and cave
+	{
+	this->texture.loadFromFile("Resouces/images/ForestCave34.jpg");
+	}
+	else if (images == 35) // Cave1 
+	{
+	this->texture.loadFromFile("Resouces/images/CAVE35.jpg");
+	}
+	else if (images == 36) // Cave2
+	{
+	this->texture.loadFromFile("Resouces/images/CAVE35.jpg");
+	}
+	else if (images == 37) // Cave3
+	{
+	this->texture.loadFromFile("Resouces/images/CaveGoblin01.jpg");
+	}
+	else if (images == 38) // Cave (MineRoom)
+	{
+	this->texture.loadFromFile("Resouces/images/CAVE38.jpg");
+	}
+	else if (images == 39) // Lava Room
+	{
+	this->texture.loadFromFile("Resouces/images/LAVACAVE39.jpg");
+	}
+	else if (images == 40) // goblin Room (Goblin Slayer)
+	{
+	this->texture.loadFromFile("Resouces/images/GoblinNest40.jpg");
+	}
+	else if (images == 41) // Cave
+	{
+	this->texture.loadFromFile("Resouces/images/.CaveGoblin01jpg");
+	}
+	else if (images == 42) // Cave
+	{
+	this->texture.loadFromFile("Resouces/images/CAVE35.jpg");
+	}
+	else if (images == 43) // spider 
+	{
+	this->texture.loadFromFile("Resouces/images/SpiderNest43.1.jpg");
+	}
+	else if (images == 44) // White Dragon
+	{
+	this->texture.loadFromFile("Resouces/images/DragonCave44.jpg");
+	}
+	else if (images == 45) // in front of the demonlord still no done yet
+	{
 	this->texture.loadFromFile("Resouces/images/.jpg");
+	}
+	else if (images == 46) // Nasalik
+	{
+	this->texture.loadFromFile("Resouces/images/Nazarick46.jpg");
+	}
+	else if (images == 47) // dark forest
+	{
+	this->texture.loadFromFile("Resouces/images/DarkForest47.jpg");
+	}
+	else if (images == 48) // dark forest
+	{
+	this->texture.loadFromFile("Resouces/images/DarkForest47.jpg");
+	}
+	else if (images == 49) // starting room reuse
+	{
+	this->texture.loadFromFile("Resouces/images/Trucksan0.jpg");
+	}
+	else if (images == 50) // monster1 reuse
+	{
+	this->texture.loadFromFile("Resouces/images/Forest1.jpg");
+	}
+	else if (images == 51) // sword room reuse
+	{
+	this->texture.loadFromFile("Resouces/images/Excalibur02.jpg");
+	}
+	else if (images == 52) // castle path to demon lord room
+	{
+	this->texture.loadFromFile("Resouces/images/DemonPath52.jpg");
+	}
+	else if (images == 53) // demon lord room
+	{
+	this->texture.loadFromFile("Resouces/images/DemonLordRoom53.jpg");
+	}
+	else if (images == 54) // final room What is this
+	{
+	this->texture.loadFromFile("Resouces/images/.jpg");
+	}
+	else if (images == 55) // Cave
+	{
+	this->texture.loadFromFile("Resouces/images/CAVE35.jpg");
+	}
+	else if (images == 56) // Chest richboi
+	{
+	this->texture.loadFromFile("Resouces/images/Treasures57.jpg");
+	}
+	else if (images == 57) // Cave
+	{
+	this->texture.loadFromFile("Resouces/images/CAVE35.jpg");
+	}
+	else if (images == 58) // Cave
+	{
+	this->texture.loadFromFile("Resouces/images/CAVE35.jpg");
+	}
+	else if (images == 59) // Chest richboi
+	{
+	this->texture.loadFromFile("Resouces/images/Treasures59.jpg");
+	}
+	else if (images == 60) // Cave
+	{
+	this->texture.loadFromFile("Resouces/images/CAVE35.jpg");
 	}
 }
 

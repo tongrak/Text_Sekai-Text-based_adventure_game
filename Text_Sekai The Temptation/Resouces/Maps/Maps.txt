@@ -243,14 +243,14 @@ WEST NULL
 SOUTH NULL
 EVENT 23
 
-ROOM_BEGIN 
-24 
+ROOM_BEGIN
+24
 forest_3 room
 There is nothing here, there is a way to the east.
-NORTH NULL 
-EAST 25 
-WEST NULL 
-SOUTH NULL 
+NORTH NULL
+EAST 25
+WEST NULL
+SOUTH NULL
 
 ROOM_BEGIN
 25
