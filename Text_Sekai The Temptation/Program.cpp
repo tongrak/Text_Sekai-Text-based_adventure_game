@@ -125,12 +125,12 @@ bool Data_loading::LoadEvent()
 			getline(file, event_load.event_opt);
 			//load event outcome
 			getline(file, event_load.event_outCome);
-			getline(file, temp1);
 			//load post event 01
 			getline(file, event_load.event_PosOutCome01);
 			//load post event 02
 			getline(file, event_load.event_PosOutCome02);
 			//Spilt
+			getline(file, temp1);
 			temp_int = temp1.find_first_of(" ");
 			temp2 = temp1.substr(temp_int + 1);
 			//check for checkpoint

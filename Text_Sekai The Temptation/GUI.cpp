@@ -42,7 +42,6 @@ void GUI::Update()
 		this->Arrow.setFillColor(sf::Color::White);
 	}
 	else this->Arrow.setFillColor(sf::Color::Black);*/
-
 	this->anyKeyPressed = false;
 }
 //Updating text
@@ -210,22 +209,6 @@ void GUI::AnyInput()
 		{
 		case sf::Event::KeyPressed:
 			this->anyKeyPressed = true;
-			break;
-		default:
-			break;
-		}
-
-	}
-}
-
-void GUI::pollText()
-{
-	while (this->window->pollEvent(this->Eve))
-	{
-		switch (this->Eve.type)
-		{
-		case sf::Event::KeyPressed:
-			this->InitText();
 			break;
 		default:
 			break;
