@@ -10,3 +10,4 @@ NULL //event option, if need be.
 NULL //event outcome. (DEAD and NULL) (Expect two condition for B type event);
 CHECKPOINT NULL //event checkpoint or not. (Expect YES or NULL)
 ***ได้ item ในการจับmonster ในห้อง 27
+***หลังจากกับ monster ได้ You give a ball to merchant and he gives you many torchs as much as you can use in cave.
