@@ -35,10 +35,10 @@ EVENT NULL
 
 ROOM_BEGIN
 01
-forest_0 room
+monster_1 room
 There is nothing here, there are ways to the north, east, south and west.
 NORTH 02
-EAST 04
+EAST 61
 WEST 00
 SOUTH 03
 EVENT 01
@@ -55,7 +55,7 @@ EVENT NULL
 
 ROOM_BEGIN
 03
-slime room
+monster_2 room
 There is nothing here, there is a way to the north.
 NORTH 01
 EAST NULL
@@ -66,21 +66,21 @@ EVENT 03
 ROOM_BEGIN
 04
 Bridge room
-There is a bridge, there are ways to the north, east, south and west.
-NORTH 05
+There is a bridge, there are ways to the east and west.
+NORTH NULL
 EAST 10
-WEST 01
-SOUTH 09
+WEST 61
+SOUTH NULL
 EVENT 04
 
 ROOM_BEGIN
 05
-House room
-There is a house, there are ways to the north, east, south and west.
+in front of house room
+There is a house, you can go north to get inside house, there are ways to the north, east, south and west.
 NORTH 07
 EAST 08
 WEST 06
-SOUTH 04
+SOUTH 61
 EVENT 05
 
 ROOM_BEGIN
@@ -96,7 +96,7 @@ EVENT 06
 ROOM_BEGIN
 07
 In House room
-There are 3 chests, there is a way to the south.
+There are 2 chests, there is a way to the south.
 NORTH NULL
 EAST NULL
 WEST NULL
@@ -105,7 +105,7 @@ EVENT 07
 
 ROOM_BEGIN
 08
-forest_1 room
+forest_2 room
 There is nothing here just forest, there is a way to the west.
 NORTH NULL
 EAST NULL
@@ -115,9 +115,9 @@ EVENT 08
 
 ROOM_BEGIN
 09
-Dark soul room
+forest_08 room
 There is nothing here, there is a way to the north.
-NORTH 04
+NORTH 61
 EAST NULL
 WEST NULL
 SOUTH NULL
@@ -145,13 +145,23 @@ EVENT 11
 
 ROOM_BEGIN
 12
-no game room
-There is nothing here, there is a way to the south.
+strange sibling room
+There is strange sibling here, there is a way to the south.
 NORTH NULL
 EAST NULL
 WEST NULL
 SOUTH 10
 EVENT 12
+
+ROOM_BEGIN
+61
+forest_1 room
+There is nothing here, there are ways to the north, east, south and west.
+NORTH 05
+EAST 04
+WEST 01
+SOUTH 09
+EVENT NULL
 
 ROOM_BEGIN
 13
@@ -193,7 +203,7 @@ WEST 13
 SOUTH NULL
 EVENT 17
 
-ROOM_BEGI
+ROOM_BEGIN
 20
 market room
 This place is market, there are ways to the north, east, south and west.
@@ -228,8 +238,346 @@ ROOM_BEGIN
 exit_city room
 This is where you begin. a empty room, there are a door to the north and west.
 NORTH NULL
-EAST NULL
+EAST 24
 WEST NULL
 SOUTH NULL
 EVENT 23
 
+ROOM_BEGIN 
+24 
+forest_3 room
+There is nothing here, there is a way to the east.
+NORTH NULL 
+EAST 25 
+WEST NULL 
+SOUTH NULL 
+
+ROOM_BEGIN
+25
+forest_4 room
+There is nothing here, there are ways to the east and west.
+NORTH NULL
+EAST 29
+WEST 24
+SOUTH 27
+EVENT NULL
+
+ROOM_BEGIN
+27
+forest_7 room
+There is nothing here, there is a way to the north.
+NORTH 25
+EAST NULL
+WEST NULL
+SOUTH NULL
+EVENT 27
+
+ROOM_BEGIN
+29
+forest_5 room
+There is nothing here, there are ways to the east, south and west.
+NORTH NULL
+EAST 32
+WEST 25
+SOUTH 31
+EVENT NULL
+
+ROOM_BEGIN
+31
+berry room
+There is nothing here, there is a way to the north.
+NORTH 29
+EAST NULL
+WEST NULL
+SOUTH NULL
+EVENT 31
+
+ROOM_BEGIN
+32
+forest_6 room
+There is nothing here, there are ways to the north, east and west.
+NORTH 33
+EAST 34
+WEST 29
+SOUTH NULL
+EVENT NULL
+
+ROOM_BEGIN
+33
+merchant room
+There is a merchant. there is a way to the south.
+NORTH NULL
+EAST NULL
+WEST NULL
+SOUTH 32 
+EVENT 33
+
+ROOM_BEGIN
+34
+in front of cave room
+There is cave, there are ways to the east and west.
+NORTH NULL
+EAST 35
+WEST 32
+SOUTH NULL
+EVENT NULL
+
+ROOM_BEGIN
+35
+cave_1 room
+There is nothing here, there is a way to the east.
+NORTH NULL
+EAST 36
+WEST NULL
+SOUTH NULL
+EVENT 35
+
+ROOM_BEGIN
+36
+cave_2 room
+There is nothing here, there are ways to the north, east, south and west.
+NORTH 38
+EAST 42
+WEST 35
+SOUTH 37
+EVENT NULL
+
+ROOM_BEGIN
+37
+cave_3 room
+There is nothing here, there are ways to the north, east and south.
+NORTH 36
+EAST 40
+WEST NULL
+SOUTH 39
+EVENT NULL
+
+ROOM_BEGIN
+38
+mine room
+There are diamond on the wall, there is a way to the south.
+NORTH NULL
+EAST NULL
+WEST NULL
+SOUTH 36
+EVENT 38
+
+ROOM_BEGIN
+39
+lava room
+There is lava, there is a way to the north.
+NORTH 37
+EAST NULL
+WEST NULL
+SOUTH NULL
+EVENT 39
+
+ROOM_BEGIN
+40
+goblin room
+This is place is goblin's nest, there are ways to the north, east, south and west.
+NORTH 57
+EAST 55
+WEST 37
+SOUTH 41
+EVENT 40
+
+ROOM_BEGIN
+41
+cave_4 room
+There is nothing here, there are ways to the north and east.
+NORTH 40
+EAST 60
+WEST NULL
+SOUTH NULL
+EVENT NULL
+
+ROOM_BEGIN
+42
+cave_5 room
+There is nothing here, there are way to the north, east and west.
+NORTH 43
+EAST 44
+WEST 36
+SOUTH NULL
+EVENT NULL
+
+ROOM_BEGIN
+43
+spider room
+This is spider's nest, there is a way to the south.
+NORTH NULL
+EAST NULL
+WEST NULL
+SOUTH 42
+EVENT 43
+
+ROOM_BEGIN
+44
+dragon room
+There is nothing here, there are way to the east and west.
+NORTH NULL
+EAST 45
+WEST 42
+SOUTH NULL
+EVENT 44
+
+ROOM_BEGIN
+55
+cave_9 room
+There is nothing here, there is a way to the west.
+NORTH NULL
+EAST NULL
+WEST 55
+SOUTH NULL
+EVENT 55
+
+ROOM_BEGIN
+56
+chest room
+There is a chest, there is a way to the west.
+NORTH NULL
+EAST NULL
+WEST 60
+SOUTH NULL
+EVENT 56
+
+ROOM_BEGIN
+57
+cave_7 room
+There is nothing here, there are ways to the east and south.
+NORTH NULL
+EAST 58
+WEST NULL
+SOUTH 40
+EVENT NULL
+
+ROOM_BEGIN
+58
+cave_8 room
+There is nothing here, there are ways to the west and east.
+NORTH NULL
+EAST 59
+WEST 57
+SOUTH NULL
+EVENT NULL
+
+ROOM_BEGIN
+59
+chest room
+There is a chest, there is a way to the west.
+NORTH NULL
+EAST NULL
+WEST 58
+SOUTH NULL
+EVENT 59
+
+ROOM_BEGIN
+60
+cave_6 room
+There is nothing here, there are ways to the north and east.
+NORTH NULL
+EAST 56
+WEST 41
+SOUTH NULL
+EVENT NULL
+
+ROOM_BEGIN
+45
+in_front_of_castle room
+This is where you begin. a empty room, there are a door to the north and west.
+NORTH 46
+EAST 52
+WEST NULL
+SOUTH 47
+EVENT 45
+
+ROOM_BEGIN
+46
+strange castle room
+This castle looks strange, there is a way to the south.
+NORTH NULL
+EAST NULL
+WEST NULL
+SOUTH 45
+EVENT 46
+
+ROOM_BEGIN
+47
+dark forest_1 room
+There is nothing here, there are ways to the north and east.
+NORTH 45
+EAST 48
+WEST NULL
+SOUTH NULL
+EVENT NULL
+
+ROOM_BEGIN
+48
+dark forest_2 room
+There is nothing here, there are way to the east and west.
+NORTH NULL
+EAST 49
+WEST 47
+SOUTH NULL
+EVENT NULL
+
+ROOM_BEGIN
+49
+starting room
+There is nothing here, there are way to the east and west.
+NORTH NULL
+EAST 50
+WEST 48
+SOUTH NULL
+EVENT NULL
+
+ROOM_BEGIN
+50
+monster_1 room
+There is nothing here, there are way to the north and west.
+NORTH 51
+EAST NULL
+WEST 49
+SOUTH NULL
+EVENT 50
+
+ROOM_BEGIN
+51
+Sword room
+There is nothing here, there is a way to the south.
+NORTH NULL
+EAST NULL
+WEST NULL
+SOUTH 50
+EVENT 51
+
+ROOM_BEGIN
+52
+castle_1 room
+There is nothing here, there are way to the east and west.
+NORTH NULL
+EAST 53
+WEST 45
+SOUTH NULL
+EVENT 52
+
+ROOM_BEGIN
+53
+demon lord room
+This room is room where you fight with demon lord, there are way to the east and west.
+NORTH NULL
+EAST 54
+WEST 52
+SOUTH NULL
+EVENT 53
+
+ROOM_BEGIN
+54
+final room
+There is nothing here, there is a way to west.
+NORTH NULL
+EAST NULL
+WEST 53
+SOUTH NULL
+EVENT 54

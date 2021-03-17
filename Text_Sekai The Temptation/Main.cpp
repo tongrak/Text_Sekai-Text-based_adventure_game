@@ -4,7 +4,7 @@
 #include<Windows.h>
 
 //Declare some object
-std::string holdmap;
+//std::string holdmap;
 GUI gui;
 Data_loading load;
 Player kami;
@@ -24,8 +24,6 @@ Player::Player()
 {
 	this->Is_alive = true;
 	this->Coin =  0;
-	this->R_04 = true;
-	this->R_07 = true;
 
 
 	if (load.LoadMaps()) std::cout << "Main::load Map loading and storing successfully" << std::endl;
@@ -47,6 +45,17 @@ void Player::RemoveItem(int item_key)
 }
 
 //Checking function
+bool Player::CheckBasicCon() //Checking for basic condition for continue looping
+{
+	if (this->Is_alive) return true;
+	else
+	{
+		kami.SetGUIclear();
+		kami.setGUIdead();
+		kami.Hold();
+		return false;
+	}
+}
 
 void Player::CheckInputText(std::string key, std::string wanted)
 {
@@ -60,6 +69,7 @@ void Player::CheckInputText(std::string key, std::string wanted)
 			kami.UpdatingTextInGen(load.GetDes());
 		}
 		else std::cout << "Player::CheckInputText something went worng"<< std::endl;
+
 	}
 	else if (key == "look")
 	{
@@ -74,7 +84,7 @@ void Player::CheckInputText(std::string key, std::string wanted)
 	else if (key == "exit")
 	{
 		kami.SetGUIclear();
-		//gui.UpdateText_line4("go already?");
+		gui.UpdateText_line4("go already?");
 		bool veri = false;
 		std::string temp_input;
 		do {
@@ -105,7 +115,7 @@ void Player::CheckInputText(std::string key, std::string wanted)
 
 bool Player::CheckInputDir(std::string wanted)
 {
-	std::string holder = "";
+	std::string holder;
 	bool check = false;
 	unsigned int temp_int = 0;
 	for (auto i : load.Direction) 
@@ -113,7 +123,7 @@ bool Player::CheckInputDir(std::string wanted)
 		if (wanted == i && load.GetNeighbors(temp_int, holder) != "NULL")
 		{
 			load.ChangeCurrentID(std::stoi(holder));
-			::holdmap = holder;
+			kami.CheckSpecialEvent();
 			check = true;
 		}
 		temp_int++;
@@ -130,6 +140,7 @@ void Player::CheckEvent()
 		int hol_int = std::stoi(hol_str);
 		load.ChangeEventID(hol_int);
 		kami.CheckCheckPoint();
+		kami.CheckSpecialEvent();
 		if (!load.GetEventAct())
 		{
 			std::string hol_str, s1, s2 , o1, o2;
@@ -138,13 +149,13 @@ void Player::CheckEvent()
 			switch (load.GetEventType())
 			{
 			case 'S': //Cut-scene
-				//std::cout << "Player::CheckEvent got S-type event." << std::endl;
+				std::cout << "Player::CheckEvent got S-type event." << std::endl;
 				gui.UpdateText_title(load.GetEventName());
 				kami.UpdatingTextInGen(load.GetEventDes());
 				gui.Render();
 				do
 				{
-					//std::cout << "Player::CheckEvent I'm in S-loop" << std::endl;
+					std::cout << "Player::CheckEvent I'm in S-loop" << std::endl;
 					gui.pollEvent();
 					if (gui.CheckAnyPress())
 						check = true;
@@ -152,11 +163,11 @@ void Player::CheckEvent()
 				kami.SetGUIlook();
 				break;
 			case 'B': //Two option scene
-				//std::cout << "Player::CheckEvent got B-type event." << std::endl;
+				std::cout << "Player::CheckEvent got B-type event." << std::endl;
 				gui.UpdateText_title(load.GetEventName());
 				kami.UpdatingTextInGen(load.GetEventDes());
 				hol_str = load.GetEventOpt();
-				//std::cout << "Player::CheckEvent got option: " << hol_str<< std::endl;
+				std::cout << "Player::CheckEvent got option: " << hol_str<< std::endl;
 				SplitString(hol_str, s1, s2);
 				gui.UpdateText_line4("Please enter " + s1 + " " + s2);
 				SplitString(load.GetEventOutC(), o1, o2);
@@ -185,19 +196,22 @@ void Player::CheckEvent()
 							}
 							check = true;
 						}
+						else
+						{
+							gui.UpdateText_line4("Please type in: 1 or 2");
+						}
 					}
 					gui.Update();
 					gui.Render();
 				} while (!check);
 				kami.Hold();
-				kami.SetGUIlook();
 				break;
 			case 'T': //Three option scene
-				//std::cout << "Player::CheckEvent got T-type event." << std::endl;
+				std::cout << "Player::CheckEvent got T-type event." << std::endl;
 				gui.UpdateText_title(load.GetEventName());
 				kami.UpdatingTextInGen(load.GetEventDes());
 				hol_str = load.GetEventOpt();
-				//std::cout << "Player::CheckEvent got option: " << hol_str << std::endl;
+				std::cout << "Player::CheckEvent got option: " << hol_str << std::endl;
 				SplitString(hol_str, s1, s2);
 				gui.UpdateText_line4("Please enter " + s1 + " " + s2);
 				SplitString(load.GetEventOutC(), o1, o2);
@@ -232,12 +246,15 @@ void Player::CheckEvent()
 							}
 							check = true;
 						}
+						else
+						{
+							gui.UpdateText_line4("Please type in: 1 or 2");
+						}
 					}
 					gui.Update();
 					gui.Render();
 				} while (!check);
 				kami.Hold();
-				kami.SetGUIlook();
 			default:
 				std::cout << "Player::CheckEvent Check" << std::endl;
 				break;
@@ -266,7 +283,7 @@ void Player::CheckSpecialEvent()
 	/*Room with special event:
 	roomID  Name		note
 	2	    sword		(repeat) Dead andf go back
-	4		Bridge		Check:Wooden_board
+	4		Brige		Check:Wooden_board
 	7		Cabi_st		Check:Owner_permit
 	10		Gate		Check:coin(X)
 	23		ou_Citi		Check:Guild_direc
@@ -278,108 +295,6 @@ void Player::CheckSpecialEvent()
 	53		Demon-load	Check:Sword
 	54		Princess	Check:Pillow, 3 choices
 	*/
-	bool check = false;
-	std::string holder;
-	int hol_id = load.GetCurrentID();
-		
-		if(hol_id == 2 && Is_alive)
-		{
-			gui.Update_texture("02");
-			gui.UpdateText_title(load.GetName());
-			kami.UpdatingTextInGen(load.GetDes());
-			gui.UpdateText_line4("1)take 2)let it be");
-			do{
-				gui.Update();
-				if (gui.ChecknGetInputStr(holder))
-				{
-					if (holder == "1")
-					{
-						kami.UpdatingTextInGen("High voltage electrical power flow throught your body, and kill you instantly");
-						kami.DeclareDead();
-						kami.Hold();
-						check = true;
-					}
-					if (holder == "2")
-					{
-						kami.UpdatingTextInGen("you design to leave the sword");
-						load.ChangeCurrentID(1);
-						kami.Hold();
-						kami.SetGUIlook();
-						check = true;
-					}
-				}
-				gui.Render();
-			} while (!check);
-		}
-		if (hol_id == 4 && Is_alive && R_04)
-		{
-			gui.Update_texture("04");
-			gui.UpdateText_title(load.GetName());
-			kami.UpdatingTextInGen(load.GetDes());
-			gui.UpdateText_line4("1)Go for it!  2)Go back  3)Use Item...");
-			do {
-				gui.Update();
-				if (gui.ChecknGetInputStr(holder))
-				{
-					if (holder == "1")
-					{
-						kami.UpdatingTextInGen("You jump down and try to get accross, but the river deniel your temptation");
-						kami.DeclareDead();
-						kami.Hold();
-						check = true;
-					}
-					if (holder == "2")
-					{
-						kami.UpdatingTextInGen("you fall back");
-						load.ChangeCurrentID(1234567);
-						kami.Hold();
-						kami.SetGUIlook();
-						check = true;
-					}
-					if (holder == "3")
-					{
-						this->hand = this->Inventory.find(101);
-						if (101 == *hand)
-						{
-							kami.UpdatingTextInGen("you use wooden board for repairing the bridge");
-							kami.Hold();
-							kami.RemoveItem(101);
-							this->R_04 = false;
-							check = true;
-						}
-						else
-						{
-							kami.UpdatingTextInGen("you don't have anything to fix the bridge");
-							kami.Hold();
-						}
-						
-					}
-				}
-				gui.Render();
-			} while (!check);
-		}
-		if (hol_id == 7 && Is_alive)
-		{
-			this->hand = this->Inventory.find(111);
-			if (101 != *hand)
-			{
-				kami.SetGUIclear();
-				kami.UpdatingTextInGen("Before you set your foot on the door frame, a arrow enter your chest. Next time ask for permition first");
-				kami.Hold();
-				kami.DeclareDead();
-			}
-		}
-		if (hol_id == 7 && Is_alive)
-		{
-			this->hand = this->Inventory.find(111);
-			if (101 != *hand)
-			{
-				kami.SetGUIclear();
-				kami.UpdatingTextInGen("Before you set your foot on the door frame, a arrow enter your chest. Next time ask for permition first");
-				kami.Hold();
-				kami.DeclareDead();
-			}
-		}
 }
 
 void Player::DeclareDead()
@@ -454,10 +369,6 @@ void Player::Hold()
 }
 
 
-
-
-
-
 int main()
 {
 	std::string holder, t1="", t2="";
@@ -466,11 +377,12 @@ int main()
 	kami.SetGUIstarting();
 	while (gui.Running())
 	{
-		gui.Update();
+		kami.CheckEvent();
 		kami.CheckSpecialEvent();
-		if(kami.Is_alive)
+		if(kami.CheckBasicCon())
 		{
-			kami.CheckEvent();
+			
+			kami.SetGUIlook();
 			//check
 			if (gui.ChecknGetInputStr(holder))
 			{
@@ -480,24 +392,24 @@ int main()
 		}
 		else
 		{
-			kami.SetGUIclear();
-			kami.setGUIdead();
 			if (gui.ChecknGetInputStr(holder))
 			{
 				if (holder == "yes")
 				{
 					kami.Is_alive = true;
 					load.ChangeCurrentID(load.GetLastCheck());
-					kami.SetGUIlook();
 				}
 				else if (holder == "no")
 				{
 					gui.ForceClose();
 				}
 			}
-		}		
+		}
+		//update
+		gui.Update();
 
-		gui.Update_texture(::holdmap);
+		//gui.Update_BG(::holdmap);
+		gui.Update_texture(load.GetCurrentID());
 
 			//render
 		gui.Render();
