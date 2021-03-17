@@ -12,6 +12,8 @@ GUI::GUI()
 	this->InitVar();
 	this->InitWindow();
 	this->InitText();
+	this->InitSprite();
+	this->InitTexture();
 }
 
 GUI::~GUI()
@@ -156,6 +158,10 @@ void GUI::pollEvent()
 				std::cout << "Event::Eve You just pressed Escape buttom" << std::endl;
 				this->window->close();
 			}
+			else if (this->Eve.key.code == sf::Keyboard::F1) 
+			{
+				this->Update_texture(01);
+			}
 			break;
 		//Showing current resolutiom if changed.
 		case sf::Event::Resized:
@@ -229,7 +235,7 @@ void GUI::InitWindow()
 
 void GUI::InitText()
 {
-	//loading font
+	//loading font, Map
 	if (this->texture.loadFromFile("Resouces/images/CAVE 1.jpg")) 
 	{
 		std::cout << "GUI::text loaded successfully" << std::endl;
@@ -279,15 +285,27 @@ void GUI::InitText()
 }
 
 
-void GUI::InitSprite() {
+void GUI::InitSprite() 
+{
 	this->in_game.setTexture(this->texture);
-	this->in_game.setTextureRect(sf::IntRect(200, 200, 1000, 1000));
-	/*this->in_game.setPosition*/
+	this->in_game.setPosition(200 ,100);
 
 }
 
-void GUI::InitTexture() {
-	this->texture.setRepeated(true);
+void GUI::InitTexture() 
+{
+	this->texture.setRepeated(false);
+}
+
+void GUI::Update_texture(int images) 
+{
+	if (images == 01) {
+		this->texture.loadFromFile("Resouces/images/Forest1.jpg");
+	}
+}
+
+void GUI::Update_BG()
+{
 }
 
 void GUI::ForceClose()
