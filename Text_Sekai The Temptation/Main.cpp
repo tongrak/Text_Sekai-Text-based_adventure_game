@@ -4,6 +4,7 @@
 #include<Windows.h>
 
 //Declare some object
+std::string holdmap;
 GUI gui;
 Data_loading load;
 Player kami;
@@ -112,6 +113,7 @@ bool Player::CheckInputDir(std::string wanted)
 		if (wanted == i && load.GetNeighbors(temp_int, holder) != "NULL")
 		{
 			load.ChangeCurrentID(std::stoi(holder));
+			::holdmap = holder;
 			check = true;
 		}
 		temp_int++;
@@ -262,6 +264,7 @@ void Player::setGUIdead()
 
 
 
+
 int main()
 {
 	std::string holder, t1="", t2="";
@@ -281,6 +284,8 @@ int main()
 
 			//update
 			gui.Update();
+
+			gui.Update_texture(::holdmap);
 
 			//render
 			gui.Render();
