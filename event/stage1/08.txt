@@ -1,0 +1,10 @@
+EVENT_BEGIN
+08 //event id
+herb sence //name
+You have found a plant, you check it with your skill so it show text "protect and cure from poison for hour". //description
+TYPE B //event type. (B for two option event, C for combat event, S for cutscene)
+1)pick it 2)not pick it //event option, if need be.
+You recieve a herb. // item 
+Suddenly a rabbit show up and eat that plant then it run away.
+NULL NULL//event outcome. (DEAD and NULL) (Expect two condition for B type event);
+CHECKPOINT YES //event checkpoint or not. (Expect YES or NULL)

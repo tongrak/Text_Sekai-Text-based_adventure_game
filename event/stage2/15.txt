@@ -1,0 +1,8 @@
+EVENT_BEGIN
+15 //event id
+city_1 sence //name
+You see the sign "in the next room is litter.". //description
+TYPE S //event type. (B for two option event, C for combat event, S for cutscene)
+NULL //event option, if need be.
+NULL //event outcome. (DEAD and NULL) (Expect two condition for B type event);
+CHECKPOINT NULL //event checkpoint or not. (Expect YES or NULL)

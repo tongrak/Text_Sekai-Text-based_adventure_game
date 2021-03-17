@@ -37,12 +37,12 @@ Player::~Player()
 //Checking function
 bool Player::CheckBasicCon() //Checking for basic condition for continue looping
 {
-	kami.CheckEvent();
 	if (this->Is_alive) return true;
 	else
 	{
 		kami.SetGUIclear();
 		kami.setGUIdead();
+		kami.Hold();
 		return false;
 	}
 }
@@ -56,7 +56,7 @@ void Player::CheckInputText(std::string key, std::string wanted)
 		{
 			std::cout << "Player::CheckInputText got direction" << std::endl;
 			kami.SetGUIclear();
-			kami.UpdatingRoomText();
+			kami.UpdatingTextInGen(load.GetDes());
 		}
 		else std::cout << "Player::CheckInputText something went worng"<< std::endl;
 
@@ -114,7 +114,6 @@ bool Player::CheckInputDir(std::string wanted)
 		{
 			load.ChangeCurrentID(std::stoi(holder));
 			kami.CheckSpecialEvent();
-			::holdmap = holder;
 			check = true;
 		}
 		temp_int++;
@@ -141,7 +140,8 @@ void Player::CheckEvent()
 			{
 			case 'S': //Cut-scene
 				std::cout << "Player::CheckEvent got S-type event." << std::endl;
-				kami.UpdatingEventText();
+				gui.UpdateText_title(load.GetEventName());
+				kami.UpdatingTextInGen(load.GetEventDes());
 				gui.Render();
 				do
 				{
@@ -153,29 +153,48 @@ void Player::CheckEvent()
 				kami.SetGUIlook();
 				break;
 			case 'B': //Two option scene
-			/*
-					Check:
-					-	Is Event been active or not;
-					Display text from:
-					-	load.GetEventName on name_line;
-					-	load.GetEventDes on text_line;
-					-	load.GetEventOpt on last text_line;
-					Expect:
-					-	player to input said Option, if valid active EventCondition;
-			*/
 				std::cout << "Player::CheckEvent got B-type event." << std::endl;
-				kami.UpdatingEventText();
+				gui.UpdateText_title(load.GetEventName());
+				kami.UpdatingTextInGen(load.GetEventDes());
 				hol_str = load.GetEventOpt();
 				std::cout << "Player::CheckEvent got option: " << hol_str<< std::endl;
 				SplitString(hol_str, s1, s2);
 				gui.UpdateText_line4("Please enter " + s1 + " " + s2);
-				gui.Render();
-				hol_str = load.GetEventOutC();
-				SplitString(hol_str, o1, o2);
+				SplitString(load.GetEventOutC(), o1, o2);
 				do
 				{
-					check = true;
+					gui.pollEvent();
+					if (gui.ChecknGetInputStr(hol_str))
+					{
+						if (hol_str == "1")
+						{
+							kami.SetGUIclear();
+							kami.UpdatingTextInGen(load.GetEventPos1());
+							if(o1 == "DEAD")
+							{
+								kami.DeclareDead();
+							}
+							check = true;
+						}
+						else if (hol_str == "2")
+						{
+							kami.SetGUIclear();
+							kami.UpdatingTextInGen(load.GetEventPos2());
+							if (o2 == "DEAD")
+							{
+								kami.DeclareDead();
+							}
+							check = true;
+						}
+						else
+						{
+							gui.UpdateText_line4("Please type in: 1 or 2");
+						}
+					}
+					gui.Update();
+					gui.Render();
 				} while (!check);
+				kami.Hold();
 
 
 				break;
@@ -239,24 +258,10 @@ void Player::DeclareDead()
 	kami.Is_alive = false;
 }
 
-void Player::UpdatingRoomText()
+void Player::UpdatingTextInGen(std::string in_text)
 {
 	gui.UpdateText_title(load.GetName());
-	load.SentenceSpliter(load.GetDes(), load.SplitedLine);
-	gui.UpdateText_line1(load.SplitedLine[0]);
-	gui.UpdateText_line2(load.SplitedLine[1]);
-	gui.UpdateText_line3(load.SplitedLine[2]);
-	gui.UpdateText_line4(load.SplitedLine[3]);
-	for (int i = 0; i < 4; i++)
-	{
-		load.SplitedLine[i] = " ";
-	}
-}
-
-void Player::UpdatingEventText()
-{
-	gui.UpdateText_title(load.GetEventName());
-	load.SentenceSpliter(load.GetEventDes(), load.SplitedLine);
+	load.SentenceSpliter(in_text, load.SplitedLine);
 	gui.UpdateText_line1(load.SplitedLine[0]);
 	gui.UpdateText_line2(load.SplitedLine[1]);
 	gui.UpdateText_line3(load.SplitedLine[2]);
@@ -270,7 +275,7 @@ void Player::UpdatingEventText()
 //Setting function
 void Player::SetGUIlook()
 {
-	kami.UpdatingRoomText();
+	kami.UpdatingTextInGen(load.GetDes());
 }
 
 void Player::SetGUIhelp()
@@ -303,8 +308,20 @@ void Player::SetGUIclear()
 
 void Player::setGUIdead()
 {
+	gui.UpdateText_title("You are History.");
 	gui.UpdateText_line4("Do you want to go back?");
 	std::cout << "Player::SetGUIdead have been activated" << std::endl;
+}
+
+void Player::Hold()
+{
+	bool check = false;
+	do
+	{
+		gui.pollEvent();
+		if (gui.CheckAnyPress())
+			check = true;
+	} while (!check);
 }
 
 
@@ -319,25 +336,40 @@ int main()
 	kami.SetGUIstarting();
 	while (gui.Running())
 	{
+		kami.CheckEvent();
+		kami.CheckSpecialEvent();
 		if(kami.CheckBasicCon())
 		{
+			
+			kami.SetGUIlook();
 			//check
 			if (gui.ChecknGetInputStr(holder))
 			{
 				SplitString(holder, t1, t2);
 				kami.CheckInputText(t1, t2);
 			}
-
-			//update
-			gui.Update();
-
-			gui.Update_texture(::holdmap);
+		}
+		else
+		{
+			if (gui.ChecknGetInputStr(holder))
+			{
+				if (holder == "yes")
+				{
+					kami.Is_alive = true;
+					load.ChangeCurrentID(load.GetLastCheck());
+				}
+				else if (holder == "no")
+				{
+					gui.ForceClose();
+				}
+			}
+		}
+		//update
+		gui.Update();
 
 			//render
 			gui.Render();
 		}
-
-	}
 
 	return 0;
 }

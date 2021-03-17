@@ -118,8 +118,7 @@ public:
 	void DeclareDead();
 
 	//updating GUI
-	void UpdatingRoomText();
-	void UpdatingEventText();
+	void UpdatingTextInGen(std::string);
 	
 	//Setting function
 	void SetGUIlook();
@@ -127,6 +126,9 @@ public:
 	void SetGUIstarting();
 	void SetGUIclear();
 	void setGUIdead();
+
+	//GUI function
+	void Hold();
 
 	//Constructor and distructor
 	Player();

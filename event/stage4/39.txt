@@ -1,0 +1,11 @@
+EVENT_BEGIN
+39 //event id
+lava sence //name
+You wake up in the middle of th forest. //description
+TYPE S //event type. (B for two option event, C for combat event, S for cutscene)
+NULL //event option, if need be.
+NULL //event outcome. (DEAD and NULL) (Expect two condition for B type event);
+CHECKPOINT NULL //event checkpoint or not. (Expect YES or NULL)
+
+**(ถ้ายังไม่มี rod) You have found lave and there are eels that swimming in lava.It looks delicius.
+**(ถ้ามี rod) You use the rod that you pick it from goblin's nest to fish eel. You recieve a eel.

@@ -1,0 +1,9 @@
+EVENT_BEGIN
+21 //event id
+Youjou sence //name
+You hear some voice and around you time is stop"Do you believe in god.". You have to anwser it. //description
+TYPE B //event type. (B for two option event, C for combat event, S for cutscene)
+1)believe
+2)not believe //event option, if need be.
+NULL //event outcome. (DEAD and NULL) (Expect two condition for B type event);
+CHECKPOINT NULL //event checkpoint or not. (Expect YES or NULL)

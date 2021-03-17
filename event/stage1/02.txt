@@ -1,0 +1,10 @@
+EVENT_BEGIN
+02 //event id
+Sword sence //name
+You have found the holy sword that stuck on the rock. //description
+TYPE B //event type. (B for two option event, C for combat event, S for cutscene)
+1)pull it 2)let it be //event option, if need be.
+between you pulled the sword, you were electrocuted until die. // choice 1
+You think you don't have to use it // choice 2
+DEAD NULL //event outcome. (DEAD and NULL) (Expect two condition for B type event);
+CHECKPOINT NULL //event checkpoint or not. (Expect YES or NULL)

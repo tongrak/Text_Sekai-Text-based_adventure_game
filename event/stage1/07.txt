@@ -1,0 +1,11 @@
+EVENT_BEGIN
+07 //event id
+inside house sence //name
+You can get in the house and there are 3 chest. //description
+TYPE B //event type. (B for two option event, C for combat event, S for cutscene)
+1) first chest
+2) second chest //event option, if need be.
+You were bit by snake and die instantly because of poison. // choice 1
+You found equipment that can repair the bridge. // choice 2
+DEAD NULL //event outcome. (DEAD and NULL) (Expect two condition for B type event);
+CHECKPOINT NULL //event checkpoint or not. (Expect YES or NULL)

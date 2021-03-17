@@ -1,0 +1,8 @@
+EVENT_BEGIN
+00 //event id
+starting sence //name
+You wake up in the middle of th forest. //description
+TYPE S //event type. (B for two option event, C for combat event, S for cutscene)
+NULL //event option, if need be.
+NULL //event outcome. (DEAD and NULL) (Expect two condition for B type event);
+CHECKPOINT YES //event checkpoint or not. (Expect YES or NULL)

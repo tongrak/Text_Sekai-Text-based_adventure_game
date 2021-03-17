@@ -1,0 +1,10 @@
+EVENT_BEGIN
+56 //event id
+chest sence //name
+There is a chest that looks expensive and there is a sign "Don't open it!!!". //description
+TYPE B //event type. (B for two option event, C for combat event, S for cutscene)
+1)open it 2)not open it //event option, if need be.
+It is mimic and devour but you don't die and fight back it instantly die but your torch already eaten then you shocked because of darekness.
+You trust the sign so you haven't opened it.
+DEAD NULL //event outcome. (DEAD and NULL) (Expect two condition for B type event);
+CHECKPOINT NULL //event checkpoint or not. (Expect YES or NULL)
