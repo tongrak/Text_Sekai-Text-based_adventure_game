@@ -3,7 +3,7 @@
 #define ROOM_HPP
 
 #include<fstream>
-//#include<iostream>
+#include<iostream>
 #include<string>
 #include<set>
 #include<map>
@@ -134,9 +134,14 @@ public:
 	Player();
 	~Player();
 
+	//Item oganization
+	void AddItem(int );
+	void RemoveItem(int );
+
 private:
 	//Item
 	std::set<int> Inventory;
+	std::set<int>::iterator hand;
 	int Coin;
 };
 

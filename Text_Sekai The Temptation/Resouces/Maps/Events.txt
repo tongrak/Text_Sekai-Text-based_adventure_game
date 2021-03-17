@@ -12,15 +12,15 @@ This is Event text file. Here we store all thing to do with game event.
 //event checkpoint or not. (Expect YES or NULL)
 
 Just testing
-EVENT_BEGIN//
+EVENT_BEGIN
 01
-THIS IS Deadth event
-Here we come to be something in common, dead;
-TYPE B
+This is item event
+It dengerous to go alone, take this.
+TYPE T
 1)yes 2)no
-DEAD NULL
-This is post event text no 1
-this is post event text no 2
+item:112 NULL
+You have receive a sword
+you walk away
 CHECKPOINT NULL
 
 
