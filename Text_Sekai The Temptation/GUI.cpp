@@ -365,6 +365,10 @@ void GUI::Update_texture(std::string images)
 		this->texture.loadFromFile("Resouces/images/Houses05.jpg");
 	}
 	//still no idea about 06
+	else if (images == "06")
+	{
+		this->texture.loadFromFile("Resouces/images/Owner06.jpg");
+	}
 	else if (images == "07")
 	{
 		this->texture.loadFromFile("Resouces/images/InHouseRoom07.jpg");
@@ -393,44 +397,37 @@ void GUI::Update_texture(std::string images)
 	//no room 14
 	else if (images == "15")
 	{
-		this->texture.loadFromFile("Resouces/images/");
+		this->texture.loadFromFile("Resouces/images/City15.jpg");
 	}
 	else if (images == "16")
 	{
-		this->texture.loadFromFile("Resouces/images/");
+		this->texture.loadFromFile("Resouces/images/Gabage16.jpg");
 	}
 	else if (images == "17")
 	{
-		this->texture.loadFromFile("Resouces/images/");
-	}
-	else if (images == "18")
-	{
-		this->texture.loadFromFile("Resouces/images/");
-	}
-	else if (images == "19")
-	{
-		this->texture.loadFromFile("Resouces/images/");
+		this->texture.loadFromFile("Resouces/images/Princess17.jpg");
 	}
 	else if (images == "20")
 	{
-		this->texture.loadFromFile("Resouces/images/");
+		this->texture.loadFromFile("Resouces/images/Market20.jpg");
 	}
 	else if (images == "21")
 	{
-		this->texture.loadFromFile("Resouces/images/");
+		this->texture.loadFromFile("Resouces/images/Market20.jpg");
 	}
 	else if (images == "22")
 	{
-		this->texture.loadFromFile("Resouces/images/");
+		this->texture.loadFromFile("Resouces/images/Guild22.jpg");
 	}
 	else if (images == "23")
 	{
-		this->texture.loadFromFile("Resouces/images/");
+		this->texture.loadFromFile("Resouces/images/Exit23.jpg");
 	}
 }
 
-void GUI::Update_BG()
+void GUI::Update_BG(std::string D)
 {
+	
 }
 
 void GUI::ForceClose()

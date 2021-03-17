@@ -369,6 +369,7 @@ int main()
 		//update
 		gui.Update();
 
+		//gui.Update_BG(::holdmap);
 		gui.Update_texture(::holdmap);
 
 			//render
