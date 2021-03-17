@@ -21,7 +21,9 @@ pink_spider 107
 glove 108
 sword 109
 pillow 110
-Looting_permit 111
+Cabin's permit 111
+Merchant pass 112
+Guild Guide 113
 
 ROOM_BEGIN
 00
@@ -51,7 +53,7 @@ NORTH NULL
 EAST NULL
 WEST NULL
 SOUTH 01
-EVENT 02
+EVENT NULL
 
 ROOM_BEGIN
 03
