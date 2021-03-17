@@ -3,6 +3,7 @@
 #define ROOM_HPP
 
 #include<fstream>
+//#include<iostream>
 #include<string>
 #include<set>
 #include<map>
@@ -27,8 +28,9 @@ struct Event
 	std::string event_des;
 	char event_typ;
 	std::string event_opt;
-	
-	std::string event_condition;
+	std::string event_outCome;
+	std::string event_PosOutCome01;
+	std::string event_PosOutCome02;
 	bool event_check;
 	bool event_act;
 };
@@ -48,6 +50,7 @@ public:
 	bool LoadEvent();
 
 	//Getting Var function 
+	int GetCurrentID();
 	std::string GetName();
 	std::string GetDes();
 	char GetEventType();
@@ -55,6 +58,9 @@ public:
 	std::string GetEventDes();
 	std::string GetEventOpt();
 	std::string GetEventCon();
+	std::string GetEventOutC();
+	std::string GetEventPos1();
+	std::string GetEventPos2();
 	bool GetEventAct();
 	bool GetEventCheck();
 	int GetLastCheck();
@@ -105,10 +111,16 @@ public:
 	bool CheckInputDir(std::string);
 	void CheckEvent();
 	void CheckCheckPoint();
+	//something special
+	void CheckSpecialEvent();
 
 	//Design function
 	void DeclareDead();
 
+	//updating GUI
+	void UpdatingRoomText();
+	void UpdatingEventText();
+	
 	//Setting function
 	void SetGUIlook();
 	void SetGUIhelp();

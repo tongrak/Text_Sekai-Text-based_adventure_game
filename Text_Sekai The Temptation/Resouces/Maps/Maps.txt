@@ -63,14 +63,14 @@ WEST NULL
 SOUTH NULL
 EVENT 03
 
-ROOM_BEGIN 
+ROOM_BEGIN
 04
 Bridge room
 There is a bridge, there are ways to the north, east, south and west.
 NORTH 05
 EAST 10
 WEST 01
-SOUTH 09 
+SOUTH 09
 EVENT 04
 
 ROOM_BEGIN

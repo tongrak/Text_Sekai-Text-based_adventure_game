@@ -7,9 +7,22 @@ This is Event text file. Here we store all thing to do with game event.
 //event type. (B for two option event, T for item event, S for cutscene)
 //event option, if need be.
 //event outcome. (DEAD and NULL) (Expect two condition for B type event);
-//pro-event opt 1
-//pro-event opt 2 
+//post-event opt 1
+//post-event opt 2 
 //event checkpoint or not. (Expect YES or NULL)
+
+Just testing
+EVENT_BEGIN
+01
+THIS IS EVENT NO 10
+Alice was beginning to get very tired of sitting by her sister on the bank, and of having nothing to do: once or twice she had peeped into the book her sister was reading, but it had no pictures or conversations in it, “and what is the use of a book,” thought Alice “without pictures or conversations?”
+TYPE S
+NULL
+NULL
+NULL
+NULL
+CHECKPOINT NULL
+
 
 EVENT_BEGIN
 101
@@ -18,31 +31,39 @@ This is where it all begin. empty, there is not a single thing in the room. two 
 TYPE S
 NULL
 NULL
+NULL
+NULL
 CHECKPOINT YES
 
 EVENT_BEGIN
 102
 The north room
-A big white room, with nothing in side of it, a only way to go is south
+A big white room, with a bottom on the floor, only way to go is south.
 TYPE T
 YES NO 
 item_110 NULL
+You receive a bottom.
+Nothing have happen.
 CHECKPOINT NULL
 
-EVENT_BEGIN
+EVENT_BEGIN//
 103
 Outside
 you can feel the sun light hiting your face, while hearing a sound in the distance
 TYPE S
 NULL 
 NULL
+NULL
+NULL
 CHECKPOINT YES
 
-EVENT_BEGIN
+EVENT_BEGIN//
 104
 You are not suppost to be here.
 go back.
 TYPE B
 What NO
 DEAD DEAD
+You're dead
+You're dead
 CHECKPOINT NULL

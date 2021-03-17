@@ -64,20 +64,32 @@ bool Data_loading::LoadMaps()
 		{
 			x = true;
 			Room room_load;
+			//load room id
 			getline(file, hol_str);
 			hol_int = stoi(hol_str);
+			//td::cout << "Data_loading::LoadMaps room id:" << hol_int << std::endl;
+			//load room name
 			getline(file, room_load.name);
+			//std::cout << "Data_loading::LoadMaps room name: " << room_load.name << std::endl;
+			//load room des
 			getline(file, room_load.des);
+			//std::cout << "Data_loading::LoadMaps room des: " << room_load.des << std::endl;
+			//load room neighboring room id
 			for (unsigned int i = 0; i < 4; i++)
 			{
 				getline(file, hol_str);
 				int temp = hol_str.find_first_of(" ");
+				//std::cout << "Data_loading::LoadMaps neighbor id: " << hol_str.substr(temp + 1) << std::endl;
 				room_load.Neighbor[i] = hol_str.substr(temp + 1);
 			}
+			//load room event id
 			getline(file, hol_str);
 			int temp = hol_str.find_last_of(" ");
 			room_load.eventID = hol_str.substr(temp + 1);
+			//std::cout << "Data_loading::LoadMaps event id: " << hol_str.substr(temp + 1) << std::endl;
+			//Storing
 			roomStorage.insert(pair<int, Room>(hol_int, room_load));
+			//std::cout << std::endl;
 		}
 	}
 	file.close();
@@ -96,8 +108,10 @@ bool Data_loading::LoadEvent()
 		{
 			Event event_load;
 			x = true;
+			//load event id
 			getline(file, hol_str);
 			hol_int = stoi(hol_str);
+			//load event name
 			getline(file, event_load.event_name);
 			getline(file, event_load.event_des);
 			string temp1, temp2;
@@ -105,15 +119,23 @@ bool Data_loading::LoadEvent()
 			getline(file, temp1);
 			int temp_int = temp1.find_first_of(" ");
 			temp2 = temp1.substr(temp_int + 1);
+			//load event type
 			event_load.event_typ = temp2[0];
+			//load event option
 			getline(file, event_load.event_opt);
-			event_load.event_act = false;
-			getline(file, event_load.event_condition);
+			//load event outcome
+			getline(file, event_load.event_outCome);
 			getline(file, temp1);
+			//load post event 01
+			getline(file, event_load.event_PosOutCome01);
+			//load post event 02
+			getline(file, event_load.event_PosOutCome02);
 			//Spilt
 			temp_int = temp1.find_first_of(" ");
 			temp2 = temp1.substr(temp_int + 1);
+			//check for checkpoint
 			(temp2 == "YES") ? event_load.event_check = true : event_load.event_check = false;
+			event_load.event_act = false;
 			eventStorage.insert(pair<int, Event>(hol_int, event_load));
 		}
 	}
@@ -148,6 +170,11 @@ void Data_loading::ChangeLastCheck()
 /*
 	'Getting' function
 */
+int Data_loading::GetCurrentID()
+{
+	return *this->Current_id;
+}
+
 string Data_loading::GetName()
 {
 	return roomStorage[*Current_id].name;
@@ -180,7 +207,22 @@ string Data_loading::GetEventOpt()
 
 string Data_loading::GetEventCon()
 {
-	return eventStorage[*Event_id].event_condition;
+	return eventStorage[*Event_id].event_outCome;
+}
+
+std::string Data_loading::GetEventOutC()
+{
+	return eventStorage[*Event_id].event_outCome;
+}
+
+std::string Data_loading::GetEventPos1()
+{
+	return eventStorage[*Event_id].event_PosOutCome01;
+}
+
+std::string Data_loading::GetEventPos2()
+{
+	return	eventStorage[*Event_id].event_PosOutCome02;
 }
 
 bool Data_loading::GetEventAct()
@@ -206,6 +248,7 @@ string Data_loading::GetNeighbors(int dir, string &holder)
 
 bool Data_loading::ChecknGetEventId(string &holder)
 {
+	//std::cout << "Data_loading::ChecknGetEventId :" << roomStorage[*this->Current_id].eventID << std::endl;
 	if (roomStorage[*this->Current_id].eventID != "NULL")
 	{
 		holder = roomStorage[*this->Current_id].eventID;

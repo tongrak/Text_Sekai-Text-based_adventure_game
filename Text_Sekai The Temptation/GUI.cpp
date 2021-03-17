@@ -42,6 +42,8 @@ void GUI::Update()
 		this->Arrow.setFillColor(sf::Color::White);
 	}
 	else this->Arrow.setFillColor(sf::Color::Black);*/
+
+	this->anyKeyPressed = false;
 }
 //Updating text
 void GUI::UpdateText_title(std::string s1)
@@ -75,6 +77,13 @@ void GUI::UpdateText_line4(std::string s5)
 	this->Text_line4.setString(ss5.str());
 }
 
+void GUI::UpdateText_line5(std::string s6) 
+{
+	std::stringstream ss6;
+	ss6 << s6;
+	this->Text_line4.setString(ss6.str());
+}
+
 void GUI::UpdateText_input()
 {
 	this->Text_input.setString(this->input);
@@ -95,6 +104,7 @@ void GUI::Render()
 	this->RenderText_line2(*this->window);
 	this->RenderText_line3(*this->window);
 	this->RenderText_line4(*this->window);
+	this->RenderText_line5(*this->window);
 
 	this->RenderText_input(*this->window);
 	this->RenderArrow(*this->window);
@@ -121,6 +131,11 @@ void GUI::RenderText_line3(sf::RenderTarget& O)
 void GUI::RenderText_line4(sf::RenderTarget& P)
 {
 	P.draw(this->Text_line4);
+
+}
+void GUI::RenderText_line5(sf::RenderTarget& D)
+{
+	D.draw(this->Text_line5);
 }
 //Input bar
 void GUI::RenderText_input(sf::RenderTarget& O)
@@ -148,14 +163,14 @@ void GUI::pollEvent()
 		{
 		//For close buttom.
 		case sf::Event::Closed:
-			std::cout << "Event::Eve You just pressed X" << std::endl;
+			std::cout << "GUI::pollEvent You just pressed X" << std::endl;
 			this->window->close();
 			break;
 		//For when press Escape key.
 		case sf::Event::KeyPressed:
 			if (this->Eve.key.code == sf::Keyboard::Escape)
 			{
-				std::cout << "Event::Eve You just pressed Escape buttom" << std::endl;
+				std::cout << "GUI::pollEvent You just pressed Escape buttom" << std::endl;
 				this->window->close();
 			}
 			break;
@@ -165,6 +180,7 @@ void GUI::pollEvent()
 			break;
 		//For entering text.
 		case sf::Event::TextEntered:
+			this->anyKeyPressed = true;
 			this->InputText();
 
 		default:
@@ -195,11 +211,47 @@ void GUI::InputText()
 		}
 }
 
+void GUI::AnyInput()
+{
+	while (this->window->pollEvent(this->Eve)) 
+	{
+		switch (this->Eve.type)
+		{
+		case sf::Event::KeyPressed:
+			this->anyKeyPressed = true;
+			break;
+		default:
+			break;
+		}
+
+	}
+}
+
+void GUI::pollText()
+{
+	while (this->window->pollEvent(this->Eve))
+	{
+		switch (this->Eve.type)
+		{
+		case sf::Event::KeyPressed:
+			this->InitText();
+			break;
+		default:
+			break;
+		}
+
+	}
+}
+
+bool GUI::CheckAnyPress()
+{
+	return this->anyKeyPressed;
+}
+
 
 /*
 	Returning function
 */
-
 bool GUI::ChecknGetInputStr(std::string &s1)
 {
 	if (*this->holder != 0)
@@ -219,6 +271,7 @@ bool GUI::ChecknGetInputStr(std::string &s1)
 void GUI::InitVar()
 {
 	this->window = nullptr;
+	this->anyKeyPressed = false;
 }
 
 void GUI::InitWindow()
@@ -245,12 +298,12 @@ void GUI::InitText()
 	this->Text_input.setFont(this->font);
 	this->Text_input.setCharacterSize(23);
 	this->Text_input.setFillColor(sf::Color::Black);
-	this->Text_input.setPosition(75, 800);
+	this->Text_input.setPosition(75, 840);
 	//Setting Arrow
 	this->Arrow.setFont(this->font);
 	this->Arrow.setCharacterSize(23);
 	this->Arrow.setFillColor(sf::Color::Black);
-	this->Arrow.setPosition(50, 800);
+	this->Arrow.setPosition(50, 840);
 	this->Arrow.setString(">");
 
 	//Setting main_ text	
@@ -278,6 +331,13 @@ void GUI::InitText()
 	this->Text_line4.setCharacterSize(23);
 	this->Text_line4.setFillColor(sf::Color::Black);
 	this->Text_line4.setPosition(50, 760);
+
+	this->Text_line5.setFont(this->font);
+	this->Text_line5.setCharacterSize(23);
+	this->Text_line5.setFillColor(sf::Color::Black);
+	this->Text_line5.setPosition(50, 800);
+
+	
 }
 
 
@@ -305,6 +365,77 @@ void GUI::Update_texture(std::string images)
 	else if (images == "03") 
 	{
 		this->texture.loadFromFile("Resouces/images/Forestslime03.jpg");
+	}
+	else if (images == "04") 
+	{
+		this->texture.loadFromFile("Resouces/images/Bridge04.jpg");
+	}
+	else if (images == "05") 
+	{
+		this->texture.loadFromFile("Resouces/images/Houses05.jpg");
+	}
+	//still no idea about 06
+	else if (images == "07")
+	{
+		this->texture.loadFromFile("Resouces/images/InHouseRoom07.jpg");
+	}
+	else if (images == "08")
+	{
+		this->texture.loadFromFile("Resouces/images/Forest02.jpg");
+	}
+	else if (images == "09") 
+	{
+		this->texture.loadFromFile("Resouces/images/Chasm09.jpg");
+	}
+	else if (images == "10")
+	{
+		this->texture.loadFromFile("Resouces/images/FrontDoor10.jpg");
+	}
+	else if (images == "11") 
+	{
+		this->texture.loadFromFile("Resouces/images/Wallet11.jpg");
+	}
+	//still no idea about 12
+	else if (images == "13") 
+	{
+		this->texture.loadFromFile("Resouces/images/City13.jpg");
+	}
+	//no room 14
+	else if (images == "15")
+	{
+		this->texture.loadFromFile("Resouces/images/");
+	}
+	else if (images == "16")
+	{
+		this->texture.loadFromFile("Resouces/images/");
+	}
+	else if (images == "17")
+	{
+		this->texture.loadFromFile("Resouces/images/");
+	}
+	else if (images == "18")
+	{
+		this->texture.loadFromFile("Resouces/images/");
+	}
+	else if (images == "19")
+	{
+		this->texture.loadFromFile("Resouces/images/");
+	}
+	else if (images == "20")
+	{
+		this->texture.loadFromFile("Resouces/images/");
+	}
+	else if (images == "21")
+	{
+		this->texture.loadFromFile("Resouces/images/");
+	}
+	else if (images == "22")
+	{
+		this->texture.loadFromFile("Resouces/images/");
+	}
+	else if (images == "23")
+	{
+		this->texture.loadFromFile("Resouces/images/");
 	}
 }
 
