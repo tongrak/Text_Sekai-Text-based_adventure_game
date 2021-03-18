@@ -1,0 +1,11 @@
+-คุณเดินไปเจอร้านค้าร้านหนึ่งซึ่งมีของเลือกซื้อ
+1)หมอนคุณภาพสูง key item ในการจบtrue ending
+2)potion ฟื้นฟูเลือด
+3)potion ฟื้นฟูmana
+4)ยาถอนพิษ
+-you have found the shop, there are many things sold.
+1)super pillow
+2)Hp potion
+3)Mana potion
+4)Herb
+-there is a way to the south.

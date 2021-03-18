@@ -1,0 +1,3 @@
+-คุณเดินไปเจอเจ้าของบ้านคุณจึงแวะไปทักทายเจ้าของบ้านก่อน และขออนุญาติเข้าของบ้านทำให้สามารถเข้าบ้านได้ แต่เจ้าของบ้านได้เตือนไว้ว่าระวัง"งู"
+-You have found householder. You ask him for permission then householder allow you to go in but he warn you about snake.
+-there is a way to the east.

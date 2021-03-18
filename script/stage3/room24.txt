@@ -1,0 +1,4 @@
+-ถ้าหากไม่ได้"ถามทาง"จากกิลด์ ขึ้นข้อความว่า "เนื่องจากคุณไม่รู้ทางทำให้คุณหลงทางและไม่สามารถไปช่วยเจ้าหญิงได้"
+-คุณเดินออกมาจากเมืองและกลับไปอยู่ในป่าอีกครั้ง
+-Because you don't know a way to go to demon lord's castle. You lost in forest.
+-You exit from city and back in forest again. 

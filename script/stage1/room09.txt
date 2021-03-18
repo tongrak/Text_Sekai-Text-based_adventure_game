@@ -1,0 +1,7 @@
+-คุณมาหยุดอยู่ตรงปากเหวซึ่งมีข้อความเขียนไว้ว่า"กระโดดลงไปสิ มีกล่องสมบัติอยู่ข้างล่าง" คุณมี 2 ทาง
+1)โดด คุณตัดสินใจที่จะกระโดดลงไปซึ่งข้างล่างเป็นแม่น้ำ ทำให้คุณจมน้ำแต่ก่อนจะตายคุณได้เห้นกล่องสมบัติที่มีอยู่จริงๆ
+2)ไม่โดด
+-You have found massage "Jump! there have many tressure."
+1)Jump // you decide to jump into river, you drown berfore you die, you see many tressure.
+2)not jump 
+-there is a way to the north.

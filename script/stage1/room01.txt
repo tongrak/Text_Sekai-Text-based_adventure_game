@@ -1,0 +1,7 @@
+-คุณเจอ monster ตัวหนึ่ง มี ทางเลือก 2 ทางคือ
+1)โจมตี ถ้าเลือกอันนี้โจมตีทีเดียวตาย
+2)ปล่อย monster ตัวนี้ก็จะไปทำร้ายชาวบ้าน ทำให้คุณรู้สึกผิดจนตรอมใจตาย
+-You have found 1 monster.
+1)attack // you hit it 1 time then monster die.
+2)Let it go // the monster hit villager that make you melancholy and die.(game over)
+-there are ways to the north, east, south and west.

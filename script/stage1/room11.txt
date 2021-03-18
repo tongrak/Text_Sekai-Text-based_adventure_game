@@ -1,0 +1,7 @@
+-คุณเดินมาเจอถุงเงินซึ่งใครไม่รู้ทำตกเอาไว้ คุณมี 2 ทาง
+1)เก็บ
+2)ไม่เก็บ
+-you have found  a cash bag
+1)pick it
+2)not pick it
+-there is a way to the north.

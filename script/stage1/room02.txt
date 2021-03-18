@@ -1,0 +1,7 @@
+-คุณเดินไปเจอดาบปักลงอยู่บนหิน ดูท่าดาบเล่มนี้น่าจะเป็นของดี คุณมีทางเลือก 2 ทาง
+1)ไปดึงออก ในระหว่างที่คุณกำลังจับดาบจู่ๆคุณก็ถูกไฟดูดจนตาย
+2)ไปไว้แบบนั้น
+-You have found the holy sword that stuck on the rock.
+1)pull it //between you pulled the sword, you were electrocuted until die.
+2)let it be
+-there is a way to the south.

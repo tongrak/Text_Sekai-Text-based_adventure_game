@@ -1,0 +1,7 @@
+-คุณเจอ slime 1 ตัว คุณมี 2 ทางเลือกคือ
+1)โจมตี ตอนที่คุณกำลังจะฟันจู่ slime ตัวนั้นก็เขมือบคุณเข้าไปทั้งตัว และแล้วคุณก็ถูก slimeตัวนั้นกินเข้าไป
+2)ไม่ยุ่ง
+-You have found 1 slime.
+1)attack it //you were swallowed and were digested until die.
+2)not attack
+-there is a way to the north.
