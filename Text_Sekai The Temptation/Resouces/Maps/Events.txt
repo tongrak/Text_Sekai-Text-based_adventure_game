@@ -77,8 +77,7 @@ EVENT_BEGIN
 inside house sence
 You can get in the house and there are 3 chest.
 TYPE B
-1) first chest
-2) second chest
+1) first chest 2) second chest
 DEAD item:101
 You were bit by snake and die instantly because of poison.
 You found equipment that can repair the bridge.
