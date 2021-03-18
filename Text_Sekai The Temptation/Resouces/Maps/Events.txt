@@ -31,7 +31,7 @@ money bag 115
 EVENT_BEGIN
 00
 starting sence
-You wake up in the middle of th forest.
+After you wake up, you are hurry to check your status and it shows every stat is max level but your weakness and abnormal stat defense is dmg*2 and critical so you have to beware damage from weakness and abnormal stat sush as poison. Now you are somewhere in the middle of th forest.
 TYPE S
 NULL
 NULL
