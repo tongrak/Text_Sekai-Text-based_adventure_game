@@ -389,7 +389,6 @@ void GUI::Update_texture(int images)
 	{
 		this->texture.loadFromFile("Resouces/images/Wallet11.jpg");
 	}
-	//still no idea about 12
 	else if (images == 12) 
 	{
 		this->texture.loadFromFile("Resouces/images/sibling12.jpg");
@@ -399,6 +398,10 @@ void GUI::Update_texture(int images)
 		this->texture.loadFromFile("Resouces/images/City13.jpg");
 	}
 	//no room 14
+	else if (images == 14) 
+	{
+		this->texture.loadFromFile("Resouces/images/City13.jpg");
+	}
 	else if (images == 15)
 	{
 		this->texture.loadFromFile("Resouces/images/City15.jpg");
