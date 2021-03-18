@@ -10,6 +10,22 @@ This is Event text file. Here we store all thing to do with game event.
 //post-event opt 1
 //post-event opt 2 
 //event checkpoint or not. (Expect YES or NULL)
+Item id:
+wood_boards 101
+torch 102
+Poke_berry 103
+Poke_ball 104
+Fish_fillet 105
+Fishing_rod 106
+pink_spider 107
+glove 108
+sword 109
+pillow 110
+Cabin's permit 111
+Merchant pass 112
+Guild Guide 113
+pikachu 114
+
 
 EVENT_BEGIN
 00

@@ -310,6 +310,7 @@ void Player::CheckSpecialEvent()
 					{
 						kami.SetGUIclear();
 						kami.UpdatingTextInGen("High voltage electrical power flow through your body, kill you instantly");
+						gui.Render();
 						kami.DeclareDead();
 						kami.Hold();
 						check = true;
@@ -318,6 +319,7 @@ void Player::CheckSpecialEvent()
 					{
 						kami.SetGUIclear();
 						kami.UpdatingTextInGen("You turn around and walk back");
+						gui.Render();
 						kami.Hold();
 						load.ChangeCurrentID(1);
 						kami.SetGUIlook();
@@ -341,6 +343,7 @@ void Player::CheckSpecialEvent()
 				{
 					kami.SetGUIclear();
 					kami.UpdatingTextInGen("River deniel your attemp and kill you");
+					gui.Render();
 					kami.DeclareDead();
 					kami.Hold();
 					check = true;
@@ -352,6 +355,7 @@ void Player::CheckSpecialEvent()
 					{
 						kami.SetGUIclear();
 						kami.UpdatingTextInGen("you have fixed the bridge, now you can move through it now.");
+						gui.Render();
 						kami.Hold();
 						this->R_04 = false;
 						kami.RemoveItem(101);
@@ -361,6 +365,7 @@ void Player::CheckSpecialEvent()
 					{
 						kami.SetGUIclear();
 						kami.UpdatingTextInGen("you don't have anything to fix it.");
+						gui.Render();
 						kami.Hold();
 					}
 						
@@ -369,6 +374,7 @@ void Player::CheckSpecialEvent()
 				{
 					kami.SetGUIclear();
 					kami.UpdatingTextInGen("you design to fall back, maybe some boards will help on bridge situation.");
+					gui.Render();
 					load.ChangeCurrentID(61);
 					kami.Hold();
 					check = true;
@@ -385,10 +391,11 @@ void Player::CheckSpecialEvent()
 		{
 			kami.SetGUIclear();
 			kami.UpdatingTextInGen("Before you set your foot on the door frame, a arrow enter your chest. Ask for permition next time");
+			gui.Render();
 			kami.DeclareDead();
 			kami.Hold();
 		}
-		gui.Render();
+		
 	}
 	if (hol_int == 10 && Is_alive)
 	{
@@ -416,6 +423,7 @@ void Player::CheckSpecialEvent()
 						this->Coin -= 120;
 						kami.SetGUIclear();
 						kami.UpdatingTextInGen("you may enter said a guard");
+						gui.Render();
 						kami.Hold();
 						load.ChangeCurrentID(11);
 						kami.SetGUIlook();
@@ -425,6 +433,7 @@ void Player::CheckSpecialEvent()
 					{
 						kami.SetGUIclear();
 						kami.UpdatingTextInGen("Enter fee 120 copper coin, pay up or leave");
+						gui.Render();
 						kami.Hold();
 					}
 
@@ -441,10 +450,12 @@ void Player::CheckSpecialEvent()
 		{
 			kami.SetGUIclear();
 			kami.UpdatingTextInGen("walk, and walk you keep walking, but there aren't any cave in sight. Look like you lost. Next time get some guide from professional");
+			gui.Render();
 			kami.DeclareDead();
+			gui.Render();
 			kami.Hold();
 		}
-		gui.Render();
+		
 	}
 	if (hol_int == 27 && Is_alive)
 	{
@@ -465,6 +476,7 @@ void Player::CheckSpecialEvent()
 					{
 						kami.SetGUIclear();
 						kami.UpdatingTextInGen("your attempt to chatch this yellow creature, result you kill by electric shock");
+						gui.Render();
 						kami.Hold();
 						kami.DeclareDead();
 						check = true;
@@ -475,17 +487,28 @@ void Player::CheckSpecialEvent()
 						{
 							kami.SetGUIclear();
 							kami.UpdatingTextInGen("you use throw a ball with color red and white, and manage to capture it");
+							gui.Render();
 							kami.AddItem(114);
 							kami.Hold();
-
 							check = true;
 						}
 						else
 						{
 							kami.SetGUIclear();
 							kami.UpdatingTextInGen("you don't have any mean to catch it");
+							gui.Render();
 							kami.Hold();
 						}
+					}
+					else if (hol_str == "2")
+					{
+						kami.SetGUIclear();
+						kami.UpdatingTextInGen("you need something to loolt ? the ceature first");
+						gui.Render();
+						kami.Hold();
+						load.ChangeCurrentID(25);
+						kami.SetGUIlook();
+						check = true;
 					}
 				}
 				gui.Render();
@@ -506,6 +529,7 @@ void Player::CheckSpecialEvent()
 				{
 					kami.SetGUIclear();
 					kami.UpdatingTextInGen("you turn back");
+					gui.Render();
 					kami.Hold();
 					load.ChangeCurrentID(38);
 					kami.SetGUIlook();
@@ -519,6 +543,7 @@ void Player::CheckSpecialEvent()
 						this->Coin -= 120;
 						kami.SetGUIclear();
 						kami.UpdatingTextInGen("you may enter said a guard");
+						gui.Render();
 						kami.Hold();
 						load.ChangeCurrentID(11);
 						kami.SetGUIlook();
@@ -528,17 +553,10 @@ void Player::CheckSpecialEvent()
 					{
 						kami.SetGUIclear();
 						kami.UpdatingTextInGen("Enter fee 120 copper coin, pay up or leave");
+						gui.Render();
 						kami.Hold();
 					}
 
-				}
-				else if (hol_str == "3")
-				{
-					kami.SetGUIclear();
-					kami.UpdatingTextInGen("you design to fall back, maybe some boards will help on bridge situation.");
-					load.ChangeCurrentID(61);
-					kami.Hold();
-					check = true;
 				}
 			}
 			gui.Render();
