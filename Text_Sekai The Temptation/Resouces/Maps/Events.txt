@@ -130,5 +130,13 @@ You think this is strange so you deny them.
 DEAD NULL
 CHECKPOINT NULL
 
-
+EVENT_BEGIN
+20
+market sence
+While you are walking through market, cheif come to you and ask you for tasting his food.
+TYPE B
+1)tast it
+2)not taste it
+NULL //event outcome.
+CHECKPOINT NULL 
 
