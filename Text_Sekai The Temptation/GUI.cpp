@@ -342,7 +342,7 @@ void GUI::Update_texture(int images)
 {
 	if (images == 0) 
 	{
-		this->texture.loadFromFile("Resouces/images/Trucksan0.jpg");
+		this->texture.loadFromFile("Resouces/images/Title.jpg");
 	}
 
 	else if (images == 1) {
@@ -390,6 +390,10 @@ void GUI::Update_texture(int images)
 		this->texture.loadFromFile("Resouces/images/Wallet11.jpg");
 	}
 	//still no idea about 12
+	else if (images == 12) 
+	{
+		this->texture.loadFromFile("Resouces/images/sibling12.jpg");
+	}
 	else if (images == 13) 
 	{
 		this->texture.loadFromFile("Resouces/images/City13.jpg");
@@ -495,9 +499,9 @@ void GUI::Update_texture(int images)
 	{
 	this->texture.loadFromFile("Resouces/images/DragonCave44.jpg");
 	}
-	else if (images == 45) // in front of the demonlord still no done yet
+	else if (images == 45) // in front of the demonlord
 	{
-	this->texture.loadFromFile("Resouces/images/.jpg");
+	this->texture.loadFromFile("Resouces/images/infrontofDemonLord.jpg");
 	}
 	else if (images == 46) // Nasalik
 	{
@@ -533,7 +537,7 @@ void GUI::Update_texture(int images)
 	}
 	else if (images == 54) // final room What is this
 	{
-	this->texture.loadFromFile("Resouces/images/.jpg");
+	this->texture.loadFromFile("Resouces/images/FinalRoom.jpg");
 	}
 	else if (images == 55) // Cave
 	{
