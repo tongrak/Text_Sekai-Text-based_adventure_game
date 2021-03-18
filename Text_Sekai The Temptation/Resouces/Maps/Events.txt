@@ -172,6 +172,15 @@ You think you just thinking of.
 CHECKPOINT NULL
 
 EVENT_BEGIN
+25
+outside city sence
+Finally you can get out from the city.
+TYPE S
+NULL
+NULL
+CHECKPOINT YES
+
+EVENT_BEGIN
 31
 berries sence
 You have found berries.

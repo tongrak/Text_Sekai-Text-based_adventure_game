@@ -524,7 +524,7 @@ void GUI::Update_texture(int images)
 	}
 	else if (images == 50) // monster1 reuse
 	{
-	this->texture.loadFromFile("Resouces/images/Forest1.jpg");
+	this->texture.loadFromFile("Resouces/images/Forest01.jpg");
 	}
 	else if (images == 51) // sword room reuse
 	{
