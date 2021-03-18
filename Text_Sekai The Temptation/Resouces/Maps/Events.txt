@@ -44,7 +44,7 @@ fighting sence //name
 You have found 1 monster. //description
 TYPE B
 1)attack 2)Let it go
-NULL DEAD
+NULL DEAD 
 you hit it 1 time then monster die. //choice 1
 the monster hit villager that make you melancholy and die. //choice 2
 CHECKPOINT NULL

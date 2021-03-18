@@ -559,6 +559,15 @@ void GUI::Update_texture(int images)
 	{
 	this->texture.loadFromFile("Resouces/images/CAVE35.jpg");
 	}
+	else if (images == 61) // Forest
+	{
+	this->texture.loadFromFile("Resouces/images/Forest.jpg");
+	}
+	else if (images == 62) // Forest
+	{
+	this->texture.loadFromFile("Resouces/images/Forest.jpg");
+	}
+
 }
 
 void GUI::Update_BG(std::string D)
