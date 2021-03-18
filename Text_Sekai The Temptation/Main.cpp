@@ -25,7 +25,13 @@ Player::Player()
 	this->Is_alive = true;
 	this->Coin =  0;
 	this->R_04 = true;
+	this->R_06 = true;
+	this->R_16 = true;
+	this->R_33 = true;
+	this->R_33_1 = true;
 	this->R_43 = true;
+	this->R_51 = true;
+	this->R_53 = true;
 
 	if (load.LoadMaps()) std::cout << "Main::load Map loading and storing successfully" << std::endl;
 	if (load.LoadEvent()) std::cout << "Main::load Event loading and storing successfully" << std::endl;
@@ -219,7 +225,7 @@ void Player::CheckEvent()
 							}
 							else if (o2 != "NULL")
 							{
-								int temp = o2.find_last_of("_");
+								int temp = o2.find_last_of(":");
 								hol_str = o2.substr(temp + 1);
 								kami.AddItem(std::stoi(hol_str));
 								std::cout << "Player::EventCheck got ItemID: " << std::stoi(hol_str) << std::endl;
@@ -367,6 +373,7 @@ void Player::CheckSpecialEvent()
 	}
 	if (hol_int == 6 && Is_alive && R_06)
 	{
+		std::cout << "Player::Speacial you are in Special no6" << std::endl;
 		gui.Update_texture(6);
 		kami.SetGUIclear();
 		kami.UpdatingTextInGen("you ask the cabin owen for looting permition. 'Sure, But beaware of a snake'");
@@ -374,7 +381,6 @@ void Player::CheckSpecialEvent()
 		R_06 = false;
 		gui.Render();
 		kami.Hold();
-
 	}
 	if (hol_int == 7 && Is_alive)
 	{
@@ -459,7 +465,7 @@ void Player::CheckSpecialEvent()
 	if (hol_int == 24 && Is_alive)
 	{
 		gui.Update_texture(7);
-		if (kami.ChecknGetItemPosi(113, hol_item))
+		if (!kami.ChecknGetItemPosi(113, hol_item))
 		{
 			kami.SetGUIclear();
 			kami.UpdatingTextInGen("walk, and walk you keep walking, but there aren't any cave in sight. Look like you lost. Next time get some guide from professional");

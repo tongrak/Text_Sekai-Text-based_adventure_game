@@ -111,12 +111,12 @@ bool Data_loading::LoadEvent()
 			//load event id
 			getline(file, hol_str);
 			hol_int = stoi(hol_str);
-			std::cout << "Data_loading::Loadmap EventID: " << hol_int << std::endl;
+			//std::cout << "Data_loading::Loadmap EventID: " << hol_int << std::endl;
 			//load event name
 			getline(file, event_load.event_name);
-			std::cout << "name: " << event_load.event_name << std::endl;
+			//std::cout << "name: " << event_load.event_name << std::endl;
 			getline(file, event_load.event_des);
-			std::cout << "Des: " << event_load.event_des << std::endl;
+			//std::cout << "Des: " << event_load.event_des << std::endl;
 			string temp1, temp2;
 			//spilt
 			getline(file, temp1);
@@ -124,19 +124,19 @@ bool Data_loading::LoadEvent()
 			temp2 = temp1.substr(temp_int + 1);
 			//load event type
 			event_load.event_typ = temp2[0];
-			std::cout << "type: " << event_load.event_typ << std::endl;
+			//std::cout << "type: " << event_load.event_typ << std::endl;
 			//load event option
 			getline(file, event_load.event_opt);
-			std::cout << "option: " << event_load.event_opt << std::endl;
+			//std::cout << "option: " << event_load.event_opt << std::endl;
 			//load event outcome
 			getline(file, event_load.event_outCome);
-			std::cout << "outcome: " << event_load.event_outCome << std::endl;
+			//std::cout << "outcome: " << event_load.event_outCome << std::endl;
 			//load post event 01
 			getline(file, event_load.event_PosOutCome01);
-			std::cout << "pos01: " << event_load.event_PosOutCome01 << std::endl;
+			//std::cout << "pos01: " << event_load.event_PosOutCome01 << std::endl;
 			//load post event 02
 			getline(file, event_load.event_PosOutCome02);
-			std::cout << "pos01: " << event_load.event_PosOutCome02 << std::endl;
+			//std::cout << "pos01: " << event_load.event_PosOutCome02 << std::endl;
 			//Spilt
 			getline(file, temp1);
 			temp_int = temp1.find_first_of(" ");
