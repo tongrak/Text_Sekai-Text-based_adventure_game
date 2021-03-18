@@ -25,8 +25,6 @@ Player::Player()
 	this->Is_alive = true;
 	this->Coin =  0;
 	this->R_04 = true;
-	this->R_07 = true;
-
 
 	if (load.LoadMaps()) std::cout << "Main::load Map loading and storing successfully" << std::endl;
 	if (load.LoadEvent()) std::cout << "Main::load Event loading and storing successfully" << std::endl;
@@ -290,7 +288,7 @@ void Player::CheckSpecialEvent()
 	!7		Cabi_st		Check:Owner_permit
 	!10		Gate		Check:coin(X)
 	!23		ou_Citi		Check:Guild_direc
-	27		Pika		Check:Merch_pass, Berry, Poke-ball
+	!27		Pika		Check:Merch_pass, Berry, Poke-ball
 	39		Lava_pit	Check: Fishing rod
 	44		Dragon		3 chioces
 	45		Spider		Check: Fish fillet
@@ -356,6 +354,7 @@ void Player::CheckSpecialEvent()
 						kami.UpdatingTextInGen("you have fixed the bridge, now you can move through it now.");
 						kami.Hold();
 						this->R_04 = false;
+						kami.RemoveItem(101);
 						check = true;
 					}
 					else
@@ -430,14 +429,6 @@ void Player::CheckSpecialEvent()
 					}
 
 				}
-				else if (hol_str == "3")
-				{
-					kami.SetGUIclear();
-					kami.UpdatingTextInGen("you design to fall back, maybe some boards will help on bridge situation.");
-					load.ChangeCurrentID(61);
-					kami.Hold();
-					check = true;
-				}
 			}
 			gui.Render();
 		} while (!check);
@@ -454,6 +445,104 @@ void Player::CheckSpecialEvent()
 			kami.Hold();
 		}
 		gui.Render();
+	}
+	if (hol_int == 27 && Is_alive)
+	{
+		this->hand = this->Inventory.find(113);
+		if (*hand == 113)
+		{
+
+			gui.Update_texture(10);
+			gui.UpdateText_title(load.GetName());
+			kami.UpdatingTextInGen(load.GetDes());
+			gui.UpdateText_line4("1)Chatch it!  2)I'm not ready  3)Use item...");
+			do {
+				gui.Update();
+				this->hand = this->Inventory.find(103);
+				if (gui.ChecknGetInputStr(hol_str))
+				{
+					if (hol_str == "1")
+					{
+						kami.SetGUIclear();
+						kami.UpdatingTextInGen("your attempt to chatch this yellow creature, result you kill by electric shock");
+						kami.Hold();
+						kami.DeclareDead();
+						check = true;
+					}
+					else if (hol_str == "3")
+					{
+						if (*hand == 103)
+						{
+							kami.SetGUIclear();
+							kami.UpdatingTextInGen("you use throw a ball with color red and white, and manage to capture it");
+							kami.AddItem(114);
+							kami.Hold();
+
+							check = true;
+						}
+						else
+						{
+							kami.SetGUIclear();
+							kami.UpdatingTextInGen("you don't have any mean to catch it");
+							kami.Hold();
+						}
+					}
+				}
+				gui.Render();
+			} while (!check);
+		}
+	}
+	if (hol_int == 39 && Is_alive)
+	{
+		gui.Update_texture(39);
+		gui.UpdateText_title(load.GetName());
+		kami.UpdatingTextInGen(load.GetDes());
+		gui.UpdateText_line4("1)turn back  2)Use something");
+		do {
+			gui.Update();
+			if (gui.ChecknGetInputStr(hol_str))
+			{
+				if (hol_str == "1")
+				{
+					kami.SetGUIclear();
+					kami.UpdatingTextInGen("you turn back");
+					kami.Hold();
+					load.ChangeCurrentID(38);
+					kami.SetGUIlook();
+					check = true;
+				}
+				else if (hol_str == "2")
+				{
+					this->hand = this->Inventory.find(106);
+					if (*hand == 106)
+					{
+						this->Coin -= 120;
+						kami.SetGUIclear();
+						kami.UpdatingTextInGen("you may enter said a guard");
+						kami.Hold();
+						load.ChangeCurrentID(11);
+						kami.SetGUIlook();
+						check = true;
+					}
+					else
+					{
+						kami.SetGUIclear();
+						kami.UpdatingTextInGen("Enter fee 120 copper coin, pay up or leave");
+						kami.Hold();
+					}
+
+				}
+				else if (hol_str == "3")
+				{
+					kami.SetGUIclear();
+					kami.UpdatingTextInGen("you design to fall back, maybe some boards will help on bridge situation.");
+					load.ChangeCurrentID(61);
+					kami.Hold();
+					check = true;
+				}
+			}
+			gui.Render();
+		} while (!check);
 	}
 }
 
