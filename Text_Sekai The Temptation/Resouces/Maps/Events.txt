@@ -177,4 +177,97 @@ It make you sleep then you were bit by snake after 3 hours you aren't awake so y
 item:103 DEAD
 CHECKPOINT NULL
 
+EVENT_BEGIN
+38
+diamond sence
+You have found a diamond on the wall and a pickaxe is on the floor.
+TYPE B
+1)let it be 2)dig it
+You don't want it so you let it on the wall like before.
+While you are digging you hear something from back so you look back and see somthing that have green skin, strange face and glowing itself then it explodes itself and make your heart stop from shocked.(ref.minecraft)
+NULL DEAD
+CHECKPOINT NULL
 
+EVENT_BEGIN
+40
+goblin's nest sence
+you see a strange man with full armor who are fighting many gobilns suddenly he look back to you and he is going to attack you.
+TYPE B
+1)block 2)dodge
+You are stapped with poison knife by goblin, he just try to save you from a goblin.(ref.goblin slayer)
+You dodge him and he hit a goblin that is behind you then you help him to kill all globins in this area.(ref.goblin slayer)
+DEAD NULL
+CHECKPOINT NULL
+
+EVENT_BEGIN
+55
+rod sence
+There is a rod on the floor.
+TYPE B
+1)pick it 2)pick it!!!! 
+You think maybe it will be useful so you pick the rod up.
+You think maybe it will be useful so you pick the rod up.
+item:106 item:106
+CHECKPOINT NULL
+
+EVENT_BEGIN
+56
+chest sence
+There is a chest that looks expensive and there is a sign "Don't open it!!!".
+TYPE B
+1)open it 2)not open it
+It is mimic and devour but you don't die and fight back it instantly die but your torch already eaten then you shocked because of darekness.
+You trust the sign so you haven't opened it.
+DEAD NULL
+CHECKPOINT NULL
+
+EVENT_BEGIN
+59
+chest sence
+There is a chest that looks expensive and there is a sign "Don't open it!!!".
+TYPE B
+1)open it 2)not open it
+You don't trust the sign so you open it. It has a pillow inside the chest,this pillow looks like expensive thing so you keep it in your storage item.
+You trust the sign so you haven't opened it.
+item:110 NULL
+CHECKPOINT NULL
+
+EVENT_BEGIN
+46
+strange castle sence
+You are in front of strange castle that make you feel goosebumps.
+TYPE B
+1)not go inside 2)go inside
+You feel that you shouldn't go inside.
+You decide to go inside, you see a skeleton that wear expensive cloth. When it see you, it says "Grabs heart",after you hear that word you die.(ref.Overlord) 
+NULL DEAD
+CHECKPOINT NULL
+
+EVENT_BEGIN
+49
+starting sence
+You back to the first place that you were transfer.
+TYPE S
+NULL
+NULL
+CHECKPOINT NULL
+
+EVENT_BEGIN
+50
+monster sence
+You have found 1 goblin.
+TYPE B
+1)attack 2)Let it go
+You hit it 1 time then monster die.
+The monster hit villager that make you melancholy and die.
+NULL DEAD
+CHECKPOINT NULL
+
+EVENT_BEGIN
+52
+inside castle sence
+You think "This is strange,threre isn't any monster here."
+TYPE S
+NULL
+NULL
+CHECKPOINT NULL
