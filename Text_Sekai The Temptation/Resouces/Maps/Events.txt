@@ -76,7 +76,7 @@ EVENT_BEGIN
 07
 inside house sence
 You can get in the house and there are 3 chest.
-TYPE B //event type.
+TYPE B
 1) first chest
 2) second chest
 You were bit by snake and die instantly because of poison.
@@ -98,18 +98,18 @@ CHECKPOINT NULL
 EVENT_BEGIN
 09
 cliff sence
-You have found a massage "Jump! there are many tressure down here.".
+You have found a massage "Jump! there are many tressures down here.".
 TYPE B
 1)Jump 2)not jump
-You decide to jump into river, you drown berfore you die, you see many tressure.
-You this massage is strage so you don't jump.
+You decide to jump into river, you drown but berfore you die, you see many tressures.
+You think this massage is strage so you don't jump.
 DEAD NULL
 CHECKPOINT NULL
 
 EVENT_BEGIN
 11
 money bag sence
-You have found  a cash bag.
+You have found a cash bag.
 TYPE B
 1)pick it
 2)not pick it
@@ -157,11 +157,11 @@ CHECKPOINT NULL
 EVENT_BEGIN
 23
 soldier sence
-before you go out city, you see strage shadow on shoulder'soldier.
-TYPE B //event type.
+You see strage shadow on shoulder'soldier.
+TYPE B
 1)talk to him
 2)not talk to him.
-He said "Ho Ho,you are stand user to.", suddenly you feel like time was stop then you were punched until you die.
+He said "Ho Ho,you are stand user too.", suddenly you feel like time was stop then you were punched until you die.(ref.Jojo stardust crusaders)
 You think you just thinking of.
 DEAD NULL
 CHECKPOINT NULL
@@ -191,7 +191,7 @@ CHECKPOINT NULL
 EVENT_BEGIN
 40
 goblin's nest sence
-you see a strange man with full armor who are fighting many gobilns suddenly he look back to you and he is going to attack you.
+You see a strange man with full armor who are fighting many gobilns suddenly he look back to you and he is going to attack you.
 TYPE B
 1)block 2)dodge
 You are stapped with poison knife by goblin, he just try to save you from a goblin.(ref.goblin slayer)
