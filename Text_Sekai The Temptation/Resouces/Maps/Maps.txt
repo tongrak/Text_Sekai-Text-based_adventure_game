@@ -224,10 +224,10 @@ EVENT 22
 ROOM_BEGIN
 23
 exit_city room
-This is where you begin. a empty room, there are a door to the north and west.
+You can go east to exit this city and you don't have to pay any money, there are ways to the east and west.
 NORTH NULL
 EAST 24
-WEST NULL
+WEST 20
 SOUTH NULL
 EVENT 23
 
@@ -570,12 +570,3 @@ WEST 53
 SOUTH NULL
 EVENT 54
 
-ROOM_BEGIN
-62
-forest_1 room
-There is nothing here, there are ways to the north, east, south and west.
-NORTH 05
-EAST 04
-WEST 61
-SOUTH 09
-EVENT NULL
