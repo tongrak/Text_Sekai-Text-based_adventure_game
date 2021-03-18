@@ -1,0 +1,10 @@
+EVENT_BEGIN
+46 //event id
+strange castle sence //name
+You are in front of strange castle that make you feel goosebumps. //description
+TYPE B //event type. (B for two option event, C for combat event, S for cutscene)
+1)not go inside 2)go inside //event option, if need be.
+You feel that you shouldn't go inside. //choice 1
+You decide to go inside, you see a skeleton that wear expensive cloth. When it see you, it says "Grabs heart",after you hear that word you die.(ref.Overlord) 
+NULL DEAD //event outcome. (DEAD and NULL) (Expect two condition for B type event);
+CHECKPOINT NULL //event checkpoint or not. (Expect YES or NULL)

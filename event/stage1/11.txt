@@ -5,5 +5,7 @@ You have found  a cash bag. //description
 TYPE B //event type. (B for two option event, C for combat event, S for cutscene)
 1)pick it
 2)not pick it //event option, if need be.
-NULL //event outcome. (DEAD and NULL) (Expect two condition for B type event);
+A arrow is shot from behide you but you can dodge it because you are benting to pick a money bag up. You recieve a money bag.
+You are shot by poisoned arrow then you die.
+item:  DEAD //event outcome. (DEAD and NULL) (Expect two condition for B type event);
 CHECKPOINT NULL //event checkpoint or not. (Expect YES or NULL)

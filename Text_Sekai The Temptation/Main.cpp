@@ -183,46 +183,7 @@ void Player::CheckEvent()
 							{
 								kami.DeclareDead();
 							}
-							check = true;
-						}
-						else if (hol_str == "2")
-						{
-							kami.SetGUIclear();
-							kami.UpdatingTextInGen(load.GetEventPos2());
-							if (o2 == "DEAD")
-							{
-								kami.DeclareDead();
-							}
-							check = true;
-						}
-						else
-						{
-							gui.UpdateText_line4("Please type in: 1 or 2");
-						}
-					}
-					gui.Render();
-				} while (!check);
-				kami.Hold();
-				break;
-			case 'T': //Three option scene
-				std::cout << "Player::CheckEvent got T-type event." << std::endl;
-				gui.UpdateText_title(load.GetEventName());
-				kami.UpdatingTextInGen(load.GetEventDes());
-				hol_str = load.GetEventOpt();
-				std::cout << "Player::CheckEvent got option: " << hol_str << std::endl;
-				SplitString(hol_str, s1, s2);
-				gui.UpdateText_line4("Please enter " + s1 + " " + s2);
-				SplitString(load.GetEventOutC(), o1, o2);
-				do
-				{
-					gui.pollEvent();
-					if (gui.ChecknGetInputStr(hol_str))
-					{
-						if (hol_str == "1")
-						{
-							kami.SetGUIclear();
-							kami.UpdatingTextInGen(load.GetEventPos1());
-							if (o1 != "NULL")
+							else if (o1 != "NULL")
 							{
 								int temp = o1.find_last_of(":");
 								hol_str = o1.substr(temp + 1);
@@ -235,7 +196,11 @@ void Player::CheckEvent()
 						{
 							kami.SetGUIclear();
 							kami.UpdatingTextInGen(load.GetEventPos2());
-							if (o2 != "NULL")
+							if (o2 == "DEAD")
+							{
+								kami.DeclareDead();
+							}
+							else if (o2 != "NULL")
 							{
 								int temp = o2.find_last_of("_");
 								hol_str = o2.substr(temp + 1);
@@ -249,9 +214,10 @@ void Player::CheckEvent()
 							gui.UpdateText_line4("Please type in: 1 or 2");
 						}
 					}
-					gui.Update();
 					gui.Render();
 				} while (!check);
+				kami.Hold();
+				break;
 				kami.Hold();
 			default:
 				std::cout << "Player::CheckEvent Check" << std::endl;
@@ -289,7 +255,7 @@ void Player::CheckSpecialEvent()
 	!10		Gate		Check:coin(X)
 	!23		ou_Citi		Check:Guild_direc
 	!27		Pika		Check:Merch_pass, Berry, Poke-ball
-	39		Lava_pit	Check: Fishing rod
+	!39		Lava_pit	Check: Fishing rod
 	44		Dragon		3 chioces
 	45		Spider		Check: Fish fillet
 	51		Sword V2	Check:Glove
@@ -412,7 +378,7 @@ void Player::CheckSpecialEvent()
 					kami.SetGUIclear();
 					kami.UpdatingTextInGen("you turn back");
 					kami.Hold();
-					load.ChangeCurrentID(04);
+					load.ChangeCurrentID(10);
 					kami.SetGUIlook();
 					check = true;
 				}
@@ -425,7 +391,7 @@ void Player::CheckSpecialEvent()
 						kami.UpdatingTextInGen("you may enter said a guard");
 						gui.Render();
 						kami.Hold();
-						load.ChangeCurrentID(11);
+						load.ChangeCurrentID(13);
 						kami.SetGUIlook();
 						check = true;
 					}
@@ -521,6 +487,30 @@ void Player::CheckSpecialEvent()
 		gui.UpdateText_title(load.GetName());
 		kami.UpdatingTextInGen(load.GetDes());
 		gui.UpdateText_line4("1)turn back  2)Use something");
+				this->hand = this->Inventory.find(106);
+				if (*hand == 106)
+				{
+					kami.SetGUIclear();
+					kami.UpdatingTextInGen("You got a catfish from the pit");
+					gui.Render();
+					kami.Hold();
+					kami.AddItem(105);
+					check = true;
+				}
+				else
+				{
+					kami.SetGUIclear();
+					kami.UpdatingTextInGen("There are dozen of catfish in the lava pit and they look deliouse");
+					gui.Render();
+					kami.Hold();
+				}
+	}
+	if (hol_int == 4 && Is_alive && R_04)
+	{
+		gui.Update_texture(4);
+		gui.UpdateText_title(load.GetName());
+		kami.UpdatingTextInGen(load.GetDes());
+		gui.UpdateText_line4("1)go for it!  2)Fix the bridge  3)Go back");
 		do {
 			gui.Update();
 			if (gui.ChecknGetInputStr(hol_str))
@@ -528,35 +518,42 @@ void Player::CheckSpecialEvent()
 				if (hol_str == "1")
 				{
 					kami.SetGUIclear();
-					kami.UpdatingTextInGen("you turn back");
+					kami.UpdatingTextInGen("River deniel your attemp and kill you");
 					gui.Render();
+					kami.DeclareDead();
 					kami.Hold();
-					load.ChangeCurrentID(38);
-					kami.SetGUIlook();
 					check = true;
 				}
 				else if (hol_str == "2")
 				{
-					this->hand = this->Inventory.find(106);
-					if (*hand == 106)
+					this->hand = this->Inventory.find(101); //find Wooden board
+					if (101 == *hand)
 					{
-						this->Coin -= 120;
 						kami.SetGUIclear();
-						kami.UpdatingTextInGen("you may enter said a guard");
+						kami.UpdatingTextInGen("you have fixed the bridge, now you can move through it now.");
 						gui.Render();
 						kami.Hold();
-						load.ChangeCurrentID(11);
-						kami.SetGUIlook();
+						this->R_04 = false;
+						kami.RemoveItem(101);
 						check = true;
 					}
 					else
 					{
 						kami.SetGUIclear();
-						kami.UpdatingTextInGen("Enter fee 120 copper coin, pay up or leave");
+						kami.UpdatingTextInGen("you don't have anything to fix it.");
 						gui.Render();
 						kami.Hold();
 					}
 
+				}
+				else if (hol_str == "3")
+				{
+					kami.SetGUIclear();
+					kami.UpdatingTextInGen("you design to fall back, maybe some boards will help on bridge situation.");
+					gui.Render();
+					load.ChangeCurrentID(61);
+					kami.Hold();
+					check = true;
 				}
 			}
 			gui.Render();
