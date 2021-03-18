@@ -128,6 +128,15 @@ You think this is strange so you deny them.
 CHECKPOINT NULL
 
 EVENT_BEGIN
+13
+inside city sence
+Finally you can get in the city.
+TYPE S
+NULL
+NULL
+CHECKPOINT YES
+
+EVENT_BEGIN
 20
 market sence
 While you are walking through market, cheif come to you and ask you for tasting his food.
