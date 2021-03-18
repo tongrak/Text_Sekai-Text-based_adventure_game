@@ -15,7 +15,7 @@ wood_boards 101
 torch 102
 Poke_berry 103
 Poke_ball 104
-Fish_fillet 105
+Catfish 105
 Fishing_rod 106
 pink_spider 107
 glove 108
