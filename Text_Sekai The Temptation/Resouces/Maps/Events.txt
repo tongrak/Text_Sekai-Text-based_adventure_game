@@ -79,9 +79,9 @@ You can get in the house and there are 3 chest.
 TYPE B
 1) first chest
 2) second chest
+DEAD item:101
 You were bit by snake and die instantly because of poison.
 You found equipment that can repair the bridge.
-DEAD item:101
 CHECKPOINT NULL
 
 EVENT_BEGIN
@@ -90,9 +90,9 @@ herb sence
 You have found a plant, you check it with your skill so it show text "protect and cure from poison for hour".
 TYPE B
 1)pick it 2)not pick it
+item:112 item:NULL
 You recieve a herb.
 Suddenly a rabbit show up and eat that plant then it run away.
-item:112 item:NULL
 CHECKPOINT NULL
 
 EVENT_BEGIN
@@ -101,9 +101,9 @@ cliff sence
 You have found a massage "Jump! there are many tressures down here.".
 TYPE B
 1)Jump 2)not jump
+DEAD NULL
 You decide to jump into river, you drown but berfore you die, you see many tressures.
 You think this massage is strage so you don't jump.
-DEAD NULL
 CHECKPOINT NULL
 
 EVENT_BEGIN
@@ -113,9 +113,9 @@ You have found a cash bag.
 TYPE B
 1)pick it
 2)not pick it
+item:115 DEAD
 A arrow is shot from behide you but you can dodge it because you are benting to pick a money bag up. You recieve a money bag.
 You are shot by poisoned arrow then you die.
-item:115 DEAD
 CHECKPOINT NULL
 
 EVENT_BEGIN
@@ -125,9 +125,9 @@ You have found a man and a girl. Looks like they are sibling. The man that is ol
 TYPE B
 1)play with him
 2)not play with him
+DEAD NULL
 You accept his challenge but before start game you have to say "Aschente" then game start!. You defeated and you lost all your status.
 You think this is strange so you deny them.
-DEAD NULL
 CHECKPOINT NULL
 
 EVENT_BEGIN
@@ -137,9 +137,9 @@ While you are walking through market, cheif come to you and ask you for tasting 
 TYPE B
 1)tast it
 2)not taste it
+DEAD NULL
 After you taset it you feel hot inside your mouth, you realize it's sipcy food then you die because you can't eat spicy food.
 You deny him.
-DEAD NULL
 CHECKPOINT NULL 
 
 EVENT_BEGIN
@@ -149,9 +149,9 @@ You hear some voice and around you time is stop"Do you believe in god.". You hav
 TYPE B
 1)believe
 2)not believe
+NULL DEAD
 Then time is back to normal.
 "I will make you believe in god" then you are send to other world. Game over because it's not main world.
-NULL DEAD
 CHECKPOINT NULL
 
 EVENT_BEGIN
@@ -161,9 +161,9 @@ You see strage shadow on shoulder'soldier.
 TYPE B
 1)talk to him
 2)not talk to him.
+DEAD NULL
 He said "Ho Ho,you are stand user too.", suddenly you feel like time was stop then you were punched until you die.(ref.Jojo stardust crusaders)
 You think you just thinking of.
-DEAD NULL
 CHECKPOINT NULL
 
 EVENT_BEGIN
@@ -172,9 +172,9 @@ berries sence
 You have found berries.
 TYPE B
 1)pick it 2)eat it
+item:103 DEAD
 You recieve berries.
 It make you sleep then you were bit by snake after 3 hours you aren't awake so you die because of poison.
-item:103 DEAD
 CHECKPOINT NULL
 
 EVENT_BEGIN
@@ -183,9 +183,9 @@ diamond sence
 You have found a diamond on the wall and a pickaxe is on the floor.
 TYPE B
 1)let it be 2)dig it
+NULL DEAD
 You don't want it so you let it on the wall like before.
 While you are digging you hear something from back so you look back and see somthing that have green skin, strange face and glowing itself then it explodes itself and make your heart stop from shocked.(ref.minecraft)
-NULL DEAD
 CHECKPOINT NULL
 
 EVENT_BEGIN
@@ -194,9 +194,9 @@ goblin's nest sence
 You see a strange man with full armor who are fighting many gobilns suddenly he look back to you and he is going to attack you.
 TYPE B
 1)block 2)dodge
+DEAD NULL
 You are stapped with poison knife by goblin, he just try to save you from a goblin.(ref.goblin slayer)
 You dodge him and he hit a goblin that is behind you then you help him to kill all globins in this area.(ref.goblin slayer)
-DEAD NULL
 CHECKPOINT NULL
 
 EVENT_BEGIN
@@ -204,10 +204,10 @@ EVENT_BEGIN
 rod sence
 There is a rod on the floor.
 TYPE B
-1)pick it 2)pick it!!!! 
-You think maybe it will be useful so you pick the rod up.
-You think maybe it will be useful so you pick the rod up.
+1)pick it 2)pick it!!!!
 item:106 item:106
+You think maybe it will be useful so you pick the rod up.
+You think maybe it will be useful so you pick the rod up.
 CHECKPOINT NULL
 
 EVENT_BEGIN
@@ -216,9 +216,9 @@ chest sence
 There is a chest that looks expensive and there is a sign "Don't open it!!!".
 TYPE B
 1)open it 2)not open it
+DEAD NULL
 It is mimic and devour but you don't die and fight back it instantly die but your torch already eaten then you shocked because of darekness.
 You trust the sign so you haven't opened it.
-DEAD NULL
 CHECKPOINT NULL
 
 EVENT_BEGIN
@@ -227,9 +227,9 @@ chest sence
 There is a chest that looks expensive and there is a sign "Don't open it!!!".
 TYPE B
 1)open it 2)not open it
+item:110 NULL
 You don't trust the sign so you open it. It has a pillow inside the chest,this pillow looks like expensive thing so you keep it in your storage item.
 You trust the sign so you haven't opened it.
-item:110 NULL
 CHECKPOINT NULL
 
 EVENT_BEGIN
@@ -238,9 +238,9 @@ strange castle sence
 You are in front of strange castle that make you feel goosebumps.
 TYPE B
 1)not go inside 2)go inside
+NULL DEAD
 You feel that you shouldn't go inside.
 You decide to go inside, you see a skeleton that wear expensive cloth. When it see you, it says "Grabs heart",after you hear that word you die.(ref.Overlord) 
-NULL DEAD
 CHECKPOINT NULL
 
 EVENT_BEGIN
@@ -260,9 +260,9 @@ monster sence
 You have found 1 goblin.
 TYPE B
 1)attack 2)Let it go
+NULL DEAD
 You hit it 1 time then monster die.
 The monster hit villager that make you melancholy and die.
-NULL DEAD
 CHECKPOINT NULL
 
 EVENT_BEGIN
