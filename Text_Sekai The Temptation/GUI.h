@@ -25,6 +25,7 @@ public:
 	//Updating functions
 	void Update();
 	void Update_texture(int);
+	void Update_titleSprite();
 	void Update_BG(std::string);
 	void UpdateText_title(std::string);
 	void UpdateText_line1(std::string);
@@ -46,7 +47,8 @@ public:
 	void RenderText_input(sf::RenderTarget& O);
 	void RenderArrow(sf::RenderTarget& H);
 	void RenderSprite(sf::RenderTarget& T);
-
+	void RenderTitleSprite(sf::RenderTarget& A);
+	void RenderStart(sf::RenderTarget& S);
 	//Event
 	void pollEvent();
 	void InputText();
@@ -73,9 +75,12 @@ private:
 
 	//Picture Sprite
 	sf::Sprite in_game;
+	sf::Sprite in_title;
+	sf::Sprite Start;
 
 	//Texture
 	sf::Texture texture;
+	sf::Texture botton;
 
 	//text declaring
 	sf::Text Text_title;
@@ -105,6 +110,7 @@ private:
 	void InitText();
 	void InitSprite();
 	void InitTexture();
+	void InitSpriteTitle();
 
 };
 

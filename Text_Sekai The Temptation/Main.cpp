@@ -317,7 +317,7 @@ void Player::CheckSpecialEvent()
 						kami.UpdatingTextInGen("You turn around and walk back");
 						gui.Render();
 						kami.Hold();
-						load.ChangeCurrentID(1);
+						load.ChangeCurrentID(61);
 						kami.SetGUIlook();
 						check = true;
 					}
@@ -1000,6 +1000,8 @@ void Player::Hold()
 }
 
 
+
+
 int main()
 {
 	std::string holder, t1="", t2="";
@@ -1008,7 +1010,7 @@ int main()
 	kami.AddItem(102);
 	//kami.AddItem(107);
 	kami.AddItem(108);
-	load.ChangeCurrentID(45);
+	load.ChangeCurrentID(0);
 
 	kami.SetGUIstarting();
 	while (gui.Running())
@@ -1043,7 +1045,6 @@ int main()
 		}
 		//update
 		gui.Update();
-
 		//gui.Update_BG(::holdmap);
 		gui.Update_texture(load.GetCurrentID());
 
