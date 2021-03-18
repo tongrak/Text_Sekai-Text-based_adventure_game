@@ -132,7 +132,7 @@ EVENT_BEGIN
 market sence
 While you are walking through market, cheif come to you and ask you for tasting his food.
 TYPE B
-1)tast it 2)not taste it
+1)taste it 2)not taste it
 DEAD NULL
 After you taset it you feel hot inside your mouth, you realize it's sipcy food then you die because you can't eat spicy food.
 You deny him.
