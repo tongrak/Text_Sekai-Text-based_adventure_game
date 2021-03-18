@@ -121,8 +121,7 @@ EVENT_BEGIN
 strang sibling
 You have found a man and a girl. Looks like they are sibling. The man that is older brother tell you "If you want money you have to play "stone, paper, scissors". If you win I'll give you all my money but If I win you have to give all your status."
 TYPE B
-1)play with him
-2)not play with him
+1)play with him 2)not play with him
 DEAD NULL
 You accept his challenge but before start game you have to say "Aschente" then game start!. You defeated and you lost all your status.
 You think this is strange so you deny them.
@@ -133,8 +132,7 @@ EVENT_BEGIN
 market sence
 While you are walking through market, cheif come to you and ask you for tasting his food.
 TYPE B
-1)tast it
-2)not taste it
+1)tast it 2)not taste it
 DEAD NULL
 After you taset it you feel hot inside your mouth, you realize it's sipcy food then you die because you can't eat spicy food.
 You deny him.
@@ -145,8 +143,7 @@ EVENT_BEGIN
 DOG<- sence
 You hear some voice and around you time is stop"Do you believe in god.". You have to anwser it.
 TYPE B
-1)believe
-2)not believe
+1)believe 2)not believe
 NULL DEAD
 Then time is back to normal.
 "I will make you believe in god" then you are send to other world. Game over because it's not main world.
@@ -157,8 +154,7 @@ EVENT_BEGIN
 soldier sence
 You see strage shadow on shoulder'soldier.
 TYPE B
-1)talk to him
-2)not talk to him.
+1)talk to him 2)not talk to him.
 DEAD NULL
 He said "Ho Ho,you are stand user too.", suddenly you feel like time was stop then you were punched until you die.(ref.Jojo stardust crusaders)
 You think you just thinking of.
