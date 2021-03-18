@@ -5,7 +5,7 @@
 #include<fstream>
 #include<iostream>
 #include<string>
-#include<set>
+#include<vector>
 #include<map>
 
 /*
@@ -136,13 +136,13 @@ public:
 
 	//Item oganization
 	void AddItem(int );
+	bool ChecknGetItemPosi(int ,int&);
 	void RemoveItem(int );
 
 private:
 	//Item
 	bool R_04, R_13;
-	std::set<int> Inventory;
-	std::set<int>::iterator hand;
+	std::vector<int>Inventory;
 	int Coin;
 };
 

@@ -36,12 +36,28 @@ Player::~Player()
 
 void Player::AddItem(int item_key)
 {
-	this->Inventory.insert(item_key);
+	this->Inventory.push_back(item_key);
+}
+
+bool Player::ChecknGetItemPosi(int wanted, int &return_posi)
+{
+	int posi;
+	for (unsigned int i = 0; i < this->Inventory.size(); i++)
+	{
+		if (wanted == Inventory[i])
+		{
+			return_posi = i;
+			return true;
+		}
+	}
+	return false;
 }
 
 void Player::RemoveItem(int item_key)
 {
-	this->Inventory.erase(Inventory.find(item_key));
+	int hol_str;
+	kami.ChecknGetItemPosi(item_key, hol_str);
+	this->Inventory.erase(Inventory.begin()+hol_str);
 }
 
 //Checking function
@@ -316,8 +332,7 @@ void Player::CheckSpecialEvent()
 				}
 				else if (hol_str == "2")
 				{
-					this->hand = this->Inventory.find(101); //find Wooden board
-					if (101 == *hand)
+					if (kami.ChecknGetItemPosi(101, hol_item))//find Wooden board
 					{
 						kami.SetGUIclear();
 						kami.UpdatingTextInGen("you have fixed the bridge, now you can move through it now.");
@@ -352,8 +367,7 @@ void Player::CheckSpecialEvent()
 	if (hol_int == 7 && Is_alive)
 	{
 		gui.Update_texture(7);
-		this->hand = this->Inventory.find(111);
-		if (*hand != 111) 
+		if (kami.ChecknGetItemPosi(111, hol_item)) 
 		{
 			kami.SetGUIclear();
 			kami.UpdatingTextInGen("Before you set your foot on the door frame, a arrow enter your chest. Ask for permition next time");
@@ -408,11 +422,10 @@ void Player::CheckSpecialEvent()
 			gui.Render();
 		} while (!check);
 	}
-	if (hol_int == 23 && Is_alive)
+	if (hol_int == 24 && Is_alive)
 	{
 		gui.Update_texture(7);
-		this->hand = this->Inventory.find(113);
-		if (*hand != 113)
+		if (kami.ChecknGetItemPosi(113, hol_item))
 		{
 			kami.SetGUIclear();
 			kami.UpdatingTextInGen("walk, and walk you keep walking, but there aren't any cave in sight. Look like you lost. Next time get some guide from professional");
@@ -425,8 +438,7 @@ void Player::CheckSpecialEvent()
 	}
 	if (hol_int == 27 && Is_alive)
 	{
-		this->hand = this->Inventory.find(113);
-		if (*hand == 113)
+		if (kami.ChecknGetItemPosi(104, hol_item))
 		{
 
 			gui.Update_texture(10);
@@ -435,13 +447,12 @@ void Player::CheckSpecialEvent()
 			gui.UpdateText_line4("1)Chatch it!  2)I'm not ready  3)Use item...");
 			do {
 				gui.Update();
-				this->hand = this->Inventory.find(103);
 				if (gui.ChecknGetInputStr(hol_str))
 				{
 					if (hol_str == "1")
 					{
 						kami.SetGUIclear();
-						kami.UpdatingTextInGen("your attempt to chatch this yellow creature, result you kill by electric shock");
+						kami.UpdatingTextInGen("your attempt to chatch this yellow creature, result you kill by electric shock you off the ground and fly to middle of next week");
 						gui.Render();
 						kami.Hold();
 						kami.DeclareDead();
@@ -449,7 +460,7 @@ void Player::CheckSpecialEvent()
 					}
 					else if (hol_str == "3")
 					{
-						if (*hand == 103)
+						if (kami.ChecknGetItemPosi(103, hol_item))
 						{
 							kami.SetGUIclear();
 							kami.UpdatingTextInGen("you use throw a ball with color red and white, and manage to capture it");
@@ -461,9 +472,11 @@ void Player::CheckSpecialEvent()
 						else
 						{
 							kami.SetGUIclear();
-							kami.UpdatingTextInGen("you don't have any mean to catch it");
+							kami.UpdatingTextInGen("the ceature throw the ball back at you and shock you with 100,000 voltage and send you fly off to the distance");
 							gui.Render();
 							kami.Hold();
+							kami.DeclareDead();
+							check = true;
 						}
 					}
 					else if (hol_str == "2")
@@ -487,8 +500,7 @@ void Player::CheckSpecialEvent()
 		gui.UpdateText_title(load.GetName());
 		kami.UpdatingTextInGen(load.GetDes());
 		gui.UpdateText_line4("1)turn back  2)Use something");
-				this->hand = this->Inventory.find(106);
-				if (*hand == 106)
+				if (kami.ChecknGetItemPosi(106, hol_item))
 				{
 					kami.SetGUIclear();
 					kami.UpdatingTextInGen("You got a catfish from the pit");
@@ -505,60 +517,7 @@ void Player::CheckSpecialEvent()
 					kami.Hold();
 				}
 	}
-	if (hol_int == 4 && Is_alive && R_04)
-	{
-		gui.Update_texture(4);
-		gui.UpdateText_title(load.GetName());
-		kami.UpdatingTextInGen(load.GetDes());
-		gui.UpdateText_line4("1)go for it!  2)Fix the bridge  3)Go back");
-		do {
-			gui.Update();
-			if (gui.ChecknGetInputStr(hol_str))
-			{
-				if (hol_str == "1")
-				{
-					kami.SetGUIclear();
-					kami.UpdatingTextInGen("River deniel your attemp and kill you");
-					gui.Render();
-					kami.DeclareDead();
-					kami.Hold();
-					check = true;
-				}
-				else if (hol_str == "2")
-				{
-					this->hand = this->Inventory.find(101); //find Wooden board
-					if (101 == *hand)
-					{
-						kami.SetGUIclear();
-						kami.UpdatingTextInGen("you have fixed the bridge, now you can move through it now.");
-						gui.Render();
-						kami.Hold();
-						this->R_04 = false;
-						kami.RemoveItem(101);
-						check = true;
-					}
-					else
-					{
-						kami.SetGUIclear();
-						kami.UpdatingTextInGen("you don't have anything to fix it.");
-						gui.Render();
-						kami.Hold();
-					}
-
-				}
-				else if (hol_str == "3")
-				{
-					kami.SetGUIclear();
-					kami.UpdatingTextInGen("you design to fall back, maybe some boards will help on bridge situation.");
-					gui.Render();
-					load.ChangeCurrentID(61);
-					kami.Hold();
-					check = true;
-				}
-			}
-			gui.Render();
-		} while (!check);
-	}
+	
 }
 
 void Player::DeclareDead()
