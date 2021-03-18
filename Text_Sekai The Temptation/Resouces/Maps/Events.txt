@@ -69,7 +69,7 @@ TYPE B
 1)attack it 2)not attack
 You here that slime says "Gluttony!" then you are swallowed inside that slime. (ref.That Time I Got Reincarnated as a Slime)
 It escape from you.
-DEAD  NULL
+DEAD NULL
 CHECKPOINT NULL
 
 EVENT_BEGIN
