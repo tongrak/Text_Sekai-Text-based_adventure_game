@@ -30,8 +30,8 @@ money bag 115
 
 EVENT_BEGIN
 00
-starting sence //name
-You wake up in the middle of th forest. //description
+starting sence
+You wake up in the middle of th forest.
 TYPE S
 NULL
 NULL
@@ -41,13 +41,13 @@ CHECKPOINT YES
 
 EVENT_BEGIN
 01
-fighting sence //name
-You have found 1 goblin. //description
+fighting sence
+You have found 1 goblin.
 TYPE B
 1)attack 2)Let it go
-NULL DEAD 
-you hit it 1 time then monster die. //choice 1
-the monster hit villager that make you melancholy and die. //choice 2
+NULL DEAD
+you hit it 1 time then monster die.
+the monster hit villager that make you melancholy and die.
 CHECKPOINT NULL
 
 EVENT_BEGIN
@@ -250,6 +250,8 @@ You back to the first place that you were transfer.
 TYPE S
 NULL
 NULL
+NULL
+NULL
 CHECKPOINT NULL
 
 EVENT_BEGIN
@@ -268,6 +270,8 @@ EVENT_BEGIN
 inside castle sence
 You think "This is strange,threre isn't any monster here."
 TYPE S
+NULL
+NULL
 NULL
 NULL
 CHECKPOINT NULL
