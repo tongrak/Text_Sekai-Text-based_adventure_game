@@ -22,7 +22,7 @@ glove 108
 sword 109
 pillow 110
 Cabin's permit 111
-Merchant pass 112
+Holy Herbs 112
 Guild Guide 113
 pikachu 114
 
