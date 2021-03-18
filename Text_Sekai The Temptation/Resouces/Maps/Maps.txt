@@ -152,18 +152,28 @@ SOUTH 09
 EVENT NULL
 
 ROOM_BEGIN
+14
+city_1 room
+there is nothing here, there are ways to the east and west.
+NORTH NULL
+EAST 13
+WEST 10
+SOUTH NULL
+EVENT NULL
+
+ROOM_BEGIN
 13
-city room
+city_2 room
 there is nothing here, there are ways to the east and south.
 NORTH NULL
 EAST 17
 WEST NULL
 SOUTH 15
-EVENT NULL
+EVENT 13
 
 ROOM_BEGIN
 15
-city_1 room
+city_3 room
 There is nothing here, you can go south to go to trash zone, there are ways to the north, south.
 NORTH 13
 EAST NULL
