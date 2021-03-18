@@ -1,0 +1,6 @@
+1)ถ้าหากไม่มี "ยาถอนพิษ" ข้อความว่า "เนื่องจากที่แห่งนี้มีพิษ ทำให้ไม่กี่ชั่วโมงต่อมาคุณติดพิษตาย"
+2)ถ้าหากมี "ยาถอนพิษ" ข้อความว่า "คุณเข้ามาในที่ทิ้งขยะ คุณเหลือบตาไปเห็นถุงมือคู่หนึ่งซึ่งคุณคิดว่าสวยดีแถมคิดว่าอาจจะไม่ใช่ขยะคุณจึงเก็บขึ้นมา"
+(ถุงมือคือ key item ในการดึงดาบ)
+-You die in 3 hours because you are poisoned from litter.
+-You see the glooves that look beautiful so you take it with you and wash it with water magic then you see your status that you are poisoned so you use herb that can protect you from poison for hour.
+-there is a way to the north.

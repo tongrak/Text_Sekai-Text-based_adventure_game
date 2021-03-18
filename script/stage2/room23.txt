@@ -1,0 +1,6 @@
+-คุณได้เดินทางมาถึงทางออกของเมืองซึ่งสามารถออกได้โดยไม่ต้องจ่ายเงิน แต่ก่อนที่คุณจะออกคุณเห็นเหมือนมีเงาอะไรบนตัวทหารยาม คุณมี 2 ทาง
+1)ทัก คุณเดินเข้าไปหาทหารคนนั้นแล้วทักเรื่องเงา แต่ทันใดนั้นเขาก็พูดว่า"โฮ่โฮ่ นายเองก็เป็นผู้ใช้แสตนด์เหรอ" ทันใดนั้นก็เหมือนโดนหยุดเวลา พอรู้สึกตัวอีกทีก็ตายซะแล้ว
+2)ไม่ทัก
+-before you go out city, you see strage shadow on shoulder'soldier.
+1)talk to him //he said "Ho Ho,you are stand user to." suddenly you feel like time was stop then you were punched until die.
+2)not talk to him. 

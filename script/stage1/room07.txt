@@ -1,0 +1,9 @@
+-คุณได้เข้ามาในบ้านแล้วซึ่งข้างในบ้านมีกล่อง 3 ใบให้เลือกเปิด
+1)งู
+2)เจอของที่ใช้ซ่อมสะพาน
+3)งู
+-You can get in the house and there are 3 chest.
+1) first chest // you were bit by snake and die instantly because of poison.
+2) second chest // you found equipment that can repair the bridge.
+3) third chest // you were bit by snake and die instantly because of poison.
+-there is a way to the south.

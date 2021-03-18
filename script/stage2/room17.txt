@@ -1,0 +1,9 @@
+-ในระหว่างที่คุณกำลังเดินอยู่ คุณได้ยินเสียงระเบิดมาจากทางปราสาท คุณจึงหันไปดูแล้วพบว่าจอมมารกำลังลักพาตัวเจ้าหญิงไป คุณมี 3 ทางเลือก
+1)ช่วยทันที เนื่องจากจอมมารอยู่ไกลคุณจึงยิงบอลเพลิงออกไปแต่คุณกะความแรงผิด บอลนั้นจึงโดนเจ้าหญิงไปด้วย
+2)ไม่ช่วย เนื่องจากไม่ใช่เนื้อเรื่องหลักของเกม จึง game over
+3)ช่วยทีหลัง คุณตัดสินใจที่จะเดินทางไปช่วยเจ้าหญิงซึ่งถูกพาตัวไที่ปราสาท
+-you see princess is being kidnaped from castle by demon lord.
+1)help //you shoot fire ball to demon lord but it's too much so it hit princess to.
+2)not help // game over because it isn't main story.
+3)help later //you will go to the demon lord castle to save princess.
+-there are ways to the east and west.

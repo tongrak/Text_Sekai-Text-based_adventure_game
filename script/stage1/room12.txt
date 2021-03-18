@@ -1,0 +1,8 @@
+-คุณเดินมาเจอพี่น้องคู่หนึ่ง ซึ่งคนเป็นพี่ได้ทักว่า"สนใจมาเป่ายิ้งฉุบกับฉันมั้ย ถ้าชนะได้ก็เอาเงินที่มีไปได้เลย แต่ถ้าแพ้ขอstatusทั้งหมดที่เรามี"
+1)เล่นด้วย บอกว่าก่อนเริ่มเกมให้พูดว่า"Aschente"หลังจากจบเกมคุณแพ้รวดเลย ทำให้คุณเสียstatusทั้งหมดไป
+2)ไม่เล่นด้วย
+-You have found a man and a girl. Looks like they are sibling 
+-the man that is older brother tell you "If you want money you have to play "stone, paper, scissors". If you win I'll give you all my money but If I win you have to give all your status."
+1)play with him //you accept his challenge but before start game you have to say "Aschente" then game start!. You defeated and you lost all your status.
+2)not play with him 
+-there is a way to the south.

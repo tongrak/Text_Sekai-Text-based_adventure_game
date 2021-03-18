@@ -1,0 +1,2 @@
+-(if you don't have torchs) // You can't go inside the cave because you are frightened of the darkness a little bit.
+-there are ways to the east and west.

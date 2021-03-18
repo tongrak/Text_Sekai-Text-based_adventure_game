@@ -1,0 +1,7 @@
+-คุณเดินมาเจอบ้านหลังหนึ่ง คุณมี 2 ทางเลือก
+1)เข้าไปในบ้านเลย เนื่องจากคุณไม่ได้รับอนุญาตจากเจ้าของบ้านคุณจึงถูกเราของบ้านยิงหน้าไม้ที่ลูกดอกมีพิษ ซึ่งทำให้คุณติดพิษจนตาย
+2)สำรวจรอบๆก่อน
+-You have found 1 house.
+1)get inside // because you aren't allowed, you were shot by householder that ammo have poison that make you die instantly.
+2)investigate
+-there are ways to the north, east, south and west.   

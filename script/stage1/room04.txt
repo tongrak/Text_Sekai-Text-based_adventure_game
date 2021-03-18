@@ -1,0 +1,7 @@
+-คุณเดินมาเรื่อยๆแล้วก็มาเจอสะพานที่แผ่นไม้ชำรุดบางแผ่น คุณมี 2 ทางให้เลือกคือ
+1)กระโดดข้ามไป คุณกะระยะในการโดดผิดทำให้ตกลงไปในแม่น้ำซึ่งคุณว่ายน้ำไม่เป็นคุณจึงจมน้ำตาย
+2)ซ่อมสะพาน ถ้าหากยังไม่มีitemซ่อมสะพานก็ต้องไปหาก่อน
+-You have found the bridge that some plank broken.
+1)Jump // You jump too short that make you fall to the river. You drown because you can't swim.
+2)repair it // the bridge is repaired. you can cross this bridge.
+-there are ways to the north, east, south and west.

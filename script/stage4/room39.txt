@@ -1,0 +1,3 @@
+-(if don't have a rod)  there are fishs in the lava.
+-(if have a rod) you angle from lava and you can catch a fish.
+-there are ways to the east, south and west.

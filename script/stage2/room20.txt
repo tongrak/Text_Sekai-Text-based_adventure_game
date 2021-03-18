@@ -1,0 +1,7 @@
+-คุณได้เดินผ่านตลาดแห่งหนึ่ง ในระหว่างที่คุณกำลังเดินผ่านมีแม่ค้าคนหนึ่งทักให้คุรลองชิมอาหารของเธอ คุณมี 2 ทาง
+1)ชิม คุณลองชิมอาหารชิ้นนั้นและทำให้คุณตายในทันที ซึ่งในอาหารนั้นมีพริกใส่อยู่ และคุณเป็นคนไม่กินเผ้ดแถมขนาดคนที่กินเผ็ดเก่งๆในเมืองยังต้องบ่นว่า"โคตรเผ็ด"
+2)ไม่ชิม
+-While you are walking through market, cheif come to you and ask you for tasting his food.
+1)tast it //after you taset it you feel hot inside your mouth, you realize it's sipcy food then you die because you can't eat spicy food.
+2)not taste it 
+-there are way to the north, east, south and west.
