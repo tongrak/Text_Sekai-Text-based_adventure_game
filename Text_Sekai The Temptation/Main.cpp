@@ -276,10 +276,11 @@ void Player::CheckSpecialEvent()
 	!44		Dragon		3 chioces
 	!43		Spider		Check:Fish fillet
 	!16		Glove		Check:Holy herb
-	51		Sword V2	Check:Glove
-	53		Demon-load	Check:Sword
-	54		Princess	Check:Pillow
-	33		Merchent	Check:Pikachu
+	!51		Sword V2	Check:Glove
+	!53		Demon-load	Check:Sword
+	!54		Princess	Check:Pillow
+	!33		Merchent	Check:Pikachu
+	34		Cave Entry	Check:Torch
 	*/
 	if (hol_int == 2 && Is_alive)
 	{
@@ -519,12 +520,95 @@ void Player::CheckSpecialEvent()
 			} while (!check);
 		}
 	}
+	if (hol_int == 33 && Is_alive && R_33)
+	{
+		kami.SetGUIclear();
+		gui.UpdateText_title(load.GetName());
+		
+		do {
+			gui.Update();
+			if (gui.ChecknGetInputStr(hol_str))
+			{
+				if (R_33_1)
+				{
+					gui.UpdateText_title("The merchant");
+					kami.UpdatingTextInGen("'Greeting traveler' said a merchant. 'It looks like you in need of tourchs. Here the deal, get me a yellow monster, the one with red cheeks'");
+					gui.Render();
+					kami.Hold();
+					kami.SetGUIclear();
+					kami.UpdatingTextInGen("capture it with this ball. And I shall give you these torchs");
+					gui.Render();
+					kami.Hold();
+					R_33_1 = false;
+					check = true;
+				}
+				if (kami.ChecknGetItemPosi(114, hol_item))
+				{
+					kami.SetGUIclear();
+					kami.RemoveItem(114);
+					gui.UpdateText_title("The happy merchant");
+					kami.UpdatingTextInGen("'At last, you finally come with what I require' 'Here are the torchs and have a safe journey ahead'");
+					kami.AddItem(102);
+					this->R_33 = false;
+					gui.Render();
+					kami.Hold();
+					check = true;
+				}
+			}
+			gui.Render();
+		} while (!check);
+
+	}
+	if (hol_int == 34 && Is_alive)
+	{
+		gui.Update_texture(34);
+		gui.UpdateText_title(load.GetName());
+		kami.UpdatingTextInGen(load.GetDes());
+		gui.UpdateText_line4("1)Enter the cave 2)fall back for now");
+		do {
+			gui.Update();
+			if (gui.ChecknGetInputStr(hol_str))
+			{
+				if (hol_str == "1")
+				{
+					if(kami.ChecknGetItemPosi(102, hol_item))
+					{
+
+						gui.UpdateText_title("The cave entry");
+						kami.UpdatingTextInGen("you light the torch and march into darkness of the cave");
+						gui.Render();
+						kami.Hold();
+						load.ChangeCurrentID(35);
+						kami.SetGUIlook();
+						check = true;
+					}
+					else
+					{
+						gui.UpdateText_title("The cave entry");
+						kami.UpdatingTextInGen("The cave is soo pitch black, you'll need something to break this darkness");
+						gui.Render();
+						kami.Hold();
+					}
+				}
+				if (hol_str == "2")
+				{
+					kami.SetGUIclear();
+					kami.UpdatingTextInGen("You turn around and walk back");
+					gui.Render();
+					kami.Hold();
+					load.ChangeCurrentID(32);
+					kami.SetGUIlook();
+					check = true;
+				}
+			}
+			gui.Render();
+		} while (!check);
+	}
 	if (hol_int == 39 && Is_alive)
 	{
 		gui.Update_texture(39);
 		gui.UpdateText_title(load.GetName());
 		kami.UpdatingTextInGen(load.GetDes());
-		gui.UpdateText_line4("1)turn back  2)Use something");
 				if (kami.ChecknGetItemPosi(106, hol_item))
 				{
 					kami.SetGUIclear();
@@ -652,24 +736,37 @@ void Player::CheckSpecialEvent()
 			gui.Render();
 		} while (!check);
 	}
-	if (hol_int == 51 && Is_alive)
+	if (hol_int == 51 && Is_alive && R_51)
 	{
 		gui.Update_texture(2);
 		gui.UpdateText_title(load.GetName());
 		kami.UpdatingTextInGen(load.GetDes());
-		gui.UpdateText_line4("1)Take the sword  2)Walk away");
+		gui.UpdateText_line4("1)Take the sword  2)Just leave it alone");
 		do {
 			gui.Update();
 			if (gui.ChecknGetInputStr(hol_str))
 			{
 				if (hol_str == "1")
 				{
-					kami.SetGUIclear();
-					kami.UpdatingTextInGen("High voltage electrical power flow through your body, kill you instantly");
-					gui.Render();
-					kami.DeclareDead();
-					kami.Hold();
-					check = true;
+					if (kami.ChecknGetItemPosi(108, hol_item))
+					{
+						kami.SetGUIclear();
+						kami.UpdatingTextInGen("you use the glove to pull the sword. It come up with ease, and now you arm with something");
+						gui.Render();
+						kami.AddItem(109);
+						this->R_51 = false;
+						kami.Hold();
+						check = true;
+					}
+					else
+					{
+						kami.SetGUIclear();
+						kami.UpdatingTextInGen("High voltage electrical power flow through your body, kill you instantly. Ever Get That Feeling of Deja Vu?");
+						gui.Render();
+						kami.DeclareDead();
+						kami.Hold();
+						check = true;
+					}
 				}
 				if (hol_str == "2")
 				{
@@ -677,13 +774,71 @@ void Player::CheckSpecialEvent()
 					kami.UpdatingTextInGen("You turn around and walk back");
 					gui.Render();
 					kami.Hold();
-					load.ChangeCurrentID(1);
+					this->R_51 = false;
+					load.ChangeCurrentID(50);
 					kami.SetGUIlook();
 					check = true;
 				}
 			}
 			gui.Render();
 		} while (!check);
+	}
+	if (hol_int == 53 && Is_alive && R_53)
+	{
+		gui.Update_texture(53);
+		if (kami.ChecknGetItemPosi(109, hol_item))
+		{
+			kami.SetGUIclear();
+			gui.UpdateText_title("The demon lord");
+			kami.UpdatingTextInGen("Before you is the cause of all chaos, and all evil, Demon lord himself. without hesitation, you plant the sword on his chest, and end it all. only thing left is to rescue the pricess.");
+			gui.Render();
+			this->R_53 = false;
+			kami.Hold();
+			check = true;
+		}
+		else
+		{
+			kami.SetGUIclear();
+			kami.UpdatingTextInGen("Before you is the cause of all chaos, and all evil, Demon lord himself. you can't feel nor control your owns limb.");
+			gui.Render();
+			kami.Hold();
+			kami.UpdatingTextInGen("Just a blink of the eyes. Demon lord force your mouth open, then fill your mouth with chilies. The heat and the spice fill you head.");
+			gui.Render();
+			kami.Hold();
+			kami.UpdatingTextInGen("Black, darkness fill your vision. any sensation stop. void fill the room, and this is how it all end");
+			gui.Render();
+			kami.Hold();
+			gui.ForceClose();
+		}
+	}
+	if (hol_int == 54 && Is_alive)
+	{
+		gui.Update_texture(54);
+		if (kami.ChecknGetItemPosi(110, hol_item))
+		{
+			kami.SetGUIclear();
+			gui.UpdateText_title("The Sleepless Princess");
+			kami.UpdatingTextInGen("'A, He down already' said the pricess with a glowing marble in her hand...");
+			gui.Render();
+			kami.SetGUIclear();
+			kami.UpdatingTextInGen("You wake up with completed project lay before you. What a long dream.");
+			gui.Render();
+			kami.Hold();
+			gui.ForceClose();
+		}
+		else
+		{
+			kami.SetGUIclear();
+			gui.UpdateText_title("The Princess");
+			kami.UpdatingTextInGen("The beauty of all the land present in front of your. It time to return to the kingdom, the peaceful kingdom, and maybe it's time to settle down and life your life");
+			gui.Render();
+			kami.Hold();
+			kami.SetGUIclear();
+			kami.UpdatingTextInGen("In this fanstasy world");
+			gui.Render();
+			kami.Hold();
+			gui.ForceClose();
+		}
 	}
 }
 
