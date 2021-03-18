@@ -110,8 +110,7 @@ EVENT_BEGIN
 money bag sence
 You have found a cash bag.
 TYPE B
-1)pick it
-2)not pick it
+1)pick it 2)not pick it
 item:115 DEAD
 A arrow is shot from behide you but you can dodge it because you are benting to pick a money bag up. You recieve a money bag.
 You are shot by poisoned arrow then you die.
