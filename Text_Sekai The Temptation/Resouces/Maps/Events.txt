@@ -56,9 +56,9 @@ Sword sence
 You have found the holy sword that stuck on the rock.
 TYPE B
 1)pull it 2)let it be
+DEAD NULL
 While you are pulling the sword, you are electrocuted until die.
 You think you don't have to use it
-DEAD NULL
 CHECKPOINT NULL
 
 EVENT_BEGIN
@@ -67,9 +67,9 @@ monster_2 sence
 You have found 1 slime.
 TYPE B
 1)attack it 2)not attack
+DEAD NULL
 You here that slime says "Gluttony!" then you are swallowed inside that slime. (ref.That Time I Got Reincarnated as a Slime)
 It escape from you.
-DEAD NULL
 CHECKPOINT NULL
 
 EVENT_BEGIN

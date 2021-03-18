@@ -226,14 +226,9 @@ void Player::CheckEvent()
 							}
 							check = true;
 						}
-						else
-						{
-							gui.UpdateText_line4("Please type in: 1 or 2");
-						}
 					}
 					gui.Render();
 				} while (!check);
-				kami.Hold();
 				break;
 				kami.Hold();
 			default:
@@ -280,7 +275,8 @@ void Player::CheckSpecialEvent()
 	!53		Demon-load	Check:Sword
 	!54		Princess	Check:Pillow
 	!33		Merchent	Check:Pikachu
-	34		Cave Entry	Check:Torch
+	!34		Cave Entry	Check:Torch
+	17		Princess_ab	Long_cut
 	*/
 	if (hol_int == 2 && Is_alive)
 	{
