@@ -5,7 +5,7 @@ You have found spider's nest. You see a white spider that looks hungry then it g
 TYPE B //event type. (B for two option event, C for combat event, S for cutscene)
 1)use something 2)burn it //event option, if need be.
 (ถ้าไม่มี eel แล้วเลือก use something) You don't have anything to use.
-(ถ้ามี eel แล้วเลือก use something) You have a eel in your storage so you put it on the floor then the spider appear in front of you and eats eel quickly after it eats,it say "Thank you for food if you need my help you can ask me.". You don't have any curius after you have passed many things in this world so you ask it to go with you and it accecpt to go with you.
+(ถ้ามี eel แล้วเลือก use something) You have a act fish in your storage so you put it on the floor then the spider appear in front of you and eats eel quickly after it eats,it say "Thank you for food if you need my help you can ask me.". You don't have any curius after you have passed many things in this world so you ask it to go with you and it accecpt to go with you.
 You burn webs suddenly the spider come back, looks like it's very angry so it bite you with high speed.You die from spider poison.
 NULL DEAD //event outcome. (DEAD and NULL) (Expect two condition for B type event);
 CHECKPOINT NULL //event checkpoint or not. (Expect YES or NULL)

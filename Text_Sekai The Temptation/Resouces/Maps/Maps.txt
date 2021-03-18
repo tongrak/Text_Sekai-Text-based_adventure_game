@@ -38,7 +38,7 @@ There is a holy sword that stuck on the rock, there is a way to the south.
 NORTH NULL
 EAST NULL
 WEST NULL
-SOUTH 01
+SOUTH 62
 EVENT NULL
 
 ROOM_BEGIN
@@ -147,7 +147,7 @@ forest_1 room
 There is nothing here, there are ways to the north, east, south and west.
 NORTH 05
 EAST 04
-WEST 01
+WEST 62
 SOUTH 09
 EVENT NULL
 
@@ -569,3 +569,13 @@ EAST NULL
 WEST 53
 SOUTH NULL
 EVENT 54
+
+ROOM_BEGIN
+62
+forest_1 room
+There is nothing here, there are ways to the north, east, south and west.
+NORTH 05
+EAST 04
+WEST 61
+SOUTH 09
+EVENT NULL

@@ -18,13 +18,14 @@ Poke_ball 104
 Catfish 105
 Fishing_rod 106
 pink_spider 107
-glove 108
+gloves 108
 sword 109
 pillow 110
 Cabin's permit 111
 Holy Herbs 112
 Guild Guide 113
 pikachu 114
+money bag 115
 
 
 EVENT_BEGIN
@@ -41,32 +42,93 @@ CHECKPOINT YES
 EVENT_BEGIN
 01
 fighting sence //name
-You have found 1 monster. //description
+You have found 1 goblin. //description
 TYPE B
 1)attack 2)Let it go
-NULL DEAD
+NULL DEAD 
 you hit it 1 time then monster die. //choice 1
 the monster hit villager that make you melancholy and die. //choice 2
 CHECKPOINT NULL
 
-EVENT_BEGIN//
-103
-Outside
-you can feel the sun light hiting your face, while hearing a sound in the distance
-TYPE S
-NULL 
-NULL
-NULL
-NULL
-CHECKPOINT YES
-
-EVENT_BEGIN//
-104
-You are not suppost to be here.
-go back.
+EVENT_BEGIN
+02
+Sword sence
+You have found the holy sword that stuck on the rock.
 TYPE B
-What NO
-DEAD DEAD
-You're dead
-You're dead
+1)pull it 2)let it be
+While you are pulling the sword, you are electrocuted until die.
+You think you don't have to use it
+DEAD NULL
 CHECKPOINT NULL
+
+EVENT_BEGIN
+03
+monster_2 sence
+You have found 1 slime.
+TYPE B
+1)attack it 2)not attack
+You here that slime says "Gluttony!" then you are swallowed inside that slime. (ref.That Time I Got Reincarnated as a Slime)
+It escape from you.
+DEAD  NULL
+CHECKPOINT NULL
+
+EVENT_BEGIN
+07
+inside house sence
+You can get in the house and there are 3 chest.
+TYPE B //event type.
+1) first chest
+2) second chest
+You were bit by snake and die instantly because of poison.
+You found equipment that can repair the bridge.
+DEAD item:101
+CHECKPOINT NULL
+
+EVENT_BEGIN
+08
+herb sence
+You have found a plant, you check it with your skill so it show text "protect and cure from poison for hour".
+TYPE B
+1)pick it 2)not pick it
+You recieve a herb.
+Suddenly a rabbit show up and eat that plant then it run away.
+item:112 item:NULL
+CHECKPOINT NULL
+
+EVENT_BEGIN
+09
+cliff sence
+You have found a massage "Jump! there are many tressure down here.".
+TYPE B
+1)Jump 2)not jump
+You decide to jump into river, you drown berfore you die, you see many tressure.
+You this massage is strage so you don't jump.
+DEAD NULL
+CHECKPOINT NULL
+
+EVENT_BEGIN
+11
+money bag sence
+You have found  a cash bag.
+TYPE B
+1)pick it
+2)not pick it
+A arrow is shot from behide you but you can dodge it because you are benting to pick a money bag up. You recieve a money bag.
+You are shot by poisoned arrow then you die.
+item:115 DEAD
+CHECKPOINT NULL
+
+EVENT_BEGIN
+12
+strang sibling
+You have found a man and a girl. Looks like they are sibling. The man that is older brother tell you "If you want money you have to play "stone, paper, scissors". If you win I'll give you all my money but If I win you have to give all your status."
+TYPE B
+1)play with him
+2)not play with him
+You accept his challenge but before start game you have to say "Aschente" then game start!. You defeated and you lost all your status.
+You think this is strange so you deny them.
+DEAD NULL
+CHECKPOINT NULL
+
+
+
