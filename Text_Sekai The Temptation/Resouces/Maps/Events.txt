@@ -129,9 +129,11 @@ CHECKPOINT NULL
 
 EVENT_BEGIN
 13
-inside city sence
+inside city sence.
 Finally you can get in the city.
 TYPE S
+NULL
+NULL
 NULL
 NULL
 CHECKPOINT YES

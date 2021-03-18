@@ -63,6 +63,7 @@ public:
 	std::string GetEventPos2();
 	bool GetEventAct();
 	bool GetEventCheck();
+	bool IsCheck();
 	int GetLastCheck();
 	//Speacial getting var function
 	std::string GetNeighbors(int dir, std::string &holder);
@@ -141,7 +142,7 @@ public:
 
 private:
 	//Item
-	bool R_04, R_06, R_13, R_16, R_43, R_51, R_53, R_33,  R_33_1;
+	bool R_04, R_06, R_13, R_16, R_17, R_22, R_27,  R_43, R_51, R_53, R_33,  R_33_1, R_39, R_39_1;
 	std::vector<int>Inventory;
 	int Coin;
 };

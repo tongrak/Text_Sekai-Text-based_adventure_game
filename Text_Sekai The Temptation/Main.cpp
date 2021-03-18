@@ -28,8 +28,13 @@ Player::Player()
 	this->R_06 = true;
 	this->R_13 = true;
 	this->R_16 = true;
+	this->R_17 = true;
+	this->R_22 = true;
+	this->R_27 = true;
 	this->R_33 = true;
 	this->R_33_1 = true;
+	this->R_39 = true;
+	this->R_39_1 = true;
 	this->R_43 = true;
 	this->R_51 = true;
 	this->R_53 = true;
@@ -375,7 +380,6 @@ void Player::CheckSpecialEvent()
 	}
 	if (hol_int == 6 && Is_alive && R_06)
 	{
-		std::cout << "Player::Speacial you are in Special no6" << std::endl;
 		gui.Update_texture(6);
 		kami.SetGUIclear();
 		kami.UpdatingTextInGen("you ask the cabin owen for looting permition. 'Sure, But beaware of a snake'");
@@ -397,9 +401,9 @@ void Player::CheckSpecialEvent()
 		}
 
 	}
-	if (hol_int == 13 && Is_alive && R_13)
+	if (hol_int == 14 && Is_alive && R_13)
 	{
-		gui.Update_texture(13);
+		gui.Update_texture(14);
 		do {
 			gui.UpdateText_title(load.GetName());
 			kami.UpdatingTextInGen(load.GetDes());
@@ -463,7 +467,7 @@ void Player::CheckSpecialEvent()
 			kami.Hold();
 		}
 	}
-	if (hol_int == 17 && Is_alive)
+	if (hol_int == 17 && Is_alive && R_17)
 	{
 		gui.Update_texture(17);
 		gui.UpdateText_title("The unwanted guest");
@@ -508,12 +512,28 @@ void Player::CheckSpecialEvent()
 					gui.Render();
 					kami.Hold();
 					kami.SetGUIlook();
+					this->R_17 = false;
 					check = true;
 				}
 			}
 			gui.Render();
 		} while (!check);
 	}
+	if (hol_int == 22 && Is_alive && R_22)
+	{
+		gui.Update_texture(22);
+		kami.SetGUIclear();
+		kami.UpdatingTextInGen("'Oi!! you!!' yelled the genaral 'you look like a type of guy who risk hisown life to save the princess.'");
+		gui.Render();
+		kami.Hold();
+		kami.SetGUIclear();
+		kami.UpdatingTextInGen("'Take this map, the Demon load's castle is on the east of the town'");
+		gui.Render();
+		kami.AddItem(113);
+		R_22 = false;
+		kami.Hold();
+	}
+
 	if (hol_int == 24 && Is_alive)
 	{
 		gui.Update_texture(24);
@@ -528,7 +548,7 @@ void Player::CheckSpecialEvent()
 		}
 		
 	}
-	if (hol_int == 27 && Is_alive)
+	if (hol_int == 27 && Is_alive && R_27)
 	{
 		if (kami.ChecknGetItemPosi(104, hol_item))
 		{
@@ -559,6 +579,7 @@ void Player::CheckSpecialEvent()
 							gui.Render();
 							kami.AddItem(114);
 							kami.Hold();
+							this->R_27 = false;
 							check = true;
 						}
 						else
@@ -591,40 +612,33 @@ void Player::CheckSpecialEvent()
 		gui.Update_texture(33);
 		kami.SetGUIclear();
 		gui.UpdateText_title(load.GetName());
-		
-		do {
-			gui.Update();
-			if (gui.ChecknGetInputStr(hol_str))
-			{
-				if (R_33_1)
-				{
-					gui.UpdateText_title("The merchant");
-					kami.UpdatingTextInGen("'Greeting traveler' said a merchant. 'It looks like you in need of tourchs. Here the deal, get me a yellow monster, the one with red cheeks'");
-					gui.Render();
-					kami.Hold();
-					kami.SetGUIclear();
-					kami.UpdatingTextInGen("capture it with this ball. And I shall give you these torchs");
-					gui.Render();
-					kami.Hold();
-					R_33_1 = false;
-					check = true;
-				}
-				if (kami.ChecknGetItemPosi(114, hol_item))
-				{
-					kami.SetGUIclear();
-					kami.RemoveItem(114);
-					gui.UpdateText_title("The happy merchant");
-					kami.UpdatingTextInGen("'At last, you finally come with what I require' 'Here are the torchs and have a safe journey ahead'");
-					kami.AddItem(102);
-					this->R_33 = false;
-					gui.Render();
-					kami.Hold();
-					check = true;
-				}
-			}
+		kami.UpdatingTextInGen(load.GetDes());
+		if (R_33_1)
+		{
+			gui.UpdateText_title("The merchant");
+			kami.UpdatingTextInGen("'Greeting traveler' said a merchant. 'It looks like you in need of tourchs. Here the deal, get me a yellow monster, the one with red cheeks'");
 			gui.Render();
-		} while (!check);
-
+			kami.Hold();
+			kami.Hold();
+			kami.UpdatingTextInGen("capture it with this ball. And I shall give you these torchs");
+			kami.AddItem(104);
+			gui.Render();
+			kami.Hold();
+			R_33_1 = false;
+			check = true;
+		}
+		if (kami.ChecknGetItemPosi(114, hol_item))
+		{
+			kami.SetGUIclear();
+			kami.RemoveItem(114);
+			gui.UpdateText_title("The happy merchant");
+			kami.UpdatingTextInGen("'At last, you finally come with what I require' 'Here are the torchs and have a safe journey ahead'");
+			kami.AddItem(102);
+			this->R_33 = false;
+			gui.Render();
+			kami.Hold();
+			check = true;
+		}
 	}
 	if (hol_int == 34 && Is_alive)
 	{
@@ -671,11 +685,10 @@ void Player::CheckSpecialEvent()
 			gui.Render();
 		} while (!check);
 	}
-	if (hol_int == 39 && Is_alive)
+	if (hol_int == 39 && Is_alive && R_39)
 	{
 		gui.Update_texture(39);
 		gui.UpdateText_title(load.GetName());
-		kami.UpdatingTextInGen(load.GetDes());
 				if (kami.ChecknGetItemPosi(106, hol_item))
 				{
 					kami.SetGUIclear();
@@ -683,14 +696,19 @@ void Player::CheckSpecialEvent()
 					gui.Render();
 					kami.Hold();
 					kami.AddItem(105);
+					this->R_39 = false;
 					check = true;
 				}
 				else
 				{
-					kami.SetGUIclear();
-					kami.UpdatingTextInGen("There are dozen of catfish in the lava pit and they look delicious");
-					gui.Render();
-					kami.Hold();
+					if (R_39_1)
+					{
+						kami.SetGUIclear();
+						kami.UpdatingTextInGen("There are dozen of catfish in the lava pit and they look delicious");
+						gui.Render();
+						kami.Hold();
+						this->R_39_1 = false;
+					}
 				}
 	}
 	if (hol_int == 44 && Is_alive)
@@ -721,7 +739,7 @@ void Player::CheckSpecialEvent()
 						gui.Render();
 						kami.Hold();
 						kami.RemoveItem(107);
-
+						load.ChangeCurrentID(46);
 						check = true;
 					}
 					else
@@ -885,8 +903,9 @@ void Player::CheckSpecialEvent()
 		{
 			kami.SetGUIclear();
 			gui.UpdateText_title("The Sleepless Princess");
-			kami.UpdatingTextInGen("'A, He down already' said the pricess with a glowing marble in her hand...");
+			kami.UpdatingTextInGen("'A, He down already' said the princess with a glowing marble in her hand...");
 			gui.Render();
+			kami.Hold();
 			kami.SetGUIclear();
 			kami.UpdatingTextInGen("You wake up with completed project lay before you. What a long dream.");
 			gui.Render();
@@ -984,7 +1003,12 @@ void Player::Hold()
 int main()
 {
 	std::string holder, t1="", t2="";
-	load.ChangeCurrentID(14);
+	kami.AddItem(113);
+	kami.AddItem(112);
+	kami.AddItem(102);
+	//kami.AddItem(107);
+	kami.AddItem(108);
+	load.ChangeCurrentID(45);
 
 	kami.SetGUIstarting();
 	while (gui.Running())

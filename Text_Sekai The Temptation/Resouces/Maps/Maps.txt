@@ -249,6 +249,7 @@ NORTH NULL
 EAST 25
 WEST NULL
 SOUTH NULL
+EVENT NULL
 
 ROOM_BEGIN
 25
@@ -307,7 +308,7 @@ There is a merchant. there is a way to the south.
 NORTH NULL
 EAST NULL
 WEST NULL
-SOUTH 32 
+SOUTH 32
 EVENT NULL
 
 ROOM_BEGIN
@@ -426,7 +427,7 @@ cave_9 room
 There is nothing here, there is a way to the west.
 NORTH NULL
 EAST NULL
-WEST 55
+WEST 40
 SOUTH NULL
 EVENT 55
 

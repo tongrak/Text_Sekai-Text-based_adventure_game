@@ -243,6 +243,11 @@ bool Data_loading::GetEventCheck()
 	return eventStorage[*Event_id].event_check;
 }
 
+bool Data_loading::IsCheck()
+{
+	return eventStorage[*Event_id].event_check;
+}
+
 int Data_loading::GetLastCheck()
 {
 	return *this->Last_check;
