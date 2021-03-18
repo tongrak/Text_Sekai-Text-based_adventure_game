@@ -258,6 +258,7 @@ void Player::CheckSpecialEvent()
 {
 	bool check = false;
 	int hol_int = load.GetCurrentID(), hol_item;
+	std::cout << "Player::CheckSpecialEvent now is room: " << hol_int << std::endl;;
 	std::string hol_str;
 	/*Room with special event:
 	roomID  Name		note
@@ -364,10 +365,21 @@ void Player::CheckSpecialEvent()
 			gui.Render();
 		} while (!check);
 	}
+	if (hol_int == 6 && Is_alive && R_06)
+	{
+		gui.Update_texture(6);
+		kami.SetGUIclear();
+		kami.UpdatingTextInGen("you ask the cabin owen for looting permition. 'Sure, But beaware of a snake'");
+		kami.AddItem(111);
+		R_06 = false;
+		gui.Render();
+		kami.Hold();
+
+	}
 	if (hol_int == 7 && Is_alive)
 	{
 		gui.Update_texture(7);
-		if (kami.ChecknGetItemPosi(111, hol_item)) 
+		if (!kami.ChecknGetItemPosi(111, hol_item)) 
 		{
 			kami.SetGUIclear();
 			kami.UpdatingTextInGen("Before you set your foot on the door frame, a arrow enter your chest. Ask for permition next time");
@@ -375,7 +387,7 @@ void Player::CheckSpecialEvent()
 			kami.DeclareDead();
 			kami.Hold();
 		}
-		
+
 	}
 	if (hol_int == 10 && Is_alive)
 	{
@@ -929,6 +941,7 @@ int main()
 				SplitString(holder, t1, t2);
 				kami.CheckInputText(t1, t2);
 			}
+			kami.SetGUIlook();
 		}
 		else
 		{
