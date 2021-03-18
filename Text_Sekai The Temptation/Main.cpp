@@ -25,6 +25,7 @@ Player::Player()
 	this->Is_alive = true;
 	this->Coin =  0;
 	this->R_04 = true;
+	this->R_43 = true;
 
 	if (load.LoadMaps()) std::cout << "Main::load Map loading and storing successfully" << std::endl;
 	if (load.LoadEvent()) std::cout << "Main::load Event loading and storing successfully" << std::endl;
@@ -271,12 +272,14 @@ void Player::CheckSpecialEvent()
 	!10		Gate		Check:coin(X)
 	!23		ou_Citi		Check:Guild_direc
 	!27		Pika		Check:Merch_pass, Berry, Poke-ball
-	!39		Lava_pit	Check: Fishing rod
-	44		Dragon		3 chioces
-	45		Spider		Check: Fish fillet
+	!39		Lava_pit	Check:Fishing rod
+	!44		Dragon		3 chioces
+	!43		Spider		Check:Fish fillet
+	!16		Glove		Check:Holy herb
 	51		Sword V2	Check:Glove
 	53		Demon-load	Check:Sword
-	54		Princess	Check:Pillow, 3 choices
+	54		Princess	Check:Pillow
+	33		Merchent	Check:Pikachu
 	*/
 	if (hol_int == 2 && Is_alive)
 	{
@@ -422,6 +425,28 @@ void Player::CheckSpecialEvent()
 			gui.Render();
 		} while (!check);
 	}
+	if (hol_int == 16 && Is_alive && R_16)
+	{
+		gui.Update_texture(16);
+		gui.UpdateText_title(load.GetName());
+		kami.UpdatingTextInGen(load.GetDes());
+		if (kami.ChecknGetItemPosi(112, hol_item))
+		{
+			kami.UpdatingTextInGen("Just before you pick the gloves up, you starting to feel ill. luckly, you have a herb on you. you chew on the herb and walk away with gloves unharm");
+			gui.Render();
+			kami.AddItem(108);
+			kami.RemoveItem(112);
+			R_16 = false;
+			kami.Hold();
+		}
+		else
+		{
+			kami.UpdatingTextInGen("Just before you pick the gloves up, you starting to feel ill. luckly, you have a herb on you. you chew on the herb and walk away with gloves unharm");
+			gui.Render();
+			kami.DeclareDead();
+			kami.Hold();
+		}
+	}
 	if (hol_int == 24 && Is_alive)
 	{
 		gui.Update_texture(7);
@@ -512,12 +537,154 @@ void Player::CheckSpecialEvent()
 				else
 				{
 					kami.SetGUIclear();
-					kami.UpdatingTextInGen("There are dozen of catfish in the lava pit and they look deliouse");
+					kami.UpdatingTextInGen("There are dozen of catfish in the lava pit and they look delicious");
 					gui.Render();
 					kami.Hold();
 				}
 	}
-	
+	if (hol_int == 44 && Is_alive)
+	{
+		gui.Update_texture(44);
+		gui.UpdateText_title(load.GetName());
+		kami.UpdatingTextInGen(load.GetDes());
+		gui.UpdateText_line4("1)Show him what you got!!  2)Use something  3)Retreat!!!");
+		do {
+			gui.Update();
+			if (gui.ChecknGetInputStr(hol_str))
+			{
+				if (hol_str == "1")
+				{
+					kami.SetGUIclear();
+					kami.UpdatingTextInGen("It look like he too can see your ability and use water magic to cover you body. drown you in the spot!!");
+					gui.Render();
+					kami.DeclareDead();
+					kami.Hold();
+					check = true;
+				}
+				else if (hol_str == "2")
+				{
+					if (kami.ChecknGetItemPosi(107, hol_item))
+					{
+						kami.SetGUIclear();
+						kami.UpdatingTextInGen("you throw the pink spider at him. it look like spider give the dragon heart attack. anyone have their weakness I guess.");
+						gui.Render();
+						kami.Hold();
+						kami.RemoveItem(107);
+
+						check = true;
+					}
+					else
+					{
+						kami.SetGUIclear();
+						kami.UpdatingTextInGen("They aren't anything usefull in this situation. And the dragon design to kill you with a water magic.");
+						gui.Render();
+						kami.DeclareDead();
+						kami.Hold();
+					}
+
+				}
+				else if (hol_str == "3")
+				{
+					kami.SetGUIclear();
+					kami.UpdatingTextInGen("you design to fall back, maybe some boards will help on bridge situation.");
+					gui.Render();
+					load.ChangeCurrentID(42);
+					kami.SetGUIlook();
+					kami.Hold();
+					check = true;
+				}
+			}
+			gui.Render();
+		} while (!check);
+	}
+	if (hol_int == 43 && Is_alive && R_43) //spider
+	{
+		gui.Update_texture(44);
+		gui.UpdateText_title(load.GetName());
+		kami.UpdatingTextInGen(load.GetDes());
+		gui.UpdateText_line4("1)Burn the net  2)Give her something  3)Leave the net");
+		do {
+			gui.Update();
+			if (gui.ChecknGetInputStr(hol_str))
+			{
+				if (hol_str == "1")
+				{
+					kami.SetGUIclear();
+					kami.UpdatingTextInGen("you make a decision to burn it all down, unfortunately before you can do so, a sharp pain come from your neck, look like you'd been bited. your vision gone black, now you are her dinner");
+					gui.Render();
+					kami.DeclareDead();
+					kami.Hold();
+					check = true;
+				}
+				else if (hol_str == "2")
+				{
+					if (kami.ChecknGetItemPosi(105, hol_item))
+					{
+						kami.SetGUIclear();
+						kami.UpdatingTextInGen("you begin a negotiation with the fish have caught. the talk go well, the spider agree to help you");
+						gui.Render();
+						kami.Hold();
+						kami.RemoveItem(105);
+						kami.AddItem(107);
+						R_43 = false;
+						check = true;
+					}
+					else
+					{
+						kami.SetGUIclear();
+						kami.UpdatingTextInGen("you don't have anything to use here. That spider look like it very hungry");
+						gui.Render();
+						kami.Hold();
+					}
+
+				}
+				else if (hol_str == "3")
+				{
+					kami.SetGUIclear();
+					kami.UpdatingTextInGen("you turn back");
+					gui.Render();
+					load.ChangeCurrentID(42);
+					kami.SetGUIlook();
+					kami.Hold();
+					check = true;
+				}
+			}
+			gui.Render();
+		} while (!check);
+	}
+	if (hol_int == 51 && Is_alive)
+	{
+		gui.Update_texture(2);
+		gui.UpdateText_title(load.GetName());
+		kami.UpdatingTextInGen(load.GetDes());
+		gui.UpdateText_line4("1)Take the sword  2)Walk away");
+		do {
+			gui.Update();
+			if (gui.ChecknGetInputStr(hol_str))
+			{
+				if (hol_str == "1")
+				{
+					kami.SetGUIclear();
+					kami.UpdatingTextInGen("High voltage electrical power flow through your body, kill you instantly");
+					gui.Render();
+					kami.DeclareDead();
+					kami.Hold();
+					check = true;
+				}
+				if (hol_str == "2")
+				{
+					kami.SetGUIclear();
+					kami.UpdatingTextInGen("You turn around and walk back");
+					gui.Render();
+					kami.Hold();
+					load.ChangeCurrentID(1);
+					kami.SetGUIlook();
+					check = true;
+				}
+			}
+			gui.Render();
+		} while (!check);
+	}
 }
 
 void Player::DeclareDead()

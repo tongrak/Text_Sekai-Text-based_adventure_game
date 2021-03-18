@@ -141,7 +141,7 @@ public:
 
 private:
 	//Item
-	bool R_04, R_13;
+	bool R_04, R_16, R_43;
 	std::vector<int>Inventory;
 	int Coin;
 };
