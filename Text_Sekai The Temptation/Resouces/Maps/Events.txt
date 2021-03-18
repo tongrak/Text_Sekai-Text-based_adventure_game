@@ -77,7 +77,7 @@ EVENT_BEGIN
 inside house sence
 You can get in the house and there are 3 chest.
 TYPE B
-1) first chest 2) second chest
+1)first chest 2)second chest
 DEAD item:101
 You were bit by snake and die instantly because of poison.
 You found equipment that can repair the bridge.
@@ -188,6 +188,17 @@ While you are digging you hear something from back so you look back and see somt
 CHECKPOINT NULL
 
 EVENT_BEGIN
+35
+inside cave sence
+You can get inside the cave with many torchs that merchant gives to you.
+TYPE S
+NULL
+NULL
+NULL
+NULL
+CHECKPOINT YES
+
+EVENT_BEGIN
 40
 goblin's nest sence
 You see a strange man with full armor who are fighting many gobilns suddenly he look back to you and he is going to attack you.
@@ -241,6 +252,17 @@ NULL DEAD
 You feel that you shouldn't go inside.
 You decide to go inside, you see a skeleton that wear expensive cloth. When it see you, it says "Grabs heart",after you hear that word you die.(ref.Overlord) 
 CHECKPOINT NULL
+
+EVENT_BEGIN
+45
+in front of castle sence
+Finally you arrive at demon lord castle.
+TYPE S
+NULL
+NULL
+NULL
+NULL
+CHECKPOINT YES
 
 EVENT_BEGIN
 49
