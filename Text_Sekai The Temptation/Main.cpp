@@ -26,6 +26,7 @@ Player::Player()
 	this->Coin =  0;
 	this->R_04 = true;
 	this->R_06 = true;
+	this->R_13 = true;
 	this->R_16 = true;
 	this->R_33 = true;
 	this->R_33_1 = true;
@@ -236,11 +237,11 @@ void Player::CheckEvent()
 					gui.Render();
 				} while (!check);
 				break;
-				kami.Hold();
 			default:
 				std::cout << "Player::CheckEvent Check" << std::endl;
 				break;
 			}
+			kami.Hold();
 			load.ChangeEventToInAct();
 			std::cout << "Player::CheckEvent got event id " << hol_int << std::endl;
 		}
@@ -264,7 +265,7 @@ void Player::CheckSpecialEvent()
 {
 	bool check = false;
 	int hol_int = load.GetCurrentID(), hol_item;
-	std::cout << "Player::CheckSpecialEvent now is room: " << hol_int << std::endl;;
+	//std::cout << "Player::CheckSpecialEvent now is room: " << hol_int << std::endl;;
 	std::string hol_str;
 	/*Room with special event:
 	roomID  Name		note
@@ -284,6 +285,7 @@ void Player::CheckSpecialEvent()
 	!33		Merchent	Check:Pikachu
 	!34		Cave Entry	Check:Torch
 	17		Princess_ab	Long_cut
+	22		
 	*/
 	if (hol_int == 2 && Is_alive)
 	{
@@ -395,13 +397,13 @@ void Player::CheckSpecialEvent()
 		}
 
 	}
-	if (hol_int == 10 && Is_alive)
+	if (hol_int == 13 && Is_alive && R_13)
 	{
-		gui.Update_texture(10);
-		gui.UpdateText_title(load.GetName());
-		kami.UpdatingTextInGen(load.GetDes());
-		gui.UpdateText_line4("1)turn back  2)go throght the gate");
+		gui.Update_texture(13);
 		do {
+			gui.UpdateText_title(load.GetName());
+			kami.UpdatingTextInGen(load.GetDes());
+			gui.UpdateText_line4("1)turn back  2)go throght the gate");
 			gui.Update();
 			if (gui.ChecknGetInputStr(hol_str))
 			{
@@ -416,14 +418,13 @@ void Player::CheckSpecialEvent()
 				}
 				else if (hol_str == "2")
 				{
-					if (this->Coin > 120)
+					if (kami.ChecknGetItemPosi(115, hol_item))
 					{
-						this->Coin -= 120;
 						kami.SetGUIclear();
 						kami.UpdatingTextInGen("you may enter said a guard");
 						gui.Render();
+						this->R_13 = false;
 						kami.Hold();
-						load.ChangeCurrentID(13);
 						kami.SetGUIlook();
 						check = true;
 					}
@@ -462,9 +463,60 @@ void Player::CheckSpecialEvent()
 			kami.Hold();
 		}
 	}
+	if (hol_int == 17 && Is_alive)
+	{
+		gui.Update_texture(17);
+		gui.UpdateText_title("The unwanted guest");
+		kami.UpdatingTextInGen("The town folks point thier finder into the sky, signify princess abduction by the demon lord");
+		gui.UpdateText_line4("1)Help her now!!  2)Not my business  3)We need a plan");
+		do {
+			gui.Update();
+			if (gui.ChecknGetInputStr(hol_str))
+			{
+				if (hol_str == "1")
+				{
+					kami.SetGUIclear();
+					kami.UpdatingTextInGen("you throw a fire ball at the demon lord, hit both the load and the princess");
+					gui.Render();
+					kami.Hold();
+					kami.SetGUIclear();
+					gui.UpdateText_title("GameOver!!");
+					kami.UpdatingTextInGen("you not suppose to kill the princess!! off with your head");
+					gui.Render();
+					kami.Hold();
+					kami.DeclareDead();
+					check = true;
+				}
+				else if (hol_str == "2")
+				{
+					kami.SetGUIclear();
+					kami.UpdatingTextInGen("you doing nothing, even move finger to help the princess. Let the demon load do his stufff");
+					gui.Render();
+					kami.Hold();
+					kami.SetGUIclear();
+					gui.UpdateText_title("GameOver!!");
+					kami.UpdatingTextInGen("Come on!! it's a gane plot, Go with it");
+					gui.Render();
+					kami.Hold();
+					kami.DeclareDead();
+					check = true;
+				}
+				else if (hol_str == "3")
+				{
+					kami.SetGUIclear();
+					kami.UpdatingTextInGen("Act urgently would only make situation worst. That is why you stand, observe and to come up with a plan to rescue");
+					gui.Render();
+					kami.Hold();
+					kami.SetGUIlook();
+					check = true;
+				}
+			}
+			gui.Render();
+		} while (!check);
+	}
 	if (hol_int == 24 && Is_alive)
 	{
-		gui.Update_texture(7);
+		gui.Update_texture(24);
 		if (!kami.ChecknGetItemPosi(113, hol_item))
 		{
 			kami.SetGUIclear();
@@ -481,7 +533,7 @@ void Player::CheckSpecialEvent()
 		if (kami.ChecknGetItemPosi(104, hol_item))
 		{
 
-			gui.Update_texture(10);
+			gui.Update_texture(27);
 			gui.UpdateText_title(load.GetName());
 			kami.UpdatingTextInGen(load.GetDes());
 			gui.UpdateText_line4("1)Chatch it!  2)I'm not ready  3)Use item...");
@@ -536,6 +588,7 @@ void Player::CheckSpecialEvent()
 	}
 	if (hol_int == 33 && Is_alive && R_33)
 	{
+		gui.Update_texture(33);
 		kami.SetGUIclear();
 		gui.UpdateText_title(load.GetName());
 		
@@ -931,7 +984,7 @@ void Player::Hold()
 int main()
 {
 	std::string holder, t1="", t2="";
-	load.ChangeCurrentID(0);
+	load.ChangeCurrentID(14);
 
 	kami.SetGUIstarting();
 	while (gui.Running())
