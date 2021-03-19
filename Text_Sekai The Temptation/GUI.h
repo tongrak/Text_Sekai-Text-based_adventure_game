@@ -55,7 +55,7 @@ public:
 	void pollEvent();
 	void InputText();
 	void AnyInput();
-	void pollText();
+	//void pollText();
 
 	//Accessor
 	const bool Running() const;
@@ -65,6 +65,8 @@ public:
 	//Function
 	void ForceClose();
 
+	void InitSprite();
+	void InitSpriteTitle();
 
 private:
 	//declare some variable in need;
@@ -110,9 +112,8 @@ private:
 	void InitVar();
 	void InitWindow();
 	void InitText();
-	void InitSprite();
 	void InitTexture();
-	void InitSpriteTitle();
+
 
 };
 

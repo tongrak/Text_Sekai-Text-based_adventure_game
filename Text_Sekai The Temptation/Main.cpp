@@ -1007,9 +1007,11 @@ void Player::SetGUIhelp()
 void Player::SetGUIstarting()
 {
 	//It 1330 and I'm still here.
+	gui.UpdateText_title("");
 	kami.SetGUIclear();
 	kami.UpdatingTextInGen("While you are doing your project, you feel exhaust so you decide to take a walk outside.");
 	gui.Render();
+	kami.Hold();
 	kami.SetGUIclear();
 	kami.UpdatingTextInGen("While you take a walk you see a truck that is coming to you then you are crash by truck.");
 	gui.Render();
@@ -1074,9 +1076,16 @@ int main()
 	//kami.AddItem(108);
 	//kami.AddItem(110);
 	load.ChangeCurrentID(0);
+
+	gui.BlackText();
 	kami.SetGUIstarting();
-	gui.StartTheGame();
+	gui.WhiteText();
+	gui.InitSprite();
+	gui.InitSpriteTitle();
+	gui.Render();
 	kami.Hold();
+	gui.StartTheGame();
+	gui.BlackText();
 	while (gui.Running())
 	{
 		std::cout << "::main I working fine" << std::endl;

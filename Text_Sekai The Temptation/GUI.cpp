@@ -12,7 +12,7 @@ GUI::GUI()
 	this->InitVar();
 	this->InitWindow();
 	this->InitText();
-	this->InitSprite();
+	//this->InitSprite();
 	this->InitTexture();
 	this->InitSpriteTitle();
 }
