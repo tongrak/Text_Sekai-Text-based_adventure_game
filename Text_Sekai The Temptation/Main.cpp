@@ -303,6 +303,23 @@ void Player::CheckSpecialEvent()
 	17		Princess_ab	Long_cut
 	22		
 	*/
+	if (hol_int == 99 && Is_alive)
+	{
+		gui.Update_texture(99);
+		kami.SetGUIclear();
+		gui.UpdateText_title("The Sleepless Princess");
+		kami.UpdatingTextInGen("Finally you see the princess that sit on a throne.You tell her \"I'm here to save you.\" but she say \"I don't need your help and it's me that order devil lord to protect me from hero.\".You ask her \"Why? Why do you have to do this.\".She say \"because I want to sleep as much as I want. When I were imprisoned, I escaped from cage and found something like crystal, suddenly demond lord found me I used that crystal to him then he obey me.");
+		kami.SetGUIclear();
+		gui.UpdateText_title("The Sleepless Princess");
+		kami.UpdatingTextInGen("You pick the pillow from your starage and tell her \"If you want this pillow, you will have to go back to your castle with me\". When she see the pillow her body stop for a second then she want to check that pillow. You give it to her after she look to it she tell\"This pillow is legend pillow which she have looked for it for along time.\". She accept you offer then she fall asleep on the pillow, her face looks very happy. You take her to her castle, you put her on her bed and because you are exhaust from adventure so you sleep on the floor. When you wake up, you see your own laptop and you aren't in princess room but this is your room in past world. You see your project is finished and you say \"That was along dream.\"");
+		gui.Render();
+		kami.Hold();
+		kami.SetGUIclear();
+		kami.UpdatingTextInGen("You wake up with completed project lay before you. What a long dream.");
+		gui.UpdateText_line4("(True END)");
+		gui.Render();
+		kami.Hold();
+	}
 	if (hol_int == 2 && Is_alive)
 	{
 		gui.Update_texture(2);
@@ -917,11 +934,16 @@ void Player::CheckSpecialEvent()
 		{
 			kami.SetGUIclear();
 			gui.UpdateText_title("The Sleepless Princess");
-			kami.UpdatingTextInGen("'A, He down already?' said the princess with a glowing marble in her hand...");
+			kami.UpdatingTextInGen("Finally you see the princess that sit on a throne.You tell her \"I'm here to save you.\" but she say \"I don't need your help and it's me that order devil lord to protect me from hero.\".You ask her \"Why? Why do you have to do this.\".She say \"because I want to sleep as much as I want. When I were imprisoned, I escaped from cage and found something like crystal, suddenly demond lord found me I used that crystal to him then he obey me.");
+			kami.SetGUIclear();
+			gui.Render();
+			gui.UpdateText_title("The Sleepless Princess");
+			kami.UpdatingTextInGen("You pick the pillow from your starage and tell her \"If you want this pillow, you will have to go back to your castle with me\". When she see the pillow her body stop for a second then she want to check that pillow. You give it to her after she look to it she tell\"This pillow is legend pillow which she have looked for it for along time.\". She accept you offer then she fall asleep on the pillow, her face looks very happy. You take her to her castle, you put her on her bed and because you are exhaust from adventure so you sleep on the floor. When you wake up, you see your own laptop and you aren't in princess room but this is your room in past world. You see your project is finished and you say \"That was along dream.\"");
 			gui.Render();
 			kami.Hold();
 			kami.SetGUIclear();
 			kami.UpdatingTextInGen("You wake up with completed project lay before you. What a long dream.");
+			gui.UpdateText_line4("(True END)");
 			gui.Render();
 			kami.Hold();
 			gui.ForceClose();
@@ -980,10 +1002,21 @@ void Player::SetGUIhelp()
 
 void Player::SetGUIstarting()
 {
-	//Usesing Intro-GUI
-	
-	kami.SetGUIlook();
-	std::cout << "Player::SetGUIstarting have been activated " << std::endl;
+	//It 1330 and I'm still here.
+	kami.SetGUIclear();
+	kami.UpdatingTextInGen("While you are doing your project, you feel exhaust so you decide to take a walk outside.");
+	gui.Render();
+	kami.SetGUIclear();
+	kami.UpdatingTextInGen("While you take a walk you see a truck that is coming to you then you are crash by truck.");
+	gui.Render();
+	kami.Hold();
+	kami.SetGUIclear();
+	kami.UpdatingTextInGen("You wake up at nowhere, then a goddess show up. She tell you \"You were crashed by truck and I will give you second chance alive but in another world\".");
+	gui.Render();
+	kami.Hold();
+	kami.UpdatingTextInGen("Goddess customize your status to max level every stat. Before you are tranfered you ask her name and she said \"Aqua\" the you have very bad feeling but it's too late. to be continued");
+	gui.Render();
+	kami.Hold();
 }
 
 void Player::SetGUIclear()
@@ -1035,7 +1068,8 @@ int main()
 	//kami.AddItem(102);
 	//kami.AddItem(107);
 	kami.AddItem(108);
-	load.ChangeCurrentID(45);
+	kami.AddItem(110);
+	load.ChangeCurrentID(54);
 
 	kami.SetGUIstarting();
 	while (gui.Running())
