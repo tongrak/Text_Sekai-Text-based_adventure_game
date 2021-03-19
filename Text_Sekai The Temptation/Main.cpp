@@ -1076,6 +1076,7 @@ int main()
 	load.ChangeCurrentID(0);
 	kami.SetGUIstarting();
 	gui.StartTheGame();
+	kami.Hold();
 	while (gui.Running())
 	{
 		std::cout << "::main I working fine" << std::endl;
