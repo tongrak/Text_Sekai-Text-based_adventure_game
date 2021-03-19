@@ -430,7 +430,7 @@ void GUI::Update_texture(int images)
 	}
 	else if (images == 15)
 	{
-		this->texture.loadFromFile("Resouces/images/City15.jpg");
+		this->texture.loadFromFile("Resouces/images/City13.jpg");
 	}
 	else if (images == 16)
 	{
