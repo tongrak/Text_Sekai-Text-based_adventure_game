@@ -14,6 +14,7 @@ GUI::GUI()
 	this->InitText();
 	this->InitSprite();
 	this->InitTexture();
+	this->InitSpriteTitle();
 }
 
 GUI::~GUI()
@@ -90,6 +91,7 @@ void GUI::UpdateText_input()
 
 
 
+
 /*
 	Rendering Function
 */
@@ -107,6 +109,7 @@ void GUI::Render()
 
 	this->RenderText_input(*this->window);
 	this->RenderArrow(*this->window);
+	this->RenderStart(*this->window);
 
 	this->window->display();
 }
@@ -149,6 +152,10 @@ void GUI::RenderSprite(sf::RenderTarget& F)
 {
 	F.draw(this->in_game);
 }
+void GUI::RenderStart(sf::RenderTarget& S) 
+{
+	S.draw(this->Start);
+}
 /*
 	Poll Event
 */
@@ -171,6 +178,10 @@ void GUI::pollEvent()
 			{
 				std::cout << "GUI::pollEvent You just pressed Escape buttom" << std::endl;
 				this->window->close();
+			}
+			if (this->Eve.key.code == sf::Keyboard::F1) 
+			{
+				this->Update_texture(1);
 			}
 			break;
 		//Showing current resolutiom if changed.
@@ -270,7 +281,7 @@ void GUI::InitWindow()
 void GUI::InitText()
 {
 	//loading font, Map
-	if (this->texture.loadFromFile("Resouces/images/Trucksan0.jpg"))
+	if (this->texture.loadFromFile("Resouces/images/Title.jpg"))
 	{
 		std::cout << "GUI::text loaded successfully" << std::endl;
 	}
@@ -278,49 +289,55 @@ void GUI::InitText()
 	{
 		std::cout << "GUI::font loaded successfully" << std::endl;
 	}
+	if (this->botton.loadFromFile("Resouces/images/Startbotton1.jpg"))
+	{
+		std::cout << "GUI::botton loaded successfully" << std::endl;
+	}
 
 	//Setting Input text
 	this->Text_input.setFont(this->font);
 	this->Text_input.setCharacterSize(23);
-	this->Text_input.setFillColor(sf::Color::Black);
-	this->Text_input.setPosition(75, 840);
+	this->Text_input.setFillColor(sf::Color::White);
+	this->Text_input.setPosition(0, 0);
 	//Setting Arrow
 	this->Arrow.setFont(this->font);
 	this->Arrow.setCharacterSize(23);
-	this->Arrow.setFillColor(sf::Color::Black);
-	this->Arrow.setPosition(50, 840);
+	this->Arrow.setFillColor(sf::Color::White);
+	this->Arrow.setPosition(0, 0);
 	this->Arrow.setString(">");
+
 
 	//Setting main_ text	
 	this->Text_title.setFont(this->font);
 	this->Text_title.setCharacterSize(23);
-	this->Text_title.setFillColor(sf::Color::Black);
-	this->Text_title.setPosition(50, 600);
+	this->Text_title.setFillColor(sf::Color::White);
+	this->Text_title.setPosition(0, 0);
 
 	this->Text_line1.setFont(this->font);
 	this->Text_line1.setCharacterSize(23);
-	this->Text_line1.setFillColor(sf::Color::Black);
-	this->Text_line1.setPosition(50, 640);
+	this->Text_line1.setFillColor(sf::Color::White);
+	this->Text_line1.setPosition(0, 0);
 
 	this->Text_line2.setFont(this->font);
 	this->Text_line2.setCharacterSize(23);
-	this->Text_line2.setFillColor(sf::Color::Black);
-	this->Text_line2.setPosition(50, 680);
+	this->Text_line2.setFillColor(sf::Color::White);
+	this->Text_line2.setPosition(0, 0);
 
 	this->Text_line3.setFont(this->font);
 	this->Text_line3.setCharacterSize(23);
-	this->Text_line3.setFillColor(sf::Color::Black);
-	this->Text_line3.setPosition(50, 720);
+	this->Text_line3.setFillColor(sf::Color::White);
+	this->Text_line3.setPosition(0, 0);
 
 	this->Text_line4.setFont(this->font);
 	this->Text_line4.setCharacterSize(23);
-	this->Text_line4.setFillColor(sf::Color::Black);
-	this->Text_line4.setPosition(50, 760);
+	this->Text_line4.setFillColor(sf::Color::White);
+	this->Text_line4.setPosition(0, 0);
 
 	this->Text_line5.setFont(this->font);
 	this->Text_line5.setCharacterSize(23);
-	this->Text_line5.setFillColor(sf::Color::Black);
-	this->Text_line5.setPosition(50, 800);
+	this->Text_line5.setFillColor(sf::Color::White);
+	this->Text_line5.setPosition(0, 0);
+
 
 	
 }
@@ -329,8 +346,14 @@ void GUI::InitText()
 void GUI::InitSprite() 
 {
 	this->in_game.setTexture(this->texture);
-	this->in_game.setPosition(200 ,50);
+	this->in_game.setPosition(200 , 250);
 
+}
+
+void GUI::InitSpriteTitle()
+{
+	this->Start.setTexture(this->botton);
+	this->Start.setPosition(400, 800);
 }
 
 void GUI::InitTexture() 
@@ -340,13 +363,27 @@ void GUI::InitTexture()
 
 void GUI::Update_texture(int images) 
 {
-	if (images == 0) 
-	{
-		this->texture.loadFromFile("Resouces/images/Title.jpg");
-	}
 
-	else if (images == 1) {
+	if (images == 1) {
 		this->texture.loadFromFile("Resouces/images/Forest01.jpg");
+		this->Text_title.setFillColor(sf::Color::Black);
+		this->Text_title.setPosition(50, 600);
+		this->Text_input.setFillColor(sf::Color::Black);
+		this->Text_input.setPosition(75, 840);
+		this->Text_line1.setFillColor(sf::Color::Black);
+		this->Text_line1.setPosition(50, 640);
+		this->Text_line2.setFillColor(sf::Color::Black);
+		this->Text_line2.setPosition(50, 680);
+		this->Text_line3.setFillColor(sf::Color::Black);
+		this->Text_line3.setPosition(50, 720);
+		this->Text_line4.setFillColor(sf::Color::Black);
+		this->Text_line4.setPosition(50, 760);
+		this->Text_line5.setFillColor(sf::Color::Black);
+		this->Text_line5.setPosition(50, 800);
+		this->Arrow.setFillColor(sf::Color::Black);
+		this->Arrow.setPosition(50, 840);
+		this->in_game.setPosition(200, 50);
+		this->Start.setScale(0, 0);
 	}
 	else if (images == 2) 
 	{
@@ -576,6 +613,13 @@ void GUI::Update_texture(int images)
 	}
 
 }
+
+void GUI::Update_titleSprite() 
+{
+	this->texture.loadFromFile("Resouces/images/Title.jpg");
+}
+
+
 
 void GUI::Update_BG(std::string D)
 {
