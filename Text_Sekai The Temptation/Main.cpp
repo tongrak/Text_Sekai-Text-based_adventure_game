@@ -24,6 +24,7 @@ Player::Player()
 {
 	this->Is_alive = true;
 	this->Coin =  0;
+	this->HoldCheck = false;
 	this->R_04 = true;
 	this->R_06 = true;
 	this->R_13 = true;
@@ -259,11 +260,21 @@ void Player::CheckEvent()
 
 void Player::CheckCheckPoint()
 {
-	if (load.GetLastCheck())
+	if (load.IsCheck())
 	{
 		load.ChangeLastCheck();
 		std::cout << "Player::CheckCheckPoint just change last checkpoint to " << load.GetLastCheck() << std::endl;
 	}
+}
+
+void Player::CheckCurrLook()
+{
+	if (this->Is_alive)
+	{
+		gui.Update_texture(load.GetCurrentID());
+		this->SetGUIlook();
+	}
+	this->HoldCheck = false;
 }
 
 void Player::CheckSpecialEvent()
@@ -317,7 +328,7 @@ void Player::CheckSpecialEvent()
 						kami.UpdatingTextInGen("You turn around and walk back");
 						gui.Render();
 						kami.Hold();
-						load.ChangeCurrentID(61);
+						load.ChangeCurrentID(1);
 						kami.SetGUIlook();
 						check = true;
 					}
@@ -483,6 +494,7 @@ void Player::CheckSpecialEvent()
 					kami.UpdatingTextInGen("you throw a fire ball at the demon lord, hit both the load and the princess");
 					gui.Render();
 					kami.Hold();
+					this->HoldCheck = true;
 					kami.SetGUIclear();
 					gui.UpdateText_title("GameOver!!");
 					kami.UpdatingTextInGen("you not suppose to kill the princess!! off with your head");
@@ -498,6 +510,7 @@ void Player::CheckSpecialEvent()
 					gui.Render();
 					kami.Hold();
 					kami.SetGUIclear();
+					this->HoldCheck = true;
 					gui.UpdateText_title("GameOver!!");
 					kami.UpdatingTextInGen("Come on!! it's a gane plot, Go with it");
 					gui.Render();
@@ -619,10 +632,9 @@ void Player::CheckSpecialEvent()
 			kami.UpdatingTextInGen("'Greeting traveler' said a merchant. 'It looks like you in need of tourchs. Here the deal, get me a yellow monster, the one with red cheeks'");
 			gui.Render();
 			kami.Hold();
-			kami.Hold();
 			kami.UpdatingTextInGen("capture it with this ball. And I shall give you these torchs");
-			kami.AddItem(104);
 			gui.Render();
+			kami.AddItem(104);
 			kami.Hold();
 			R_33_1 = false;
 			check = true;
@@ -642,11 +654,12 @@ void Player::CheckSpecialEvent()
 	}
 	if (hol_int == 34 && Is_alive)
 	{
-		gui.Update_texture(34);
-		gui.UpdateText_title(load.GetName());
-		kami.UpdatingTextInGen(load.GetDes());
-		gui.UpdateText_line4("1)Enter the cave 2)fall back for now");
+		
 		do {
+			gui.Update_texture(34);
+			gui.UpdateText_title(load.GetName());
+			kami.UpdatingTextInGen(load.GetDes());
+			gui.UpdateText_line4("1)Enter the cave 2)fall back for now");
 			gui.Update();
 			if (gui.ChecknGetInputStr(hol_str))
 			{
@@ -891,6 +904,7 @@ void Player::CheckSpecialEvent()
 			gui.Render();
 			kami.Hold();
 			kami.UpdatingTextInGen("Black, darkness fill your vision. any sensation stop. void fill the room, and this is how it all end");
+			gui.UpdateText_line4("(BAD END)");
 			gui.Render();
 			kami.Hold();
 			gui.ForceClose();
@@ -903,7 +917,7 @@ void Player::CheckSpecialEvent()
 		{
 			kami.SetGUIclear();
 			gui.UpdateText_title("The Sleepless Princess");
-			kami.UpdatingTextInGen("'A, He down already' said the princess with a glowing marble in her hand...");
+			kami.UpdatingTextInGen("'A, He down already?' said the princess with a glowing marble in her hand...");
 			gui.Render();
 			kami.Hold();
 			kami.SetGUIclear();
@@ -921,6 +935,7 @@ void Player::CheckSpecialEvent()
 			kami.Hold();
 			kami.SetGUIclear();
 			kami.UpdatingTextInGen("In this fanstasy world");
+			gui.UpdateText_line4("(GOOD END)");
 			gui.Render();
 			kami.Hold();
 			gui.ForceClose();
@@ -990,13 +1005,23 @@ void Player::setGUIdead()
 
 void Player::Hold()
 {
-	bool check = false;
-	do
-	{
-		gui.pollEvent();
-		if (gui.CheckAnyPress())
-			check = true;
-	} while (!check);
+	std::string temp;
+		bool check = false;
+		this->HoldCheck = false;
+		do
+		{
+			std::cout << "Player::Hold I stuck in hold loop" << std::endl;
+			gui.Update();
+			if (gui.ChecknGetInputStr(temp) && HoldCheck)
+			{
+					check = true;
+			}
+			else if(!gui.CheckAnyPress())
+			{
+				this->HoldCheck = true;
+			}
+			gui.Render();
+		} while (!check);
 }
 
 
@@ -1005,18 +1030,19 @@ void Player::Hold()
 int main()
 {
 	std::string holder, t1="", t2="";
-	kami.AddItem(113);
-	kami.AddItem(112);
-	kami.AddItem(102);
+	//kami.AddItem(113);
+	//kami.AddItem(112);
+	//kami.AddItem(102);
 	//kami.AddItem(107);
 	kami.AddItem(108);
-	load.ChangeCurrentID(0);
+	load.ChangeCurrentID(45);
 
 	kami.SetGUIstarting();
 	while (gui.Running())
 	{
+		std::cout << "::main I working fine" << std::endl;
 		kami.CheckSpecialEvent();
-		if(kami.CheckBasicCon())
+		if(kami.Is_alive)
 		{
 			
 			kami.CheckEvent();
@@ -1026,16 +1052,19 @@ int main()
 				SplitString(holder, t1, t2);
 				kami.CheckInputText(t1, t2);
 			}
-			kami.SetGUIlook();
+			kami.CheckCurrLook();
 		}
 		else
 		{
+			kami.SetGUIclear();
+			kami.setGUIdead();
 			if (gui.ChecknGetInputStr(holder))
 			{
 				if (holder == "yes")
 				{
 					kami.Is_alive = true;
 					load.ChangeCurrentID(load.GetLastCheck());
+					
 				}
 				else if (holder == "no")
 				{
