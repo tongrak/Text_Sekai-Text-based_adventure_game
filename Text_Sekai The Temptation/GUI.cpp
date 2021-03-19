@@ -345,6 +345,18 @@ void GUI::InitSprite()
 
 }
 
+void GUI::ClearTextPosi()
+{
+	this->Text_input.setPosition(0, 0);
+	this->Text_title.setPosition(0, 0);
+	this->Text_line1.setPosition(0, 0);
+	this->Text_line2.setPosition(0, 0);
+	this->Text_line3.setPosition(0, 0);
+	this->Text_line4.setPosition(0, 0);
+	this->Text_line5.setPosition(0, 0);
+	this->Arrow.setPosition(0, 0);
+}
+
 void GUI::InitSpriteTitle()
 {
 	this->Start.setTexture(this->botton);

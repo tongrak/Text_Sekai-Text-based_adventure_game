@@ -37,6 +37,7 @@ public:
 	void StartTheGame();
 	void WhiteText();
 	void BlackText();
+	void ClearTextPosi();
 	//Rendering functions
 	void Render();
 	void RenderText_title(sf::RenderTarget& T);
