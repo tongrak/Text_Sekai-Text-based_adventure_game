@@ -607,7 +607,7 @@ void GUI::WhiteText()
 {
 	this->Text_title.setFillColor(sf::Color::White);
 	this->Text_title.setPosition(0, 0);
-	this->Text_input.setFillColor(sf::Color::White;
+	this->Text_input.setFillColor(sf::Color::White);
 	this->Text_title.setPosition(0, 0);
 	this->Text_line1.setFillColor(sf::Color::White);
 	this->Text_title.setPosition(0, 0);
