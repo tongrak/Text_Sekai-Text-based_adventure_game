@@ -1003,12 +1003,12 @@ void Player::Hold()
 int main()
 {
 	std::string holder, t1="", t2="";
-	kami.AddItem(113);
-	kami.AddItem(112);
-	kami.AddItem(102);
+	//kami.AddItem(113);
+	//kami.AddItem(112);
+	//kami.AddItem(102);
 	//kami.AddItem(107);
-	kami.AddItem(108);
-	load.ChangeCurrentID(45);
+	//kami.AddItem(108);
+	load.ChangeCurrentID(00);
 
 	kami.SetGUIstarting();
 	while (gui.Running())
