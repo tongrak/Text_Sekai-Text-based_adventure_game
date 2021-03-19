@@ -16,6 +16,10 @@ void SplitString(std::string in_text, std::string &key, std::string &wanted) {
 	wanted = in_text.substr(holder + 1);
 }
 
+void Start()
+{
+}
+
 
 /*
 	Checking class, mainly for checking and process input
@@ -1067,12 +1071,10 @@ int main()
 	//kami.AddItem(112);
 	//kami.AddItem(102);
 	//kami.AddItem(107);
-	kami.AddItem(108);
-	kami.AddItem(110);
-	load.ChangeCurrentID(54);
-
+	//kami.AddItem(108);
+	//kami.AddItem(110);
+	load.ChangeCurrentID(0);
 	kami.SetGUIstarting();
-	void StartTheGame();
 	gui.StartTheGame();
 	while (gui.Running())
 	{
