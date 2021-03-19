@@ -24,6 +24,7 @@ Player::Player()
 {
 	this->Is_alive = true;
 	this->Coin =  0;
+	this->HoldCheck = false;
 	this->R_04 = true;
 	this->R_06 = true;
 	this->R_13 = true;
@@ -259,11 +260,21 @@ void Player::CheckEvent()
 
 void Player::CheckCheckPoint()
 {
-	if (load.GetLastCheck())
+	if (load.IsCheck())
 	{
 		load.ChangeLastCheck();
 		std::cout << "Player::CheckCheckPoint just change last checkpoint to " << load.GetLastCheck() << std::endl;
 	}
+}
+
+void Player::CheckCurrLook()
+{
+	if (this->Is_alive)
+	{
+		gui.Update_texture(load.GetCurrentID());
+		this->SetGUIlook();
+	}
+	this->HoldCheck = false;
 }
 
 void Player::CheckSpecialEvent()
@@ -292,6 +303,23 @@ void Player::CheckSpecialEvent()
 	17		Princess_ab	Long_cut
 	22		
 	*/
+	if (hol_int == 99 && Is_alive)
+	{
+		gui.Update_texture(99);
+		kami.SetGUIclear();
+		gui.UpdateText_title("The Sleepless Princess");
+		kami.UpdatingTextInGen("Finally you see the princess that sit on a throne.You tell her \"I'm here to save you.\" but she say \"I don't need your help and it's me that order devil lord to protect me from hero.\".You ask her \"Why? Why do you have to do this.\".She say \"because I want to sleep as much as I want. When I were imprisoned, I escaped from cage and found something like crystal, suddenly demond lord found me I used that crystal to him then he obey me.");
+		kami.SetGUIclear();
+		gui.UpdateText_title("The Sleepless Princess");
+		kami.UpdatingTextInGen("You pick the pillow from your starage and tell her \"If you want this pillow, you will have to go back to your castle with me\". When she see the pillow her body stop for a second then she want to check that pillow. You give it to her after she look to it she tell\"This pillow is legend pillow which she have looked for it for along time.\". She accept you offer then she fall asleep on the pillow, her face looks very happy. You take her to her castle, you put her on her bed and because you are exhaust from adventure so you sleep on the floor. When you wake up, you see your own laptop and you aren't in princess room but this is your room in past world. You see your project is finished and you say \"That was along dream.\"");
+		gui.Render();
+		kami.Hold();
+		kami.SetGUIclear();
+		kami.UpdatingTextInGen("You wake up with completed project lay before you. What a long dream.");
+		gui.UpdateText_line4("(True END)");
+		gui.Render();
+		kami.Hold();
+	}
 	if (hol_int == 2 && Is_alive)
 	{
 		gui.Update_texture(2);
@@ -317,7 +345,7 @@ void Player::CheckSpecialEvent()
 						kami.UpdatingTextInGen("You turn around and walk back");
 						gui.Render();
 						kami.Hold();
-						load.ChangeCurrentID(61);
+						load.ChangeCurrentID(1);
 						kami.SetGUIlook();
 						check = true;
 					}
@@ -483,6 +511,7 @@ void Player::CheckSpecialEvent()
 					kami.UpdatingTextInGen("you throw a fire ball at the demon lord, hit both the load and the princess");
 					gui.Render();
 					kami.Hold();
+					this->HoldCheck = true;
 					kami.SetGUIclear();
 					gui.UpdateText_title("GameOver!!");
 					kami.UpdatingTextInGen("you not suppose to kill the princess!! off with your head");
@@ -498,6 +527,7 @@ void Player::CheckSpecialEvent()
 					gui.Render();
 					kami.Hold();
 					kami.SetGUIclear();
+					this->HoldCheck = true;
 					gui.UpdateText_title("GameOver!!");
 					kami.UpdatingTextInGen("Come on!! it's a gane plot, Go with it");
 					gui.Render();
@@ -619,10 +649,9 @@ void Player::CheckSpecialEvent()
 			kami.UpdatingTextInGen("'Greeting traveler' said a merchant. 'It looks like you in need of tourchs. Here the deal, get me a yellow monster, the one with red cheeks'");
 			gui.Render();
 			kami.Hold();
-			kami.Hold();
 			kami.UpdatingTextInGen("capture it with this ball. And I shall give you these torchs");
-			kami.AddItem(104);
 			gui.Render();
+			kami.AddItem(104);
 			kami.Hold();
 			R_33_1 = false;
 			check = true;
@@ -642,11 +671,12 @@ void Player::CheckSpecialEvent()
 	}
 	if (hol_int == 34 && Is_alive)
 	{
-		gui.Update_texture(34);
-		gui.UpdateText_title(load.GetName());
-		kami.UpdatingTextInGen(load.GetDes());
-		gui.UpdateText_line4("1)Enter the cave 2)fall back for now");
+		
 		do {
+			gui.Update_texture(34);
+			gui.UpdateText_title(load.GetName());
+			kami.UpdatingTextInGen(load.GetDes());
+			gui.UpdateText_line4("1)Enter the cave 2)fall back for now");
 			gui.Update();
 			if (gui.ChecknGetInputStr(hol_str))
 			{
@@ -891,6 +921,7 @@ void Player::CheckSpecialEvent()
 			gui.Render();
 			kami.Hold();
 			kami.UpdatingTextInGen("Black, darkness fill your vision. any sensation stop. void fill the room, and this is how it all end");
+			gui.UpdateText_line4("(BAD END)");
 			gui.Render();
 			kami.Hold();
 			gui.ForceClose();
@@ -903,11 +934,16 @@ void Player::CheckSpecialEvent()
 		{
 			kami.SetGUIclear();
 			gui.UpdateText_title("The Sleepless Princess");
-			kami.UpdatingTextInGen("'A, He down already' said the princess with a glowing marble in her hand...");
+			kami.UpdatingTextInGen("Finally you see the princess that sit on a throne.You tell her \"I'm here to save you.\" but she say \"I don't need your help and it's me that order devil lord to protect me from hero.\".You ask her \"Why? Why do you have to do this.\".She say \"because I want to sleep as much as I want. When I were imprisoned, I escaped from cage and found something like crystal, suddenly demond lord found me I used that crystal to him then he obey me.");
+			kami.SetGUIclear();
+			gui.Render();
+			gui.UpdateText_title("The Sleepless Princess");
+			kami.UpdatingTextInGen("You pick the pillow from your starage and tell her \"If you want this pillow, you will have to go back to your castle with me\". When she see the pillow her body stop for a second then she want to check that pillow. You give it to her after she look to it she tell\"This pillow is legend pillow which she have looked for it for along time.\". She accept you offer then she fall asleep on the pillow, her face looks very happy. You take her to her castle, you put her on her bed and because you are exhaust from adventure so you sleep on the floor. When you wake up, you see your own laptop and you aren't in princess room but this is your room in past world. You see your project is finished and you say \"That was along dream.\"");
 			gui.Render();
 			kami.Hold();
 			kami.SetGUIclear();
 			kami.UpdatingTextInGen("You wake up with completed project lay before you. What a long dream.");
+			gui.UpdateText_line4("(True END)");
 			gui.Render();
 			kami.Hold();
 			gui.ForceClose();
@@ -921,6 +957,7 @@ void Player::CheckSpecialEvent()
 			kami.Hold();
 			kami.SetGUIclear();
 			kami.UpdatingTextInGen("In this fanstasy world");
+			gui.UpdateText_line4("(GOOD END)");
 			gui.Render();
 			kami.Hold();
 			gui.ForceClose();
@@ -965,10 +1002,21 @@ void Player::SetGUIhelp()
 
 void Player::SetGUIstarting()
 {
-	//Usesing Intro-GUI
-	
-	kami.SetGUIlook();
-	std::cout << "Player::SetGUIstarting have been activated " << std::endl;
+	//It 1330 and I'm still here.
+	kami.SetGUIclear();
+	kami.UpdatingTextInGen("While you are doing your project, you feel exhaust so you decide to take a walk outside.");
+	gui.Render();
+	kami.SetGUIclear();
+	kami.UpdatingTextInGen("While you take a walk you see a truck that is coming to you then you are crash by truck.");
+	gui.Render();
+	kami.Hold();
+	kami.SetGUIclear();
+	kami.UpdatingTextInGen("You wake up at nowhere, then a goddess show up. She tell you \"You were crashed by truck and I will give you second chance alive but in another world\".");
+	gui.Render();
+	kami.Hold();
+	kami.UpdatingTextInGen("Goddess customize your status to max level every stat. Before you are tranfered you ask her name and she said \"Aqua\" the you have very bad feeling but it's too late. to be continued");
+	gui.Render();
+	kami.Hold();
 }
 
 void Player::SetGUIclear()
@@ -990,13 +1038,23 @@ void Player::setGUIdead()
 
 void Player::Hold()
 {
-	bool check = false;
-	do
-	{
-		gui.pollEvent();
-		if (gui.CheckAnyPress())
-			check = true;
-	} while (!check);
+	std::string temp;
+		bool check = false;
+		this->HoldCheck = false;
+		do
+		{
+			std::cout << "Player::Hold I stuck in hold loop" << std::endl;
+			gui.Update();
+			if (gui.ChecknGetInputStr(temp) && HoldCheck)
+			{
+					check = true;
+			}
+			else if(!gui.CheckAnyPress())
+			{
+				this->HoldCheck = true;
+			}
+			gui.Render();
+		} while (!check);
 }
 
 
@@ -1005,20 +1063,22 @@ void Player::Hold()
 int main()
 {
 	std::string holder, t1="", t2="";
-	kami.AddItem(113);
-	kami.AddItem(112);
-	kami.AddItem(102);
+	//kami.AddItem(113);
+	//kami.AddItem(112);
+	//kami.AddItem(102);
 	//kami.AddItem(107);
 	kami.AddItem(108);
-	load.ChangeCurrentID(0);
+	kami.AddItem(110);
+	load.ChangeCurrentID(54);
 
 	kami.SetGUIstarting();
 	void StartTheGame();
 	gui.StartTheGame();
 	while (gui.Running())
 	{
+		std::cout << "::main I working fine" << std::endl;
 		kami.CheckSpecialEvent();
-		if(kami.CheckBasicCon())
+		if(kami.Is_alive)
 		{
 			
 			kami.CheckEvent();
@@ -1028,16 +1088,19 @@ int main()
 				SplitString(holder, t1, t2);
 				kami.CheckInputText(t1, t2);
 			}
-			kami.SetGUIlook();
+			kami.CheckCurrLook();
 		}
 		else
 		{
+			kami.SetGUIclear();
+			kami.setGUIdead();
 			if (gui.ChecknGetInputStr(holder))
 			{
 				if (holder == "yes")
 				{
 					kami.Is_alive = true;
 					load.ChangeCurrentID(load.GetLastCheck());
+					
 				}
 				else if (holder == "no")
 				{

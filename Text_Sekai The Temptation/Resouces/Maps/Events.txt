@@ -178,6 +178,8 @@ Finally you can get out from the city.
 TYPE S
 NULL
 NULL
+NULL
+NULL
 CHECKPOINT YES
 
 EVENT_BEGIN

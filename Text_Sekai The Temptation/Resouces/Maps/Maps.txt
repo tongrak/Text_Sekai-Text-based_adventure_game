@@ -147,7 +147,7 @@ forest_1 room
 There is nothing here, there are ways to the north, east, south and west.
 NORTH 05
 EAST 04
-WEST 62
+WEST 01
 SOUTH 09
 EVENT NULL
 
@@ -254,7 +254,7 @@ EVENT NULL
 ROOM_BEGIN
 25
 forest_4 room
-There is nothing here, there are ways to the east and west.
+There is nothing here, there are ways to the eas, west, and south.
 NORTH NULL
 EAST 29
 WEST 24
@@ -484,7 +484,7 @@ EVENT NULL
 ROOM_BEGIN
 45
 in_front_of_castle room
-This is where you begin. a empty room, there are a door to the north and west.
+There is nothing here, there are a door to the north, west, and south.
 NORTH 46
 EAST 52
 WEST NULL
@@ -504,7 +504,7 @@ EVENT 46
 ROOM_BEGIN
 47
 dark forest_1 room
-There is nothing here, there are ways to the north and east.
+There is nothing here, there are ways to the north and east. //WHYYYYYYYYYYYYYYYYYYY
 NORTH 45
 EAST 48
 WEST NULL
