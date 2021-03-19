@@ -34,7 +34,7 @@ public:
 	void UpdateText_line4(std::string);
 	void UpdateText_line5(std::string);
 	void UpdateText_input();
-
+	void StartTheGame();
 	//Rendering functions
 	void Render();
 	void RenderText_title(sf::RenderTarget& T);

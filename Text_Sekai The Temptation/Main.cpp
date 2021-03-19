@@ -1013,6 +1013,8 @@ int main()
 	load.ChangeCurrentID(0);
 
 	kami.SetGUIstarting();
+	void StartTheGame();
+	gui.StartTheGame();
 	while (gui.Running())
 	{
 		kami.CheckSpecialEvent();

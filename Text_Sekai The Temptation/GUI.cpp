@@ -179,11 +179,6 @@ void GUI::pollEvent()
 				std::cout << "GUI::pollEvent You just pressed Escape buttom" << std::endl;
 				this->window->close();
 			}
-			if (this->Eve.key.code == sf::Keyboard::F1) 
-			{
-				this->Update_texture(1);
-			}
-			break;
 		//Showing current resolutiom if changed.
 		case sf::Event::Resized:
 			printf("Current resolution:%i,%i\n", Eve.size.width, Eve.size.height);
@@ -366,24 +361,6 @@ void GUI::Update_texture(int images)
 
 	if (images == 1) {
 		this->texture.loadFromFile("Resouces/images/Forest01.jpg");
-		this->Text_title.setFillColor(sf::Color::Black);
-		this->Text_title.setPosition(50, 600);
-		this->Text_input.setFillColor(sf::Color::Black);
-		this->Text_input.setPosition(75, 840);
-		this->Text_line1.setFillColor(sf::Color::Black);
-		this->Text_line1.setPosition(50, 640);
-		this->Text_line2.setFillColor(sf::Color::Black);
-		this->Text_line2.setPosition(50, 680);
-		this->Text_line3.setFillColor(sf::Color::Black);
-		this->Text_line3.setPosition(50, 720);
-		this->Text_line4.setFillColor(sf::Color::Black);
-		this->Text_line4.setPosition(50, 760);
-		this->Text_line5.setFillColor(sf::Color::Black);
-		this->Text_line5.setPosition(50, 800);
-		this->Arrow.setFillColor(sf::Color::Black);
-		this->Arrow.setPosition(50, 840);
-		this->in_game.setPosition(200, 50);
-		this->Start.setScale(0, 0);
 	}
 	else if (images == 2) 
 	{
@@ -541,7 +518,7 @@ void GUI::Update_texture(int images)
 	}
 	else if (images == 45) // in front of the demonlord
 	{
-	this->texture.loadFromFile("Resouces/images/infrontofDemonLord.jpg");
+	this->texture.loadFromFile("Resouces/images/infrontCastle.jpg");
 	}
 	else if (images == 46) // Nasalik
 	{
@@ -557,7 +534,7 @@ void GUI::Update_texture(int images)
 	}
 	else if (images == 49) // starting room reuse
 	{
-	this->texture.loadFromFile("Resouces/images/Trucksan0.jpg");
+	this->texture.loadFromFile("Resouces/images/Forest.jpg");
 	}
 	else if (images == 50) // monster1 reuse
 	{
@@ -620,6 +597,29 @@ void GUI::Update_titleSprite()
 }
 
 
+void GUI::StartTheGame()
+{
+	this->Update_texture(1);
+	this->Text_title.setFillColor(sf::Color::Black);
+	this->Text_title.setPosition(50, 600);
+	this->Text_input.setFillColor(sf::Color::Black);
+	this->Text_input.setPosition(75, 840);
+	this->Text_line1.setFillColor(sf::Color::Black);
+	this->Text_line1.setPosition(50, 640);
+	this->Text_line2.setFillColor(sf::Color::Black);
+	this->Text_line2.setPosition(50, 680);
+	this->Text_line3.setFillColor(sf::Color::Black);
+	this->Text_line3.setPosition(50, 720);
+	this->Text_line4.setFillColor(sf::Color::Black);
+	this->Text_line4.setPosition(50, 760);
+	this->Text_line5.setFillColor(sf::Color::Black);
+	this->Text_line5.setPosition(50, 800);		
+	this->Arrow.setFillColor(sf::Color::Black);
+	this->Arrow.setPosition(50, 840);
+	this->in_game.setPosition(200, 50);
+	this->Start.setScale(0, 0);
+	this->Render();
+}
 
 void GUI::Update_BG(std::string D)
 {
