@@ -600,6 +600,31 @@ void GUI::Update_titleSprite()
 void GUI::StartTheGame()
 {
 	this->Update_texture(1);
+	
+}
+
+void GUI::WhiteText() 
+{
+	this->Text_title.setFillColor(sf::Color::White);
+	this->Text_title.setPosition(0, 0);
+	this->Text_input.setFillColor(sf::Color::White;
+	this->Text_title.setPosition(0, 0);
+	this->Text_line1.setFillColor(sf::Color::White);
+	this->Text_title.setPosition(0, 0);
+	this->Text_line2.setFillColor(sf::Color::White);
+	this->Text_title.setPosition(0, 0);
+	this->Text_line3.setFillColor(sf::Color::White);
+	this->Text_title.setPosition(0, 0);
+	this->Text_line4.setFillColor(sf::Color::White);
+	this->Text_title.setPosition(0, 0);
+	this->Text_line5.setFillColor(sf::Color::White);
+	this->Text_title.setPosition(0, 0);
+	this->Arrow.setFillColor(sf::Color::White);
+	this->Arrow.setPosition(0, 0);
+	this->in_game.setPosition(200, 50);}
+
+void GUI::BlackText() 
+{
 	this->Text_title.setFillColor(sf::Color::Black);
 	this->Text_title.setPosition(50, 600);
 	this->Text_input.setFillColor(sf::Color::Black);
@@ -613,12 +638,11 @@ void GUI::StartTheGame()
 	this->Text_line4.setFillColor(sf::Color::Black);
 	this->Text_line4.setPosition(50, 760);
 	this->Text_line5.setFillColor(sf::Color::Black);
-	this->Text_line5.setPosition(50, 800);		
+	this->Text_line5.setPosition(50, 800);
 	this->Arrow.setFillColor(sf::Color::Black);
 	this->Arrow.setPosition(50, 840);
 	this->in_game.setPosition(200, 50);
 	this->Start.setScale(0, 0);
-	this->Render();
 }
 
 void GUI::Update_BG(std::string D)
